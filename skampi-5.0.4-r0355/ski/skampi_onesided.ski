@@ -1,0 +1,28 @@
+# ------------------------------------------------------------------
+# measurements for onesided communication
+
+set_min_repetitions(8)
+set_max_repetitions(30)
+set_max_relative_standard_error(0.03)
+
+set_skampi_buffer_mpi_alloc_mem(4mb,MPI_INFO_NULL)
+
+datatype = MPI_INT
+num_procs = get_comm_size(MPI_COMM_WORLD)
+
+comm_pt2pt_slow = comm2_max_latency_with_root()
+#comm_pt2pt_fast = comm2_min_latency()
+
+no_assert = 0 
+
+@include "Win_fence.inc"
+@include "Win_start.inc"
+@include "Win_post.inc"
+@include "Win_complete.inc"
+@include "Win_wait.inc"
+@include "Win_test.inc"
+@include "Win_lock.inc"
+@include "Win_unlock.inc"
+@include "Win_alloc.inc"
+@include "Put.inc"
+@include "Accumulate.inc"

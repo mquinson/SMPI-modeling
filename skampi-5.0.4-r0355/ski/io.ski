@@ -1,0 +1,879 @@
+## ----------------------------------------------------------------------------
+
+FALSE = 0
+TRUE  = 1
+
+IO_EXPLICIT_OFFSETS         = 0x001     # data access routines
+IO_INDIVIDUAL_FILE_POINTERS = 0x002
+IO_SHARED_FILE_POINTER      = 0x004
+IO_BLOCKING                 = 0x010
+IO_NONBLOCKING_SPLIT        = 0x020
+IO_NONCOLLECTIVE            = 0x100
+IO_COLLECTIVE               = 0x200
+
+IO_ALL                      = 0x337
+IO_ONLY_SHARED_FP           = 0x334
+IO_NO_SHARED_FP             = 0x333
+IO_ONLY_NONCOLLECTIVE       = 0x137
+
+IO_READ_ROUTINE             = 1         # Flag for print_data_access_settings()
+IO_WRITE_ROUTINE            = 2
+IO_BOTH_ROUTINES            = 3
+
+## ----------------------------------------------------------------------------
+
+ROUTINES                    = 0x316
+
+#WORKING_PATH               = "path/"   # Path where measurements are performed
+WORKING_PATH                = get_env("HOME")
+
+MAX_SKAMPI_BUFFER           = 64MB        # Maximal SKaMPI buffer size (<2GB)
+                                          # (per process)
+BUFFER_ALIGNMENT            = 32          # SKaMPI default: 32
+
+MAX_MESSAGE_SIZE            = 32MiB       # Message size in units of datatype
+MIN_MESSAGE_SIZE            = 4096      
+
+BMSTEP                      = sqrt(8)     # Multiplicative step over buffer(>1)
+NC_BMSTEP                   = sqrt(8)     # Same as MBSTEP, but for measure-
+                                          # ments with noncontiguous datatypes
+TMSTEP                      = sqrt(2)     # Multiplicative step over tasks (>1)
+
+MIN_REPETITIONS             = 8           # SKaMPI default: 8
+MAX_REPETITIONS             = 16          # SKaMPI default: 33
+RELATIVE_STANDARD_ERROR     = 0.10        # SKaMPI default: 0.10
+
+DATATYPE                    = MPI_BYTE
+DATATYPE_EXTENT             = 1           # Unit of basic datatype: bytes
+
+DATA_REPRESENTATION         = "native"    # At: "internal" or "external32"
+ATOMICITY_FLAG              = FALSE       # No effect, if processes write to 
+                                          # disjoint parts of the file. 
+                                          # Nonatomic mode may result on some 
+                                          # file systems to better performance.
+PREALLOCATE_FLAG            = TRUE        # Preallocate space on disk before
+                                          # measure write operations
+UNIQUEOPEN_FLAG             = TRUE        # Is file is opened only by one 
+                                          # process group in a time?
+
+FILESYNC_FLAG               = TRUE        # Include time for a MPI_File_sync
+                                          # before closing file?
+
+USE_MPI_ALLOC_MEM_FLAG      = FALSE       # Use MPI_Alloc_mem() for additional
+                                          # allocation of memory space, 
+                                          # otherwise use malloc().
+
+## ----------------------------------------------------------------------------
+
+switch_buffer_cycling_on()                # Choose mode of buffer handling
+#switch_buffer_cycling_off()              # before each measurement repetition.
+
+#choose_no_synchronitation()              # Choose mode of synchronization 
+#choose_barrier_synchronization()         # of the processes before starting 
+#choose_real_synchronization()            # measurements.
+
+meminfo = MPI_INFO_NULL                   # info object for MPI_Alloc_mem
+#meminfo = info_create()
+#info_set(meminfo, "key", "value")
+
+#set_file_info("key", "value")            # Change file info settings
+
+## ----------------------------------------------------------------------------
+
+np = get_comm_size(MPI_COMM_WORLD)        # Number of processes/tasks
+rk = get_comm_rank(MPI_COMM_WORLD)        # Global rank of process
+
+
+# determine maximum and minimum message length (per process),
+# size of SKaMPI buffer and number of measuring points
+l = floor((2GB-1) / DATATYPE_EXTENT / 2)
+m = (l > MAX_MESSAGE_SIZE) * (MAX_MESSAGE_SIZE - l) + l
+s = m * DATATYPE_EXTENT * 2
+t = floor(MAX_SKAMPI_BUFFER / DATATYPE_EXTENT / 2)
+
+maxlen = (s <= MAX_SKAMPI_BUFFER) * (m - t) + t
+minlen = MIN_MESSAGE_SIZE
+sb     = maxlen * DATATYPE_EXTENT * 2
+nummp  = floor((log(maxlen/minlen)/log(BMSTEP)) + 1.00000001)
+
+# determine maximum/minimum message length (per process),
+# size of SKaMPI buffer and number of measuring points
+# of measurements with noncontiguous memory datatype
+l = floor((2GB-1) / DATATYPE_EXTENT / np / 2)
+m = (l > MAX_MESSAGE_SIZE) * (MAX_MESSAGE_SIZE - l) + l
+s = m * DATATYPE_EXTENT * np * 2
+t = floor(MAX_SKAMPI_BUFFER / DATATYPE_EXTENT / np / 2)
+
+ncmaxlen = (s <= MAX_SKAMPI_BUFFER) * (m - t) + t
+ncminlen = MIN_MESSAGE_SIZE
+ncsb     = ncmaxlen * DATATYPE_EXTENT * np * 2
+ncnummp  = floor((log(ncmaxlen/ncminlen)/log(NC_BMSTEP))+1.00000001)
+
+## ----------------------------------------------------------------------------
+
+set_send_buffer_alignment(BUFFER_ALIGNMENT)
+set_recv_buffer_alignment(BUFFER_ALIGNMENT)
+
+set_min_repetitions(MIN_REPETITIONS)
+set_max_repetitions(MAX_REPETITIONS)
+set_max_relative_standard_error(RELATIVE_STANDARD_ERROR)
+
+use_mpi_alloc_mem(USE_MPI_ALLOC_MEM_FLAG)
+set_mpi_alloc_mem_info(meminfo)
+
+set_io_working_dir(WORKING_PATH)
+
+set_io_datarep(DATA_REPRESENTATION)
+set_io_atomicity(ATOMICITY_FLAG)
+set_io_preallocation(PREALLOCATE_FLAG)
+set_io_unique_open(UNIQUEOPEN_FLAG)
+set_io_file_sync(FILESYNC_FLAG)
+
+## ----------------------------------------------------------------------------
+
+begin measurement "Measurement info"
+  if (rk == 0) then
+    print "Locations:"
+  fi
+  flush
+
+  print_all "   ",mpi_processor_names()
+
+  if (rk == 0) then
+    print ""
+    print "Buffers (for contiguous measurements):"
+    print "   SKaMPI buffer size        : ", sb
+    print "   Multiplicative step factor: ", BMSTEP
+    print "   Message length            : [min=",minlen,", max=",maxlen,"]"
+    print "   Basic datatype            : ", DATATYPE
+    print "   Extent of basic datatype  : ", DATATYPE_EXTENT
+    print "   Buffer size range         : [min=",minlen*DATATYPE_EXTENT,
+                                        ", max=",maxlen*DATATYPE_EXTENT,"]"
+    print "   Number of measuring points: ", nummp
+    print ""
+    print "Buffers (for noncontiguous measurements):"
+    print "   SKaMPI buffer size        : ", ncsb
+    print "   Multiplicative step factor: ", NC_BMSTEP
+    print "   Message length            : [min=",ncminlen,",max=",ncmaxlen,"]"
+    print "   Basic datatype            : ", DATATYPE
+    print "   Extent of basic datatype  : ", DATATYPE_EXTENT
+    X = DATATYPE_EXTENT * np
+    print "   Buffer size range         : [min=",ncminlen * X, 
+                                        ", max=",ncmaxlen * X,"]"
+    print "   Number of measuring points: ", ncnummp
+    print ""
+    print "I/O:"
+    print "   Working directory     : ", get_io_working_dir()
+    print "   Data representation   : ", get_io_datarep()
+    print "   Atomicity mode        : ", get_io_atomicity()
+    print "   Preallocate file space: ", get_io_preallocation()
+    print "   Unique open           : ", get_io_unique_open()
+    print "   File sync             : ", get_io_file_sync()
+    print ""
+  fi
+  flush
+
+  print_file_info()
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## ----------------------------------------------------------------------------
+## ----------------------------------------------------------------------------
+
+set_skampi_buffer(sb)                     # Comment this line and uncomment
+#set_skampi_buffer_mpi_alloc_mem(sb)      # next one, if you want to use
+                                          # MPI_Alloc_mem() for memory
+                                          # allocation of SKaMPI buffer
+
+## ----------------------------------------------------------------------------
+
+begin measurement "open file"
+  for create_file in [FALSE, TRUE] do
+    if (rk == 0) then
+      print "Create new file: ", create_file
+    fi
+    for tasks = 1 to np do
+      measure comm(tasks) : MPI_IO_open(create_file)
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+
+begin measurement "close file"
+  for tasks = 1 to np do
+    for count = minlen to maxlen step *BMSTEP do
+      measure comm(tasks) : MPI_IO_close(count)
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+
+begin measurement "open, write, and close file"
+  for create_file in [FALSE, TRUE] do
+    if (rk == 0) then
+      print "Create new file: ", create_file
+    fi
+    flush
+    for tasks = 1 to np step *TMSTEP do
+      measure comm(tasks) : MPI_IO_open_close(create_file)
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+
+begin measurement "delete file"
+  c = comm(1)
+  for count = minlen to maxlen step *BMSTEP do
+    measure c : MPI_IO_delete(count)
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+
+begin measurement "delete file on close"
+  for tasks = 1 to np do
+    for count = minlen to maxlen step *BMSTEP do
+      measure comm(tasks) : MPI_IO_delete_on_close(count)
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+
+begin measurement "file seek"
+  for count = minlen to maxlen step *BMSTEP do
+    measure MPI_COMM_WORLD : MPI_IO_file_seek(maxlen, count, 
+			     DATATYPE, DATATYPE, DATATYPE)
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+
+begin measurement "file seek shared"
+  for tasks = 1 to np step *TMSTEP do 
+    for count = minlen to maxlen step *BMSTEP do
+      measure comm(tasks) : MPI_IO_file_seek_shared(maxlen, count, 
+  			    DATATYPE, DATATYPE, DATATYPE)
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+
+begin measurement "preallocate"
+  with_sync = FALSE
+  for tasks = 1 to np step *TMSTEP do
+    for count = minlen to maxlen step *BMSTEP do
+      measure comm(tasks) : MPI_IO_preallocate(count, with_sync)
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+
+begin measurement "write once (non-private)"
+  for daccess in data_access_routines(ROUTINES) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+       for count = minlen to maxlen step *BMSTEP do
+         measure comm(tasks) : MPI_IO_write_once(count, 
+			       DATATYPE, DATATYPE, DATATYPE, FALSE, daccess)
+       od
+    od
+  od
+end measurement
+
+begin measurement "read once (non-private)"
+  for daccess in data_access_routines(ROUTINES) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+       for count = minlen to maxlen step *BMSTEP do
+         measure comm(tasks) : MPI_IO_read_once(count, 
+			       DATATYPE, DATATYPE, DATATYPE, FALSE, daccess)
+       od
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+## write/read sequential to/from a file
+##
+
+begin measurement "write - sequential"
+  for daccess in data_access_routines(ROUTINES & IO_ONLY_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE) 
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_write_sequential(count, count, 
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read - sequential"
+  for daccess in data_access_routines(ROUTINES & IO_ONLY_SHARED_FP) do
+   print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do	    
+        measure comm(tasks) : MPI_IO_read_sequential(count, count,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## write/read using a segmentation pattern
+##
+
+begin measurement "write - segmented"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_write_segmented(count, count, count,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read - segmented"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_read_segmented(count, count, count,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## read a file by all processes
+##
+
+begin measurement "read file"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_read_file(count, 
+					       DATATYPE, DATATYPE, DATATYPE, 
+					       daccess)
+      od 
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+## read and distribute
+##
+
+begin measurement "read and distribute by one task"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_read_and_distribute(count, 1,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od 
+    od
+  od  
+end measurement
+
+begin measurement "read and distribute by all tasks"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_read_and_distribute(count, tasks,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od 
+    od
+  od  
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## write/read using a segmentation pattern
+## (stride is fixed to maxlen)
+
+begin measurement "write - segmented, fixed stride"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for block = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_write_segmented(block, block, maxlen,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read - segmented, fixed stride"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for block = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_read_segmented(block, block, maxlen,
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## write and read alternatively; processes are grouped pairwise 
+##
+
+begin measurement "write and read"
+  for daccess in data_access_routines(ROUTINES & 
+				      IO_ONLY_NONCOLLECTIVE &
+                                      IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_BOTH_ROUTINES) 
+    for tasks = 2 to np step *TMSTEP multipleof 2 do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_write_and_read(count, count, 
+			      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "write and read (comm_rand)"
+  for daccess in data_access_routines(ROUTINES & 
+				      IO_ONLY_NONCOLLECTIVE &
+                                      IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_BOTH_ROUTINES) 
+    for tasks = 2 to np step *TMSTEP multipleof 2 do
+      for count = minlen to maxlen step *BMSTEP do
+        measure comm_rand(tasks) : MPI_IO_write_and_read(count, count, 
+			           DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## write/read to/from separate files
+##
+
+begin measurement "write once (private)"
+  for daccess in data_access_routines(ROUTINES) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+       for count = minlen to maxlen step *BMSTEP do
+         measure comm(tasks) : MPI_IO_write_once(count, 
+     		               DATATYPE, DATATYPE, DATATYPE, TRUE, daccess)
+       od
+    od
+  od
+end measurement
+
+
+begin measurement "read once (private)"
+  for daccess in data_access_routines(ROUTINES) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+       for count = minlen to maxlen step *BMSTEP do
+         measure comm(tasks) : MPI_IO_read_once(count, 
+     		               DATATYPE, DATATYPE, DATATYPE, TRUE, daccess)
+       od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## write/read using a strided pattern 
+## (message length is fixed; stride is equal block length)
+##
+
+begin measurement "write - strided, fixed memsize"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for block = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_write_strided(maxlen, block, block,
+		  	      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read - strided, fixed memsize"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for block = minlen to maxlen step *BMSTEP do
+        measure comm(tasks) : MPI_IO_read_strided(maxlen, block, block,
+		  	      DATATYPE, DATATYPE, DATATYPE, daccess)
+      od
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+## write/read to/from a file using a noncontiguous filetype (*)
+## (result is a strided pattern)
+
+begin measurement "write - noncontiguous filetype"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      c = comm(tasks)	
+      for chunk = minlen to maxlen step *BMSTEP do
+        if (not is_mpi_comm_null(c)) then
+         memtype  = DATATYPE
+  	 etype    = DATATYPE
+	 filetype = mpi_type_create_subarray({get_comm_size(c)*chunk},{chunk}, 
+				             {get_comm_rank(c)*chunk},DATATYPE)
+        fi
+        measure c : MPI_IO_write_noncontiguous(maxlen, chunk, 
+		    memtype, etype, filetype, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read - noncontiguous filetype"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      c = comm(tasks)	
+      for chunk = minlen to maxlen step *BMSTEP do
+        if (not is_mpi_comm_null(c)) then
+         memtype  = DATATYPE
+  	 etype    = DATATYPE
+	 filetype = mpi_type_create_subarray({get_comm_size(c)*chunk},{chunk}, 
+				             {get_comm_rank(c)*chunk},DATATYPE)
+        fi
+        measure c : MPI_IO_read_noncontiguous(maxlen, chunk, 
+		    memtype, etype, filetype, daccess)
+      od
+    od
+  od
+end measurement
+
+## ----------------------------------------------------------------------------
+## write/read sequential to/from a file
+## (fixed message length)
+##
+
+#begin measurement "write - sequential, fixed memsize"
+#  for daccess in data_access_routines(ROUTINES & IO_ONLY_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_WRITE_ROUTINE) 
+#    for tasks = 1 to np step *TMSTEP do
+#      for chunk = minlen to maxlen step *BMSTEP do
+#        measure comm(tasks) : MPI_IO_write_sequential(maxlen, chunk, 
+#			      DATATYPE, DATATYPE, DATATYPE, daccess)
+#      od
+#    od
+#  od
+#end measurement
+
+#begin measurement "read - sequential, fixed memsize"
+#  for daccess in data_access_routines(ROUTINES & IO_ONLY_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_READ_ROUTINE) 
+#    for tasks = 1 to np step *TMSTEP do
+#      for chunk = minlen to maxlen step *BMSTEP do
+#        measure comm(tasks) : MPI_IO_read_sequential(maxlen, chunk, 
+#			      DATATYPE, DATATYPE, DATATYPE, daccess)
+#      od
+#    od
+#  od
+#end measurement
+
+## ----------------------------------------------------------------------------
+## write/read using a segmentated pattern and noncontiguous filetype (*)
+## (stride is equal message length)
+
+#begin measurement "write - segmented, nc, fixed stride"
+#  stride   = maxlen
+#  memtype  = DATATYPE
+#  etype    = DATATYPE
+#  filetype = mpi_type_create_subarray({stride*np}, {stride}, 
+#				      {stride*rk}, etype)
+#
+#  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+#    for tasks = 1 to np step *TMSTEP do
+#      for count = minlen to maxlen step *BMSTEP do
+#        measure comm(tasks) : MPI_IO_write_noncontiguous(count, count,
+#			      memtype, etype, filetype, daccess)
+#      od
+#    od
+# od
+#end measurement
+
+#begin measurement "read - segmented, nc, fixed stride"
+#  stride   = maxlen
+#  memtype  = DATATYPE
+#  etype    = DATATYPE
+#  filetype = mpi_type_create_subarray({stride*np}, {stride}, 
+#				      {stride*rk}, etype)
+#
+#  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_READ_ROUTINE)
+#    for tasks = 1 to np step *TMSTEP do
+#      for count = minlen to maxlen step *BMSTEP do
+#        measure comm(tasks) : MPI_IO_read_noncontiguous(count, count,
+#			      memtype, etype, filetype, daccess)
+#      od
+#    od
+# od
+#end measurement
+
+## ----------------------------------------------------------------------------
+## write/read using a segmented pattern using noncontiguous filetype (*)
+## (compare this with write/read (c-nc))
+
+#begin measurement "write - segmented, nc"
+#  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+#    for tasks = 1 to np step *TMSTEP do
+#      c = comm(tasks)
+#      for count = minlen to maxlen step *BMSTEP do
+#	if (not is_mpi_comm_null(c)) then
+#	  memtype  = DATATYPE
+#	  etype    = DATATYPE
+#	  filetype = mpi_type_create_subarray({count*get_comm_size(c)},{count},
+#					      {count*get_comm_rank(c)}, etype) 
+#	fi
+#
+#        measure c : MPI_IO_write_noncontiguous(count, count, 
+#		    memtype, etype, filetype, daccess)
+#      od
+#    od
+#  od
+#end measurement
+
+#begin measurement "read - segmented, nc"
+#  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_READ_ROUTINE)
+#    for tasks = 1 to np step *TMSTEP do
+#      c = comm(tasks)
+#      for count = minlen to maxlen step *BMSTEP do
+#	if (not is_mpi_comm_null(c)) then
+#	  memtype  = DATATYPE
+#	  etype    = DATATYPE
+#	  filetype = mpi_type_create_subarray({count*get_comm_size(c)},{count},
+#					      {count*get_comm_rank(c)}, etype) 
+#	fi
+#
+#        measure c : MPI_IO_read_noncontiguous(count, count, 
+#		    memtype, etype, filetype, daccess)
+#      od
+#    od
+#  od
+#end measurement
+
+
+## ----------------------------------------------------------------------------
+## write and read alternatively; processes are groups pairwise (*)
+## (fixed message length)
+
+#begin measurement "write and read - fixed memsize"
+#  for daccess in data_access_routines(ROUTINES & 
+#				      IO_ONLY_NONCOLLECTIVE &
+#                                      IO_NO_SHARED_FP) do
+#    print_data_access_settings(daccess, IO_BOTH_ROUTINES) 
+#    for tasks = 2 to np step *TMSTEP multipleof 2 do
+#      for chunk = minlen to maxlen step *BMSTEP do
+#        measure comm(tasks) : MPI_IO_write_and_read(maxlen, chunk, 
+#			      DATATYPE, DATATYPE, DATATYPE, daccess)
+#      od
+#    od
+#  od
+#end measurement
+
+
+## ----------------------------------------------------------------------------
+## ----------------------------------------------------------------------------
+## ----------------------------------------------------------------------------
+
+set_skampi_buffer(ncsb)                   # Comment this line and uncomment
+#set_skampi_buffer_mpi_alloc_mem(ncsb)    # next one, if you want to use
+                                          # MPI_Alloc_mem() for memory
+                                          # allocation of SKaMPI buffer
+
+## ----------------------------------------------------------------------------
+## contiguous memory & contiguous filetype (c-c)
+## (use MPI_IO_write/read_once)
+
+
+begin measurement "write (c-c)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+  	 memtype  = mpi_type_contiguous(count, DATATYPE)
+	 etype    = DATATYPE
+        filetype = mpi_type_contiguous(count, DATATYPE)
+        measure comm(tasks) : MPI_IO_write_once(1, memtype, etype, filetype, 
+			      FALSE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read (c-c)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+        memtype  = mpi_type_contiguous(count, DATATYPE)
+        etype    = DATATYPE
+        filetype = mpi_type_contiguous(count, DATATYPE)
+        measure comm(tasks) : MPI_IO_read_once(1, memtype, etype, filetype,
+			      FALSE, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## contiguous memory & non-contiguous filetype (c-nc)
+## (use MPI_IO_write/read_noncontiguous)
+
+begin measurement "write (c-nc)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+	comm = comm(tasks)
+	if (not is_mpi_comm_null(comm)) then
+	  memtype  = mpi_type_contiguous(count, DATATYPE)
+	  etype    = DATATYPE
+	  filetype = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+        fi
+        measure comm : MPI_IO_write_noncontiguous(1, 1, 
+ 		       memtype, etype, filetype, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read (c-nc)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+	comm = comm(tasks)
+	if (not is_mpi_comm_null(comm)) then
+	  memtype  = mpi_type_contiguous(count, DATATYPE)
+	  etype    = DATATYPE
+	  filetype = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+        fi
+        measure comm : MPI_IO_read_noncontiguous(1, 1, 
+		       memtype, etype, filetype, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## non-contiguous memory & contiguous filetype (nc-c)
+## (use MPI_IO_write/read_once)
+
+begin measurement "write (nc-c)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+	comm = comm(tasks)
+	if (not is_mpi_comm_null(comm)) then
+	  memtype  = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+	  etype    = DATATYPE
+	  filetype = mpi_type_contiguous(count, DATATYPE)
+        fi
+        measure comm : MPI_IO_write_once(1, memtype, etype, filetype,
+		       FALSE, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read (nc-c)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+        comm = comm(tasks)
+	if (not is_mpi_comm_null(comm)) then
+	  memtype  = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+	  etype    = DATATYPE
+	  filetype = mpi_type_contiguous(count, DATATYPE)
+        fi
+        measure comm : MPI_IO_read_once(1, memtype, etype, filetype, 
+		       FALSE, daccess)
+      od
+    od
+  od
+end measurement
+
+
+## ----------------------------------------------------------------------------
+## non-contiguous memory & non-contiguous filetype (nc-nc)
+## (use MPI_IO_write/read_noncontiguous)
+
+
+begin measurement "write (nc-nc)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_WRITE_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+	comm = comm(tasks)
+	if (not is_mpi_comm_null(comm)) then
+	  memtype  = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+	  etype    = DATATYPE
+	  filetype = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+        fi
+        measure comm : MPI_IO_write_noncontiguous(1, 1,
+		       memtype, etype, filetype, daccess)
+      od
+    od
+  od
+end measurement
+
+begin measurement "read (nc-nc)"
+  for daccess in data_access_routines(ROUTINES & IO_NO_SHARED_FP) do
+    print_data_access_settings(daccess, IO_READ_ROUTINE)
+    for tasks = 1 to np step *TMSTEP do
+      for count = ncminlen to ncmaxlen step *BMSTEP do
+	comm = comm(tasks)
+	if (not is_mpi_comm_null(comm)) then
+	  memtype  = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+	  etype    = DATATYPE
+	  filetype = mpi_type_create_subarray({get_comm_size(comm)*count},
+		     {count}, {get_comm_rank(comm)*count}, DATATYPE)
+        fi
+        measure comm : MPI_IO_read_noncontiguous(1, 1, 
+	               memtype, etype, filetype, daccess)
+      od
+    od
+  od
+end measurement
+

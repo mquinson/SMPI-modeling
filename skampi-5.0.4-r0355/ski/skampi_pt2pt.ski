@@ -1,0 +1,74 @@
+# ----------------------------------------------------------------------
+# pt2pt measurements
+
+set_min_repetitions(8)
+set_max_repetitions(16)
+set_max_relative_standard_error(0.03)
+
+set_skampi_buffer(64kb)
+datatype = MPI_INT
+
+# ----------------------------------------------------------------------
+
+comm_pt2pt = comm2_max_latency_with_root()
+
+begin measurement "Pingpong_Send_Recv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Send_Recv(count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Send_Iprobe_Recv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Send_Iprobe_Recv(count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Send_Irecv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Send_Irecv(count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Send_Recv_AnyTag"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Send_Recv_AT(count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Ssend_Recv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Ssend_Recv(count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Isend_Recv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Isend_Recv(count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Issend_Recv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Issend_Recv(count, datatype, 0, 1)
+   od
+end measurement 
+
+# problems with "No buffer space available" 
+# begin measurement "Pingpong_Bsend_Recv"
+#    for count = 1 to ... step *sqrt(2) do
+#       measure comm_pt2pt : Pingpong_Bsend_Recv(count, datatype, 0, 1)
+#    od
+# end measurement 
+
+begin measurement "Pingpong_Sendrecv"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Sendrecv(count, datatype, 0, count, datatype, 0, 1)
+   od
+end measurement 
+
+begin measurement "Pingpong_Sendrecv_replace"
+   for count = 1 to ... step *sqrt(2) do
+      measure comm_pt2pt : Pingpong_Sendrecv_replace(count, datatype, 0, 0, 1)
+   od
+end measurement 

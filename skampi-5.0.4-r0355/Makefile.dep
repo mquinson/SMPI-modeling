@@ -1,0 +1,140 @@
+# Created by makedep.sh, do not edit
+
+accounting.o: accounting.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h debug.h private_misc.h output.h accounting.h
+	$(MPICC) -c $(CFLAGS) accounting.c
+autorefine.o: autorefine.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h private_misc.h debug.h output.h exec.h mpiversiontest.h
+	$(MPICC) -c $(CFLAGS) autorefine.c
+compile.o: compile.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h private_misc.h debug.h exec.h mpiversiontest.h symboltable.h \
+  print.h compile.h
+	$(MPICC) -c $(CFLAGS) compile.c
+debug.o: debug.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h private_misc.h output.h debug.h
+	$(MPICC) -c $(CFLAGS) debug.c
+exec.o: exec.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h private_misc.h debug.h output.h exec.h \
+  output_sort.h print.h measurement.h autorefine.h
+	$(MPICC) -c $(CFLAGS) exec.c
+main.o: main.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  version.h misc.h output.h debug.h main.h private_misc.h exec.h \
+  mpiversiontest.h symboltable.h synchronize.h
+	$(MPICC) -c $(CFLAGS) main.c
+measurement.o: measurement.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h private_misc.h debug.h output.h main.h exec.h mpiversiontest.h \
+  print.h mem.h measurement.h symboltable.h synchronize.h accounting.h \
+  autorefine.h
+	$(MPICC) -c $(CFLAGS) measurement.c
+mem.o: mem.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h output.h private_misc.h debug.h mem.h
+	$(MPICC) -c $(CFLAGS) mem.c
+misc.o: misc.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h private_misc.h output.h
+	$(MPICC) -c $(CFLAGS) misc.c
+output.o: output.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h private_misc.h output.h exec.h debug.h
+	$(MPICC) -c $(CFLAGS) output.c
+print.o: print.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h private_misc.h debug.h output.h exec.h mpiversiontest.h \
+  symboltable.h print.h
+	$(MPICC) -c $(CFLAGS) print.c
+symboltable.o: symboltable.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h debug.h main.h private_misc.h exec.h print.h \
+  symboltable.h measurement.h
+	$(MPICC) -c $(CFLAGS) symboltable.c
+synchronize.o: synchronize.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h private_misc.h debug.h synchronize.h \
+  accounting.h
+	$(MPICC) -c $(CFLAGS) synchronize.c
+bug.o: measurements/bug.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../exec.h \
+  measurements/../mpiversiontest.h
+	$(MPICC) -c $(CFLAGS) measurements/bug.c
+coll.o: measurements/coll.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../synchronize.h
+	$(MPICC) -c $(CFLAGS) measurements/coll.c
+datatypes.o: measurements/datatypes.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../private_misc.h \
+  measurements/../exec.h measurements/../mpiversiontest.h
+	$(MPICC) -c $(CFLAGS) measurements/datatypes.c
+delayed.o: measurements/delayed.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../synchronize.h \
+  measurements/../private_misc.h
+	$(MPICC) -c $(CFLAGS) measurements/delayed.c
+demo.o: measurements/demo.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../private_misc.h \
+  measurements/../synchronize.h
+	$(MPICC) -c $(CFLAGS) measurements/demo.c
+helpers.o: measurements/helpers.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../mpiversiontest.h measurements/../misc.h \
+  measurements/../private_misc.h measurements/../exec.h \
+  measurements/../mpiversiontest.h measurements/../mem.h \
+  measurements/../synchronize.h measurements/../accounting.h \
+  measurements/../autorefine.h
+	$(MPICC) -c $(CFLAGS) measurements/helpers.c
+io.o: measurements/io.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../mpiversiontest.h measurements/../misc.h \
+  measurements/../mem.h measurements/../mpiversiontest.h \
+  measurements/../synchronize.h measurements/../output.h \
+  measurements/../exec.h
+	$(MPICC) -c $(CFLAGS) measurements/io.c
+localio.o: measurements/localio.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../mpiversiontest.h measurements/../misc.h \
+  measurements/../synchronize.h measurements/../output.h \
+  measurements/../mem.h measurements/../mpiversiontest.h
+	$(MPICC) -c $(CFLAGS) measurements/localio.c
+mmisc.o: measurements/mmisc.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../synchronize.h
+	$(MPICC) -c $(CFLAGS) measurements/mmisc.c
+node2node.o: measurements/node2node.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h measurements/../output.h
+	$(MPICC) -c $(CFLAGS) measurements/node2node.c
+onesided.o: measurements/onesided.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../mpiversiontest.h measurements/../misc.h \
+  measurements/../mem.h measurements/../mpiversiontest.h \
+  measurements/../synchronize.h
+	$(MPICC) -c $(CFLAGS) measurements/onesided.c
+pt2pt.o: measurements/pt2pt.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  measurements/../misc.h
+	$(MPICC) -c $(CFLAGS) measurements/pt2pt.c
+m.o: m.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  mpiversiontest.h misc.h exec.h symboltable.h
+	$(MPICC) -c $(CFLAGS) m.c
+parser.o: parser.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h debug.h output.h main.h private_misc.h exec.h mpiversiontest.h \
+  print.h symboltable.h compile.h
+	$(MPICC) -c $(CFLAGS) parser.c
+lexer.o: lexer.c /liin/mpich2-1.0.4p1/include/mpi.h \
+  /liin/mpich2-1.0.4p1/include/mpio.h /liin/mpich2-1.0.4p1/include/mpi.h \
+  misc.h main.h parser.h output.h
+	$(MPICC) -c $(CFLAGS) lexer.c
+skampi: accounting.o autorefine.o compile.o debug.o exec.o main.o measurement.o mem.o misc.o output.o print.o symboltable.o synchronize.o m.o lexer.o parser.o bug.o coll.o datatypes.o delayed.o demo.o helpers.o io.o localio.o mmisc.o node2node.o onesided.o pt2pt.o
+	$(MPICC) -o skampi accounting.o autorefine.o compile.o debug.o exec.o main.o measurement.o mem.o misc.o output.o print.o symboltable.o synchronize.o m.o lexer.o parser.o bug.o coll.o datatypes.o delayed.o demo.o helpers.o io.o localio.o mmisc.o node2node.o onesided.o pt2pt.o -lm

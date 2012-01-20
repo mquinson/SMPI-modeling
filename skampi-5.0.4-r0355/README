@@ -1,0 +1,34 @@
+**************
+*  SKaMPI 5  *
+**************
+
+What is this?
+-------------
+
+SKaMPI is a benchmark for MPI libraries, developed and maintained at
+the University of Karlsruhe, Germany.
+This is version 5.0 revision 355 of SKaMPI 5.
+
+
+Documentation
+-------------
+
+The full documentation can be found in the doc subdirectory.  There
+are an extensive manual and a very short guide for impatient users in
+Postscript and Pdf formats.
+
+
+Quickstart
+----------
+
+  tar zxf skampi-5.0.4.tar.gz
+  cd skampi-5.0.4
+  make
+  mpirun -np 2 ./skampi -i ski/skampi_pt2pt.ski
+
+
+Have fun!
+
+The SKaMPI 5 team
+(Werner Augustin, Marc-Oliver Straub, Thomas Worsch)
+http://liinwww.ira.uka.de/~skampi/

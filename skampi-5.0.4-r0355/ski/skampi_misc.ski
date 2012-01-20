@@ -1,0 +1,11 @@
+set_min_repetitions(8)
+set_max_repetitions(16)
+set_max_relative_standard_error(0.03)
+
+set_skampi_buffer(64kb)
+
+begin measurement "MPI_Wtime_avg"
+   for iters = 1 to 100 do
+      measure comm(1) : Wtime(iters)
+   od
+end measurement 

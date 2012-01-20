@@ -1,0 +1,44 @@
+# if you want to use umlauts uncomment the following line
+# set encoding iso_8859_1
+
+# the enhanced option allows format to typeset exponents without problems
+set terminal postscript eps enhanced color
+
+# the name of the output file
+set output "demo.eps"
+
+# the title above the diagram
+set title "Average pingpong roundtrip time for a varying number of roundtrips"
+
+# justify the legends to the left;
+# that 'left Left' is no typo, but leaving 'Left' out does not change much
+set key top left Left
+set key top right Left
+
+# the text along the vertical axis
+# (the numeric values are the results of trial and error experiments)
+set lmargin 5
+set label "time [{/Symbol m}s]" at screen 0.015,0.5 center  rotate
+
+# the text along the horizontal axis
+# (the numeric values are the results of trial and error experiments)
+set bmargin 4
+set label "number of pingpong iterations" at screen 0.5,0.03 center
+
+# a timestamp
+# (the numeric values are the results of trial and error experiments)
+set rmargin 5
+set timestamp "skampi5 measurement plot done on %d/%m/%y at %H:%M" rotate 50,4
+
+# we are using logarithmic scales
+#  - with powers of 2 along the x axis (requested explicitly) and
+#  - with powers of 10 along th y axis (the default)
+set logscale x 2
+set logscale y
+
+# the tics along the horizontal axis and the labels for them
+# set xtics  4,2
+# set format x "2^{%L}"
+
+# finally the plot command
+plot [0.5:][1.9:7] "demo.sko" using ($2):($4) with linespoints title "Pingpong\\_Send\\_Recv"

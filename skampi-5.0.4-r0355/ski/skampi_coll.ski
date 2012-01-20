@@ -1,0 +1,27 @@
+set_min_repetitions(8)
+#set_max_repetitions(100)
+set_max_repetitions(32)
+set_max_relative_standard_error(0.03)
+
+set_skampi_buffer(4MB)
+datatype = MPI_INT
+
+num_procs = get_np()
+comm_all = comm(num_procs)
+
+@include "Bcast.inc"
+@include "Barrier.inc"
+@include "Reduce.inc"
+@include "Allreduce.inc"
+@include "Reduce_scatter.inc"
+@include "Alltoall.inc"
+@include "Gather.inc"
+@include "Allgather.inc"
+@include "Scatter.inc"
+@include "Reduce_scatterv.inc"
+@include "Alltoallv.inc"
+@include "Gatherv.inc"
+@include "Allgatherv.inc"
+@include "Scatterv.inc"
+@include "Scan.inc"
+@include "Comm.inc"
