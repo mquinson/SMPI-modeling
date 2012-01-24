@@ -1,3 +1,0 @@
-begin measurement "processor names measurement"
-   print_all mpi_processor_names()
-end measurement
