@@ -19,13 +19,13 @@ For each test in {1,...,reps} {
   for pings repetitions {
     task 0 sends a msgsize byte message to task t such that t>0 
   } then
-#  all tasks log  elapsed_usecs as "usecs"
 
   all tasks log msgsize as "msgsize" 
             and pings as "pings" 
-            and elapsed_usecs as "usecs"
+            and elapsed_usecs as "usecs" then
+	    
+  all tasks synchronize
 
-#  task 1 logs the test as "Test" and the elapsed_usecs as "elapsed time (usecs)"
 } 
 
 # Send asynchronously to each peer.
