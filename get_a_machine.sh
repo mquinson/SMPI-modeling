@@ -2,7 +2,12 @@ dtach -A /tmp/mquinson-dtach-socket bash
 oarsub -I -l 'nodes=1,walltime=10' -p "cluster='graphene'" -t deploy
 oarsub -I -l 'nodes=1,walltime=10' -p "cluster='parapluie'" -t deploy
 kadeploy3 -e squeeze-x64-nfs -f $OAR_NODE_FILE -k ~/.ssh/id_rsa.pub
-for node in `cat $OAR_NODE_FILE|sort -u` ; do ssh root@$node "sh ~mquinson/precious.git/tune_machine.sh" ; done
+
+for node in `cat $OAR_NODE_FILE|sort -u` ; do ssh root@$node "sh ~mquinson/skampi/tune_machine.sh" ; done
+cp $OAR_NODE_FILE ~/tmp/oar-node-file
+sort -u $OAR_NODE_FILE > ~/tmp/hostfile
+
+mpirun --mca btl self,tcp -machinefile ~/tmp/hostfile BLA
 
 for n in `sort -u $OAR_NODE_FILE` ; do ssh $n "rm /tmp/mq-dtach;killall testall.sh java time run.gridsim;sleep 1; kill -KILL -1" ; done; killall ssh
 for n in `sort -u $OAR_NODE_FILE` ; do echo "dtach -c /tmp/mq-dtach ~/precious.git/run.gridsim" | ssh -tt -o StrictHostKeyChecking=no -o BatchMode=yes  $n &  done

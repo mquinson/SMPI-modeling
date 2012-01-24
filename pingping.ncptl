@@ -1,0 +1,56 @@
+# Test several ping in a burst
+# By Martin Quinson <martin.quinson@loria.fr>
+
+Require language version "1.4".
+
+# Parse the command line.
+msgsize is "Message size (bytes)" and comes from "--bytes" or "-b" with default 1M.
+reps is "Repetitions to perform" and comes from "--reps" or "-r" with default 100.
+pings is "Amount of pings per test" and comes from "--pings" or "-p" with default 5.
+
+Assert that "this program requires at least two processors" with num_tasks>=2.
+
+task 0 outputs "Starting tests. msgsize: " and msgsize 
+           and " amount of tests: " and reps
+	   and " pings per test:" and pings then
+
+For each test in {1,...,reps} {
+  all tasks reset their counters then
+  for pings repetitions {
+    task 0 sends a msgsize byte message to task t such that t>0 
+  } then
+#  all tasks log  elapsed_usecs as "usecs"
+
+  all tasks log msgsize as "msgsize" 
+            and pings as "pings" 
+            and elapsed_usecs as "usecs"
+
+#  task 1 logs the test as "Test" and the elapsed_usecs as "elapsed time (usecs)"
+} 
+
+# Send asynchronously to each peer.
+#For each num_targets in {1, ..., num_tasks-1} {
+#
+#  for reps repetitions {
+#    task 0 resets its counters then
+#    task 0 asynchronously sends a msgsize byte message to task t such that t>0 /\ t<=num_targets then
+#    all tasks await completion then
+#    all tasks synchronize then
+#    task 0 logs the num_targets as "#recipients" and
+#                the median of (1E6/1M)*(msgsize*2/elapsed_usecs) as "Asynchronous bandwidth (MB/s)"
+#  } then
+#  task 0 computes aggregates
+#}
+
+# Send synchronously to each peer.
+#For each num_targets in {1, ..., num_tasks-1} {
+#  task 0 outputs "Sending synchronously to " and num_targets and " target(s) ..." then
+#  for reps repetitions {
+#    task 0 resets its counters then
+#    task 0 sends a msgsize byte message to task t such that t>0 /\ t<=num_targets then
+#    all tasks synchronize then
+#    task 0 logs the num_targets as "#recipients" and
+#                the median of (1E6/1M)*(msgsize*2/elapsed_usecs) as "Synchronous bandwidth (MB/s)"
+#  } then
+#  task 0 computes aggregates
+#}
