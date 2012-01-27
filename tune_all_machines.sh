@@ -1,8 +1,11 @@
 set -x
 # we want to share some files between frontend and deployed nodes, and we use the NFS of home for that
 mkdir -p ~/tmp 
-cp $OAR_NODE_FILE ~/tmp/oar-node-file   # here are the files
-sort -u $OAR_NODE_FILE > ~/tmp/hostfile
+if [ "x$OAR_NODE_FILE" != "x" ] ; then
+  # we are within the shell launched by OAR
+  cp $OAR_NODE_FILE ~/tmp/oar-node-file   # here are the files
+  sort -u $OAR_NODE_FILE > ~/tmp/hostfile
+fi
 
 # run some post-processing on all remote nodes
 cat > ~/tmp/cmd <<EOF
