@@ -7,6 +7,7 @@ Require language version "1.4".
 msgsize is "Message size (bytes)" and comes from "--bytes" or "-b" with default 1M.
 reps is "Repetitions to perform" and comes from "--reps" or "-r" with default 100.
 pings is "Amount of pings per test" and comes from "--pings" or "-p" with default 5.
+pongs is "Amount of pongs per test" and comes from "--pongs" or "-o" with default 5.
 
 Assert that "this program requires at least two processors" with num_tasks>=2.
 
@@ -17,7 +18,11 @@ task 0 outputs "Starting tests. msgsize: " and msgsize
 For each test in {1,...,reps} {
   all tasks reset their counters then
   for pings repetitions {
-    task 0 sends a msgsize byte message to task t such that t>0 
+    task 0 sends a msgsize byte message to task t such that t>0 then
+    task 0 sends a msgsize*10 byte message to task t such that t>0 
+  } then
+  for pongs repetitions {
+    task 1 sends a msgsize byte message to task 0 
   } then
 
   all tasks log msgsize as "msgsize" 
