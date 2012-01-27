@@ -51,7 +51,7 @@ fi
 # Actually produces the trace file
 aky_converter --sync=/tmp/rasto-sync --commentfile=${BASE}.conceptual.log *.rst > traces/${BASE}.${bkup}.trace
 
-echo "Cleaning ${BASE}.conceptual.log *rst ${BASE}-*.log"
-rm ${BASE}.conceptual.log *rst ${BASE}-*.log 
+echo "Cleaning ${BASE} ${BASE}.conceptual.log *rst ${BASE}-*.log"
+rm ${BASE} ${BASE}.conceptual.log *rst ${BASE}-*.log 
 
 echo "Produced traces/${BASE}.${bkup}.trace file; enjoy"
