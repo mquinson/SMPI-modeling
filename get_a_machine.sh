@@ -1,5 +1,5 @@
 dtach -A /tmp/mquinson-dtach-socket bash
-oarsub -I -l 'nodes=1,walltime=10' -p "cluster='graphene'" -t deploy
+oarsub -I -l 'nodes=2,walltime=10' -t deploy
 oarsub -I -l 'nodes=1,walltime=10' -p "cluster='parapluie'" -t deploy
 kadeploy3 -e squeeze-x64-nfs -f $OAR_NODE_FILE -k ~/.ssh/id_rsa.pub
 
