@@ -46,6 +46,6 @@ ncptl-logmerge -o ${BASE}.conceptual.log ${BASE}-*.log
 # Actually produces the trace file
 aky_converter --sync=/tmp/rasto-sync --commentfile=${BASE}.conceptual.log *.rst > ${BASE}.${bkup}.trace
 
-#rm ${BASE}.conceptual.log 
+rm ${BASE}.conceptual.log 
 
 echo "Produced ${BASE}.${bkup}.trace file; enjoy"
