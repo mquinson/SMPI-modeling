@@ -41,11 +41,17 @@ while [ -e ${BASE}.${bkup}.trace ] ; do
 done
 
 # Merge the conceptual log files so that they can be embeeded into the final trace without loss of information
-ncptl-logmerge -o ${BASE}.conceptual.log ${BASE}-*.log 
+if [ -e ${BASE}-0.log ] ; then
+  ncptl-logmerge -o ${BASE}.conceptual.log ${BASE}-*.log 
+else
+  echo "no conceptual log file found. Did you issue a 'all tasks log ...' command?"
+  echo "no conceptual log file to be found, sorry" > ${BASE}.conceptual.log
+fi
 
 # Actually produces the trace file
 aky_converter --sync=/tmp/rasto-sync --commentfile=${BASE}.conceptual.log *.rst > ${BASE}.${bkup}.trace
 
-rm ${BASE}.conceptual.log 
+echo "Cleaning ${BASE}.conceptual.log *rst ${BASE}-*.log"
+rm ${BASE}.conceptual.log *rst ${BASE}-*.log 
 
 echo "Produced ${BASE}.${bkup}.trace file; enjoy"
