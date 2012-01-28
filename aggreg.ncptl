@@ -10,13 +10,14 @@ Require language version "1.4".
 For each S in {2,200,2000} {
   For each Ti in { 0, 100, 1000 } {
       For 10 repetitions {
-      	  For 10 repetitions {
-      	      all tasks reset their counters then
+      	  For 1000 repetitions {
       	      task 0 sends a S byte message to task 1 then
-	      task 0 sleeps for Ti microseconds then
-	      task 0 logs S as "msgsize" and Ti as "delay (ns)" and elapsed_usecs as "usecs"
+	      task 0 sleeps for Ti microseconds 
 	  } then
 	  all tasks synchronize
       }     
   }
 }
+
+# dummy log request to get the log file produced
+task 0 logs elapsed_usecs as "usecs"
