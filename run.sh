@@ -36,7 +36,7 @@ rastro_timesync `cat ~/tmp/hostfile` >> /tmp/rasto-sync
 
 # Pick a good (original) name for the trace file
 bkup=0
-while [ -e traces/${BASE}.${bkup}.trace ] ; do 
+while [ -e traces/${BASE}.${bkup}.trace ] || [ -e traces/${BASE}.${bkup}.trace.gz ] || [ -e traces/${BASE}.${bkup}.trace.bz2 ]; do
   bkup=`expr $bkup + 1`
 done
 
