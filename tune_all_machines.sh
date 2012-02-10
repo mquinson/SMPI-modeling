@@ -1,4 +1,4 @@
-set -x
+set -ex
 # we want to share some files between frontend and deployed nodes, and we use the NFS of home for that
 mkdir -p ~/tmp 
 if [ "x$OAR_NODE_FILE" != "x" ] ; then
@@ -32,11 +32,13 @@ EOF
 
 chmod o+x ~/tmp/cmd
 for node in `cat ~/tmp/hostfile` ; do 
-    ssh root@$node "sh -c $HOME/tmp/cmd" ; 
+    ssh root@$node "sh -c $HOME/tmp/cmd" ;
+    echo "XXX Succesfully tuned $node"
 done
+    echo "XXX Succesfully tuned all nodes. Yuhu."
 
 
-# Add this before EOF when you want to change the CPU steping. But we don't.
+# Add this before EOF above when you want to change the CPU steping. But we don't.
 #if hostname |grep -q pastel ; then
 #  echo "Changing the CPU freq to 1000MHz" # because we are on pastel"
 #  for cpu in `cpufreq-info |grep analyzing|sed 's/[^0-9]*//g'` ; do
