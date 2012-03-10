@@ -5,6 +5,8 @@ if [ "x$OAR_NODE_FILE" != "x" ] ; then
   # we are within the shell launched by OAR
   cp $OAR_NODE_FILE ~/tmp/oar-node-file   # here are the files
   sort -u $OAR_NODE_FILE > ~/tmp/hostfile
+
+  (cat ~/tmp/hostfile ; cat ~/tmp/hostfile) > ~/tmp/hostfile-ABAB
 fi
 
 # run some post-processing on all remote nodes
