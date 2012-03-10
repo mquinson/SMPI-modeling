@@ -2,6 +2,15 @@
 
 set -e # fail fast
 
+hostfile=~/tmp/hostfile
+
+case $1 in 
+ --host=*)
+    hostfile=`echo $1|sed 's/^--host=//'`
+    shift
+    ;;
+esac
+
 if [ $# ==  0 ] ; then
   echo "Usage: run.sh <basename of ncptl file>"
   exit 1
@@ -19,7 +28,7 @@ GIMEIB="--mca btl self,openib"
 GIMETCP="--mca btl_tcp_if_include eth0 --mca btl_tcp_if_exclude ib0 --mca btl self,tcp"
 
 # So that Rastro resync the events in the produced trace
-rastro_timesync `cat ~/tmp/hostfile` > /tmp/rasto-sync
+rastro_timesync `cat $hostfile` > /tmp/rasto-sync
 
 # Run the test.
 #   FAST_INIT should avoid the heavy initialization phase of conceptual
@@ -28,11 +37,11 @@ rastro_timesync `cat ~/tmp/hostfile` > /tmp/rasto-sync
 #NCPTL_FAST_INIT=1 \
 NCPTL_NOFORK=1 \
  mpirun $GIMETCP \
- -machinefile ~/tmp/hostfile ./$BASE
+ -machinefile $hostfile ./$BASE
 # --pings 200 --pongs 50 --bytes 32 --reps 50
 
 # Also for trace resynchronization
-rastro_timesync `cat ~/tmp/hostfile` >> /tmp/rasto-sync
+rastro_timesync `cat $hostfile` >> /tmp/rasto-sync
 
 # Pick a good (original) name for the trace file
 bkup=0
