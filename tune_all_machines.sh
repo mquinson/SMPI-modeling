@@ -5,14 +5,17 @@ if [ "x$OAR_NODE_FILE" != "x" ] ; then
   # we are within the shell launched by OAR
   cp $OAR_NODE_FILE ~/tmp/oar-node-file   # here are the files
   sort -u $OAR_NODE_FILE > ~/tmp/hostfile
+
+  (cat ~/tmp/hostfile ; cat ~/tmp/hostfile) > ~/tmp/hostfile-ABAB
 fi
 
 # run some post-processing on all remote nodes
 cat > ~/tmp/cmd <<EOF
+apt-get update
 apt-get -y install debconf-utils 
 # don't ask me about the dummy licence of Java packages
 echo "sun-java6-bin   shared/accepted-sun-dlj-v1-1    boolean true" | debconf-set-selections
-apt-get -y install dtach git-core jed python-dev emacs cmake-curses-gui
+apt-get -y install dtach git-core jed python-dev cmake-curses-gui
 # cmake-curses-gui libpcre3-dev sun-java6-jdk  dc cpufrequtils # I don't need them now, but sometimes
 
 # Reduce the potential issues in the experiment machine
