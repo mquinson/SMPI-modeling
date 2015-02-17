@@ -1,5 +1,5 @@
 # Test aiming at characterizing the aggregation of small messages observed at Ompi
-# See http://webloria.loria.fr/~quinson/Research/Bridging/#index2h1
+# See http://webloria.loria.fr/~quinson/Research/Bridging/SMPI
 
 # The basic experiment is (ping S; sleep T)*
 # with S in {2,200,2000} and T {0,one latency, 10 latencies}
