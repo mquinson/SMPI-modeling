@@ -14,7 +14,7 @@ maxsize=`expr 10 \* 1024 \* 1024`
 maxproc=1024
 
 # The command to run 
-cmd='smpirun -platform '"$platformfile"' -np %d ./alltoall %d --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:%s'
+cmd='smpirun -platform '"$platformfile"' -np %d ./alltoall %d --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:%s --cfg=maxmin/precision:1e-7'
 
 timefmt="clock:%e user:%U sys:%S swapped:%W exitval:%x max:%Mk"
 
