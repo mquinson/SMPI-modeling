@@ -37,10 +37,12 @@ rm -f $me.timings $me.stdout $me.stderr tmp*
 
 echo "#+TITLE: SMPI Collective evaluation" > $logfile
 ./simgrid_hostinfo.sh >> $logfile
-	
+
+echo "Logging started in file $logfile"
 echo "(recompile the binary against $SGPATH)"
 echo "* Compilation result" >> $logfile
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SGPATH/lib"
+rm alltoall
 smpicc alltoall.c -o alltoall 2>&1 | tee >> $logfile
 
 function roll() {
