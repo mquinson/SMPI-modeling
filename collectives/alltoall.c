@@ -24,7 +24,10 @@ int main(int argc, char *argv[])
   int status;
   int datasize;
    
-
+  /* Make sure that previous output are written over the NFS even if G5K decides to kill the current machine */
+  fdatasync(1);
+  fdatasync(2);
+   
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &proc_count);
