@@ -125,6 +125,9 @@ for nbtest in `seq 1 200` ; do
 	  echo "$res" >> $logfile
       fi
   done
+  git add $logfile
+  git commit -m "automatic commit of experimental data" $logfile
+  git push
 done
 
 # Clean everything up
