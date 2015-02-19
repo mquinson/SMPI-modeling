@@ -85,20 +85,28 @@ for nbtest in `seq 1 200` ; do
       echo "** Test with algorithm $algo" >> $logfile
       /usr/bin/time -f "$timefmt" -o $me.timings `printf "$cmd" $proc $size "$algo"` > $me.stdout 2> $me.stderr
       echo "*** Command" >> $logfile
+      echo "#+BEGIN_EXAMPLE" >> $logfile
       printf "$cmd" $proc $size $algo >> $logfile
       echo >> $logfile
+      echo "#+END_EXAMPLE" >> $logfile
 
       echo "*** raw stdout" >> $logfile
-      cat $me.stdout|sed 's/^/  /' >> $logfile
+      echo "#+BEGIN_EXAMPLE" >> $logfile
+      cat $me.stdout >> $logfile
       echo >> $logfile
+      echo "#+END_EXAMPLE" >> $logfile
 
       echo "*** raw stderr" >> $logfile
-      cat $me.stderr|sed 's/^/  /' >> $logfile
+      echo "#+BEGIN_EXAMPLE" >> $logfile
+      cat $me.stderr >> $logfile
       echo >> $logfile
+      echo "#+END_EXAMPLE" >> $logfile
 
       echo "*** raw timing information" >> $logfile
+      echo "#+BEGIN_EXAMPLE" >> $logfile
       cat $me.timings >> $logfile
       echo >> $logfile
+      echo "#+END_EXAMPLE" >> $logfile
 
       clock=`grep -v Command $me.timings | sed -e 's/ .*//' | sed 's/clock/hostTime/'`
       max=`grep -v Command $me.timings | sed -e 's/.* max/hostMem/'`
