@@ -1,9 +1,18 @@
 #!/bin/bash
 
+cd ~/Code/SMPI-modeling/collectives
+
 SGPATH=$1
 if [ -z "$SGPATH" ]
 then
-  SGPATH=/home/mquinson/install-3.12
+  if [ -e /home/mquinson/simgrid-3.12 ] ; then
+    SGPATH=/home/mquinson/simgrid-3.12
+  elif [ -e /home/mquinson/install-3.12 ] ; then
+    SGPATH=/home/mquinson/install-3.12
+  else
+    echo "Usage: $0 /path/to/simgrid/install"
+    exit 1
+  fi
 fi
 export PATH="$SGPATH/bin:$PATH"
 
@@ -61,9 +70,9 @@ for nbtest in `seq 1 200` ; do
 
   size=$maxsize;proc=$maxproc
   mem=`cat /proc/meminfo |grep MemFree|sed -e 's/ kB//' -e 's/.* //'` # get the amount of free memory
-  while [ $size -eq $maxsize -o `expr $size \* $proc \* 2` -gt `expr $mem \* 500` -o $proc -le 2 ] ; do # don't try to malloc more than available or to communicate alone
+  while [ $size -eq $maxsize -o `expr $size \* $proc \* 2` -gt `expr $mem` -o $proc -le 2 ] ; do # don't try to malloc more than available or to communicate alone
     #  Consumption is *2 to account for internal SMPI buffers as we use the same buffer for all processes, and for both send and receive
-                                   # should be $mem*1024, I'm lost now.
+    #  Availability should be $mem*1024 instead of $mem (I'm puzzled) but doing so leads to many overconsumption
     if [ $size -ne $maxsize ] ; then
       echo "Don't do proc:$proc size:$size as there is not enough memory (free mem: $mem kb)"
       echo "Don't do proc:$proc size:$size as there is not enough memory (free mem: $mem kb)" >> $logfile
@@ -76,8 +85,9 @@ for nbtest in `seq 1 200` ; do
   echo "Do proc:$proc size:$size freemem:${mem}k mem usage:"`expr $size \* $proc \* 2`>> $logfile
 
   # pair_* algorithm will often fail as they request processes counts that are powers of two
+  # pair_rma pair_light_barrier pair_mpi_barrier pair_one_barrier \
   for algo in   2dmesh 3dmesh basic_linear bruck  \
-                pair pair_rma pair_light_barrier pair_mpi_barrier pair_one_barrier rdb \
+                pair rdb \
                 ring  ring_light_barrier  ring_mpi_barrier  ring_one_barrier  mvapich2_scatter_dest \
                 mvapich2 ompi mpich impi ; do
       
