@@ -1,0 +1,1292 @@
+#+TITLE: SMPI Collective evaluation
+#+DATE: Wed Feb 18 16:54:25 CET 2015
+#+AUTHOR: mquinson
+ 
+* People logged when experiment started:
+mquinson pts/0        2015-02-18 10:21 (fnancy.nancy.grid5000.fr)
+* Hostname
+graphite-1.nancy.grid5000.fr
+* System information
+Linux graphite-1.nancy.grid5000.fr 2.6.32-5-amd64 #1 SMP Tue May 13 16:34:35 UTC 2014 x86_64 GNU/Linux
+* CPU info
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 8
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.87
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 0
+cpu cores	: 8
+apicid		: 32
+initial apicid	: 32
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.94
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 8
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.94
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 1
+cpu cores	: 8
+apicid		: 34
+initial apicid	: 34
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.95
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 8
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.94
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 2
+cpu cores	: 8
+apicid		: 36
+initial apicid	: 36
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 8
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 3
+cpu cores	: 8
+apicid		: 38
+initial apicid	: 38
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.95
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 8
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 4
+cpu cores	: 8
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 9
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 4
+cpu cores	: 8
+apicid		: 40
+initial apicid	: 40
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.95
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 10
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 5
+cpu cores	: 8
+apicid		: 10
+initial apicid	: 10
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.95
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 11
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 5
+cpu cores	: 8
+apicid		: 42
+initial apicid	: 42
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.95
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 12
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 6
+cpu cores	: 8
+apicid		: 12
+initial apicid	: 12
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 13
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 6
+cpu cores	: 8
+apicid		: 44
+initial apicid	: 44
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 14
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 0
+siblings	: 8
+core id		: 7
+cpu cores	: 8
+apicid		: 14
+initial apicid	: 14
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.94
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 15
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+stepping	: 7
+cpu MHz		: 1200.000
+cache size	: 20480 KB
+physical id	: 1
+siblings	: 8
+core id		: 7
+cpu cores	: 8
+apicid		: 46
+initial apicid	: 46
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm dca sse4_1 sse4_2 x2apic popcnt aes xsave avx lahf_lm arat tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 3999.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+* CPU governor
+ondemand
+* CPU frequency
+1200000
+* Meminfo
+MemTotal:       264640032 kB
+MemFree:        264102420 kB
+Buffers:             572 kB
+Cached:            35760 kB
+SwapCached:            0 kB
+Active:             5040 kB
+Inactive:          38804 kB
+Active(anon):       1476 kB
+Inactive(anon):     7920 kB
+Active(file):       3564 kB
+Inactive(file):    30884 kB
+Unevictable:        2532 kB
+Mlocked:            2532 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                84 kB
+Writeback:             0 kB
+AnonPages:         10040 kB
+Mapped:             2700 kB
+Shmem:               152 kB
+Slab:              27620 kB
+SReclaimable:       8388 kB
+SUnreclaim:        19232 kB
+KernelStack:        2704 kB
+PageTables:         1500 kB
+NFS_Unstable:         20 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    132320016 kB
+Committed_AS:      96296 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      680920 kB
+VmallocChunk:   34221553660 kB
+HardwareCorrupted:     0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:        5056 kB
+DirectMap2M:     2045952 kB
+DirectMap1G:    266338304 kB
+* Memory hierarchy
+./simgrid_hostinfo.sh: line 35: lstopo: command not found
+* Environment Variables
+GRAS_ROOT=/home/mquinson/nancy/simgrid
+TERM=screen
+SHELL=/bin/bash
+SSH_CLIENT=172.16.79.101 42984 22
+SSH_TTY=/dev/pts/0
+LC_ALL=en_US.UTF-8
+http_proxy=http://proxy:3128
+USER=mquinson
+LD_LIBRARY_PATH=GRAS_ROOT/lib:/home/mquinson/install/conceptual/lib:/home/mquinson/install/akypuera/lib
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+MAIL=/var/mail/mquinson
+PATH=/home/mquinson/simgrid-3.12//bin:/home/mquinson/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/mquinson/bin
+PWD=/home/mquinson/Code/SMPI-modeling/collectives
+LANG=en_US.UTF-8
+P4_GLOBMEMSIZE=33554432
+https_proxy=http://proxy:3128
+SHLVL=3
+HOME=/home/mquinson
+LANGUAGE=en_US:en
+LOGNAME=mquinson
+SSH_CONNECTION=172.16.79.101 42984 172.16.68.1 22
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+_=/usr/bin/printenv
+* Tools Versions
+** SimGrid Full Version
+SimGrid version 3.12-devel
+Copyright (c) 2004-2015. The Simgrid Team.
+Release build at commit 5a97de8 (2015-02-18 10:05:16 +0100)
+** SimGrid Commit Hash
+5a97de8c98502af9f74cfceb924fa02e0fd80925
+** Linux and gcc versions
+Linux version 2.6.32-5-amd64 (Debian 2.6.32-48squeeze6) (jmm@debian.org) (gcc version 4.3.5 (Debian 4.3.5-4) ) #1 SMP Tue May 13 16:34:35 UTC 2014
+** Gcc info
+Using built-in specs.
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 4.4.5-8' --with-bugurl=file:///usr/share/doc/gcc-4.4/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.4 --enable-shared --enable-multiarch --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.4 --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-objc-gc --with-arch-32=i586 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.4.5 (Debian 4.4.5-8) 
+** Make tool
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for x86_64-pc-linux-gnu
+** CMake
+cmake version 2.8.2
+* Compilation result
+* Platform file
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+
+
+<config id="General">
+  <prop id="workstation/model" value="compound"/>
+  <prop id="network/model" value="SMPI"/>
+  <prop id="network/TCP_gamma" value="4194304"/>
+  <prop id="network/sender_gap" value="0"/>
+  <prop id="maxmin/precision" value="1e-9"/>
+  <prop id="smpi/async_small_thres" value="65536"/>
+  <prop id="smpi/send_is_detached_thres" value="327680"/>
+<!--  <prop id="smpi/os" value="1:8.75118726019245e-06:7.09598480584951e-10;1420:1.38989305424406e-05:2.18111838119125e-10;65536:0.000193970854779561:-4.82025737428887e-11;327680:0:0"/>-->
+<!--  <prop id="smpi/or" value="1:9.3069771137911e-06:7.92179414036391e-10;1420:1.43097562292319e-05:8.66975835499791e-10;10000:1.41659209904282e-05:1.00877300603447e-09;65536:0:0"/>-->
+<!--  <prop id="smpi/bw_factor" value="0:0.408465938;1420:0.913760459;65536:0.937794396"/>-->
+<!--  <prop id="smpi/lat_factor" value="0:1.01;1420:4.02;65536:9.77"/>-->
+<!--  -->
+ <prop id="smpi/os" value="0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0"/>
+ <prop id="smpi/or" value="0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0"/>
+ <prop id="smpi/bw_factor" value="0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892"/>
+ <prop id="smpi/lat_factor" value="0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594"/>  
+</config>
+ 
+<AS id="AS_graphene" routing="Full" >
+  <cluster id="AS_sgraphene1" prefix="graphene-" radical="1-256" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene2" prefix="graphene-" radical="257-512" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene3" prefix="graphene-" radical="513-784" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene4" prefix="graphene-" radical="785-1024" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+
+  <link id="switch-backbone1" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter1" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone2" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter2" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone3" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter3" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone4" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter4" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+                
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+          symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>                
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     
+          <ASroute src="AS_sgraphene1" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+               <ASroute src="AS_sgraphene4" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene2" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+              <ASroute src="AS_sgraphene4" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     
+               <ASroute src="AS_sgraphene3" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+     
+                    <ASroute src="AS_sgraphene4" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+ </AS>
+</platform>
+
+* Experiment 1
+Do proc:534 size:2331602 freemem:264077564k mem usage:2490150936
+** Test with algorithm 2dmesh
+*** Command
+smpirun -platform graphene_1024.xml -np 534 ./alltoall 2331602 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:2dmesh --cfg=maxmin/precision:1e-7
+*** raw stdout
+
+*** raw stderr
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '2dmesh'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+  [0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+  [0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+  [0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+  [graphene-153.nancy.grid5000.fr:152:(0) 0.000003] /home/mquinson/Code/simgrid/include/xbt/sysdep.h:99: [xbt/CRITICAL] Memory allocation of 18446744072852118572 bytes failed
+  /home/mquinson/simgrid-3.12//bin/smpirun: line 461: 12992 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+
+*** raw timing information
+Command exited with non-zero status 134
+clock:317.67 user:174.32 sys:146.42 swapped:0 exitval:134 max:2597212512k
+
+*** Result
+FAILED_RESULT: non-zero status (algo:2dmesh numproc:534 msgsize:2331602 hostTime:317.67 hostMem:2597212512k)
+** Test with algorithm 3dmesh
+*** Command
+smpirun -platform graphene_1024.xml -np 534 ./alltoall 2331602 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:3dmesh --cfg=maxmin/precision:1e-7
+*** raw stdout
+  [0.000004] all_to_all returned 12
+*** raw stderr
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '3dmesh'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+  [0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+  [0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+  [0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+  [0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+  [0.000004] /home/mquinson/Code/simgrid/src/simix/smx_global.c:463: [simix_kernel/CRITICAL] Oops ! Deadlock or code not perfectly clean.
+  [0.000004] [simix_kernel/INFO] 533 processes are still running, waiting for something.
+  [0.000004] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+  [0.000004] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr): waiting for synchronization synchro 0x1582080 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr): waiting for synchronization synchro 0x1570920 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr): waiting for synchronization synchro 0x1572180 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr): waiting for synchronization synchro 0x1583d90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr): waiting for synchronization synchro 0x1568920 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr): waiting for synchronization synchro 0x1579d40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr): waiting for synchronization synchro 0x1566ff0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr): waiting for synchronization synchro 0x1583520 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr): waiting for synchronization synchro 0x15775e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr): waiting for synchronization synchro 0x157e930 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr): waiting for synchronization synchro 0x1581db0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr): waiting for synchronization synchro 0x1581f90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr): waiting for synchronization synchro 0x157f470 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr): waiting for synchronization synchro 0x15779a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr): waiting for synchronization synchro 0x157a100 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr): waiting for synchronization synchro 0x1580460 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr): waiting for synchronization synchro 0x156d170 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr): waiting for synchronization synchro 0x1583070 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr): waiting for synchronization synchro 0x1582f80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr): waiting for synchronization synchro 0x157b780 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr): waiting for synchronization synchro 0x157ecf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr): waiting for synchronization synchro 0x1575ab0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr): waiting for synchronization synchro 0x1580910 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr): waiting for synchronization synchro 0x1570830 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr): waiting for synchronization synchro 0x15686b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr): waiting for synchronization synchro 0x15828f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr): waiting for synchronization synchro 0x156d4b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr): waiting for synchronization synchro 0x1574430 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr): waiting for synchronization synchro 0x15767d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr): waiting for synchronization synchro 0x1578f30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr): waiting for synchronization synchro 0x1581180 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr): waiting for synchronization synchro 0x1583ca0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr): waiting for synchronization synchro 0x1582260 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr): waiting for synchronization synchro 0x1583250 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr): waiting for synchronization synchro 0x15776d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr): waiting for synchronization synchro 0x156dcd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr): waiting for synchronization synchro 0x1581ea0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr): waiting for synchronization synchro 0x1583700 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr): waiting for synchronization synchro 0x157d3a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr): waiting for synchronization synchro 0x1582da0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr): waiting for synchronization synchro 0x1579b60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr): waiting for synchronization synchro 0x157d580 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr): waiting for synchronization synchro 0x15668a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr): waiting for synchronization synchro 0x157cef0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr): waiting for synchronization synchro 0x1581720 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr): waiting for synchronization synchro 0x1581630 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr): waiting for synchronization synchro 0x1574ac0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr): waiting for synchronization synchro 0x157af10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr): waiting for synchronization synchro 0x1583bb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr): waiting for synchronization synchro 0x1578c60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr): waiting for synchronization synchro 0x15679b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr): waiting for synchronization synchro 0x157f920 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr): waiting for synchronization synchro 0x15710a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr): waiting for synchronization synchro 0x156da60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr): waiting for synchronization synchro 0x15700b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr): waiting for synchronization synchro 0x157bff0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr): waiting for synchronization synchro 0x1577a90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr): waiting for synchronization synchro 0x1580af0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr): waiting for synchronization synchro 0x1582e90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr): waiting for synchronization synchro 0x157d760 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr): waiting for synchronization synchro 0x157f650 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr): waiting for synchronization synchro 0x1575060 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr): waiting for synchronization synchro 0x156e5c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr): waiting for synchronization synchro 0x157b4b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr): waiting for synchronization synchro 0x15777c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr): waiting for synchronization synchro 0x157b5a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr): waiting for synchronization synchro 0x1582710 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr): waiting for synchronization synchro 0x1581450 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr): waiting for synchronization synchro 0x1578a80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr): waiting for synchronization synchro 0x157ffb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr): waiting for synchronization synchro 0x1579980 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr): waiting for synchronization synchro 0x157fdd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr): waiting for synchronization synchro 0x157fce0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr): waiting for synchronization synchro 0x157fbf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr): waiting for synchronization synchro 0x157fb00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr): waiting for synchronization synchro 0x1580be0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr): waiting for synchronization synchro 0x1581090 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr): waiting for synchronization synchro 0x15765f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr): waiting for synchronization synchro 0x157a010 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr): waiting for synchronization synchro 0x156dda0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr): waiting for synchronization synchro 0x1567c20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr): waiting for synchronization synchro 0x1574340 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr): waiting for synchronization synchro 0x157f380 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr): waiting for synchronization synchro 0x1572ae0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr): waiting for synchronization synchro 0x156f1b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr): waiting for synchronization synchro 0x157f0b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr): waiting for synchronization synchro 0x1570ec0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr): waiting for synchronization synchro 0x1567670 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr): waiting for synchronization synchro 0x1566f20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr): waiting for synchronization synchro 0x1581bd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr): waiting for synchronization synchro 0x15838e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr): waiting for synchronization synchro 0x1579f20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr): waiting for synchronization synchro 0x1577310 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr): waiting for synchronization synchro 0x157c3b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr): waiting for synchronization synchro 0x157e840 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr): waiting for synchronization synchro 0x15829e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr): waiting for synchronization synchro 0x15819f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr): waiting for synchronization synchro 0x1581cc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr): waiting for synchronization synchro 0x157ce00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr): waiting for synchronization synchro 0x157e390 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr): waiting for synchronization synchro 0x1577040 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr): waiting for synchronization synchro 0x1573080 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr): waiting for synchronization synchro 0x157a5b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr): waiting for synchronization synchro 0x1573ad0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr): waiting for synchronization synchro 0x1571eb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr): waiting for synchronization synchro 0x1573cb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr): waiting for synchronization synchro 0x156e850 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr): waiting for synchronization synchro 0x1572540 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr): waiting for synchronization synchro 0x157db20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr): waiting for synchronization synchro 0x157da30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr): waiting for synchronization synchro 0x157d940 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr): waiting for synchronization synchro 0x156efd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr): waiting for synchronization synchro 0x157f740 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr): waiting for synchronization synchro 0x157d670 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr): waiting for synchronization synchro 0x157e660 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr): waiting for synchronization synchro 0x157f560 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr): waiting for synchronization synchro 0x157b3c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr): waiting for synchronization synchro 0x157a3d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr): waiting for synchronization synchro 0x157d1c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr): waiting for synchronization synchro 0x157be10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr): waiting for synchronization synchro 0x1580eb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr): waiting for synchronization synchro 0x1573f80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr): waiting for synchronization synchro 0x1583430 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr): waiting for synchronization synchro 0x157cd10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr): waiting for synchronization synchro 0x157c4a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr): waiting for synchronization synchro 0x1578300 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr): waiting for synchronization synchro 0x1575f60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr): waiting for synchronization synchro 0x157f830 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr): waiting for synchronization synchro 0x1580550 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr): waiting for synchronization synchro 0x157c770 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr): waiting for synchronization synchro 0x1566be0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr): waiting for synchronization synchro 0x157c590 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr): waiting for synchronization synchro 0x157a1f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr): waiting for synchronization synchro 0x15794d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr): waiting for synchronization synchro 0x157c2c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr): waiting for synchronization synchro 0x157c1d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr): waiting for synchronization synchro 0x15756f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr): waiting for synchronization synchro 0x1575c90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr): waiting for synchronization synchro 0x1569ca0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr): waiting for synchronization synchro 0x157d0d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr): waiting for synchronization synchro 0x157d490 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr): waiting for synchronization synchro 0x1577b80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr): waiting for synchronization synchro 0x156a3f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr): waiting for synchronization synchro 0x1574250 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr): waiting for synchronization synchro 0x15667d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr): waiting for synchronization synchro 0x156cf00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr): waiting for synchronization synchro 0x1576500 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr): waiting for synchronization synchro 0x157dee0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr): waiting for synchronization synchro 0x156e010 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr): waiting for synchronization synchro 0x1580a00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr): waiting for synchronization synchro 0x156dc00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr): waiting for synchronization synchro 0x1572900 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr): waiting for synchronization synchro 0x1583160 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr): waiting for synchronization synchro 0x1571fa0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr): waiting for synchronization synchro 0x1569550 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr): waiting for synchronization synchro 0x157c0e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr): waiting for synchronization synchro 0x15768c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr): waiting for synchronization synchro 0x157ad30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr): waiting for synchronization synchro 0x157ac40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr): waiting for synchronization synchro 0x1578e40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr): waiting for synchronization synchro 0x15787b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr): waiting for synchronization synchro 0x157c680 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr): waiting for synchronization synchro 0x1577e50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr): waiting for synchronization synchro 0x1576c80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr): waiting for synchronization synchro 0x157b690 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr): waiting for synchronization synchro 0x156d8c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr): waiting for synchronization synchro 0x157a4c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr): waiting for synchronization synchro 0x15793e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr): waiting for synchronization synchro 0x1580370 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr): waiting for synchronization synchro 0x1570b00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr): waiting for synchronization synchro 0x156f0c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr): waiting for synchronization synchro 0x1582bc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr): waiting for synchronization synchro 0x1570560 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr): waiting for synchronization synchro 0x156d0a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr): waiting for synchronization synchro 0x1580cd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr): waiting for synchronization synchro 0x1579c50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr): waiting for synchronization synchro 0x1578d50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr): waiting for synchronization synchro 0x157ab50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr): waiting for synchronization synchro 0x157fec0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr): waiting for synchronization synchro 0x1579890 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr): waiting for synchronization synchro 0x157e570 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr): waiting for synchronization synchro 0x1579e30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr): waiting for synchronization synchro 0x15685e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr): waiting for synchronization synchro 0x1579110 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr): waiting for synchronization synchro 0x1573710 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 187 (186@graphene-187.nancy.grid5000.fr): waiting for synchronization synchro 0x1573e90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 188 (187@graphene-188.nancy.grid5000.fr): waiting for synchronization synchro 0x15729f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 189 (188@graphene-189.nancy.grid5000.fr): waiting for synchronization synchro 0x15837f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 190 (189@graphene-190.nancy.grid5000.fr): waiting for synchronization synchro 0x1575600 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 191 (190@graphene-191.nancy.grid5000.fr): waiting for synchronization synchro 0x1582530 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 192 (191@graphene-192.nancy.grid5000.fr): waiting for synchronization synchro 0x15797a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 193 (192@graphene-193.nancy.grid5000.fr): waiting for synchronization synchro 0x157b0f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 194 (193@graphene-194.nancy.grid5000.fr): waiting for synchronization synchro 0x157a970 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 195 (194@graphene-195.nancy.grid5000.fr): waiting for synchronization synchro 0x1578b70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 196 (195@graphene-196.nancy.grid5000.fr): waiting for synchronization synchro 0x156a320 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 197 (196@graphene-197.nancy.grid5000.fr): waiting for synchronization synchro 0x1570a10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 198 (197@graphene-198.nancy.grid5000.fr): waiting for synchronization synchro 0x156ab40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 199 (198@graphene-199.nancy.grid5000.fr): waiting for synchronization synchro 0x157b870 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 200 (199@graphene-200.nancy.grid5000.fr): waiting for synchronization synchro 0x15786c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 201 (200@graphene-201.nancy.grid5000.fr): waiting for synchronization synchro 0x1580fa0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 202 (201@graphene-202.nancy.grid5000.fr): waiting for synchronization synchro 0x157d850 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 203 (202@graphene-203.nancy.grid5000.fr): waiting for synchronization synchro 0x1581ae0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 204 (203@graphene-204.nancy.grid5000.fr): waiting for synchronization synchro 0x1573da0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 205 (204@graphene-205.nancy.grid5000.fr): waiting for synchronization synchro 0x1573530 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 206 (205@graphene-206.nancy.grid5000.fr): waiting for synchronization synchro 0x1568850 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 207 (206@graphene-207.nancy.grid5000.fr): waiting for synchronization synchro 0x1578030 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 208 (207@graphene-208.nancy.grid5000.fr): waiting for synchronization synchro 0x157dfd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 209 (208@graphene-209.nancy.grid5000.fr): waiting for synchronization synchro 0x157a880 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 210 (209@graphene-210.nancy.grid5000.fr): waiting for synchronization synchro 0x1582170 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 211 (210@graphene-211.nancy.grid5000.fr): waiting for synchronization synchro 0x1577c70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 212 (211@graphene-212.nancy.grid5000.fr): waiting for synchronization synchro 0x157ea20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 213 (212@graphene-213.nancy.grid5000.fr): waiting for synchronization synchro 0x157fa10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 214 (213@graphene-214.nancy.grid5000.fr): waiting for synchronization synchro 0x1582ad0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 215 (214@graphene-215.nancy.grid5000.fr): waiting for synchronization synchro 0x1566970 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 216 (215@graphene-216.nancy.grid5000.fr): waiting for synchronization synchro 0x156fed0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 217 (216@graphene-217.nancy.grid5000.fr): waiting for synchronization synchro 0x1575330 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 218 (217@graphene-218.nancy.grid5000.fr): waiting for synchronization synchro 0x157ec00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 219 (218@graphene-219.nancy.grid5000.fr): waiting for synchronization synchro 0x15774f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 220 (219@graphene-220.nancy.grid5000.fr): waiting for synchronization synchro 0x1572cc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 221 (220@graphene-221.nancy.grid5000.fr): waiting for synchronization synchro 0x157aa60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 222 (221@graphene-222.nancy.grid5000.fr): waiting for synchronization synchro 0x1577220 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 223 (222@graphene-223.nancy.grid5000.fr): waiting for synchronization synchro 0x1572450 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 224 (223@graphene-224.nancy.grid5000.fr): waiting for synchronization synchro 0x157e2a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 225 (224@graphene-225.nancy.grid5000.fr): waiting for synchronization synchro 0x1574d90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 226 (225@graphene-226.nancy.grid5000.fr): waiting for synchronization synchro 0x15749d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 227 (226@graphene-227.nancy.grid5000.fr): waiting for synchronization synchro 0x156e690 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 228 (227@graphene-228.nancy.grid5000.fr): waiting for synchronization synchro 0x1572810 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 229 (228@graphene-229.nancy.grid5000.fr): waiting for synchronization synchro 0x1576b90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 230 (229@graphene-230.nancy.grid5000.fr): waiting for synchronization synchro 0x1576aa0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 231 (230@graphene-231.nancy.grid5000.fr): waiting for synchronization synchro 0x1579020 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 232 (231@graphene-232.nancy.grid5000.fr): waiting for synchronization synchro 0x156cfd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 233 (232@graphene-233.nancy.grid5000.fr): waiting for synchronization synchro 0x157ca40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 234 (233@graphene-234.nancy.grid5000.fr): waiting for synchronization synchro 0x157b000 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 235 (234@graphene-235.nancy.grid5000.fr): waiting for synchronization synchro 0x15759c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 236 (235@graphene-236.nancy.grid5000.fr): waiting for synchronization synchro 0x157c860 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 237 (236@graphene-237.nancy.grid5000.fr): waiting for synchronization synchro 0x15663c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 238 (237@graphene-238.nancy.grid5000.fr): waiting for synchronization synchro 0x1576320 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 239 (238@graphene-239.nancy.grid5000.fr): waiting for synchronization synchro 0x1576230 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 240 (239@graphene-240.nancy.grid5000.fr): waiting for synchronization synchro 0x156d720 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 241 (240@graphene-241.nancy.grid5000.fr): waiting for synchronization synchro 0x156b360 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 242 (241@graphene-242.nancy.grid5000.fr): waiting for synchronization synchro 0x1580dc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 243 (242@graphene-243.nancy.grid5000.fr): waiting for synchronization synchro 0x1575e70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 244 (243@graphene-244.nancy.grid5000.fr): waiting for synchronization synchro 0x1575d80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 245 (244@graphene-245.nancy.grid5000.fr): waiting for synchronization synchro 0x156a660 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 246 (245@graphene-246.nancy.grid5000.fr): waiting for synchronization synchro 0x157a6a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 247 (246@graphene-247.nancy.grid5000.fr): waiting for synchronization synchro 0x1582cb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 248 (247@graphene-248.nancy.grid5000.fr): waiting for synchronization synchro 0x157c950 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 249 (248@graphene-249.nancy.grid5000.fr): waiting for synchronization synchro 0x1569bd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 250 (249@graphene-250.nancy.grid5000.fr): waiting for synchronization synchro 0x1582620 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 251 (250@graphene-251.nancy.grid5000.fr): waiting for synchronization synchro 0x1572090 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 252 (251@graphene-252.nancy.grid5000.fr): waiting for synchronization synchro 0x15769b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 253 (252@graphene-253.nancy.grid5000.fr): waiting for synchronization synchro 0x1575510 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 254 (253@graphene-254.nancy.grid5000.fr): waiting for synchronization synchro 0x156cbc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 255 (254@graphene-255.nancy.grid5000.fr): waiting for synchronization synchro 0x156ea30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 256 (255@graphene-256.nancy.grid5000.fr): waiting for synchronization synchro 0x156e4f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 257 (256@graphene-257.nancy.grid5000.fr): waiting for synchronization synchro 0x1580640 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 258 (257@graphene-258.nancy.grid5000.fr): waiting for synchronization synchro 0x1580730 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 259 (258@graphene-259.nancy.grid5000.fr): waiting for synchronization synchro 0x156f480 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 260 (259@graphene-260.nancy.grid5000.fr): waiting for synchronization synchro 0x1574e80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 261 (260@graphene-261.nancy.grid5000.fr): waiting for synchronization synchro 0x1576f50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 262 (261@graphene-262.nancy.grid5000.fr): waiting for synchronization synchro 0x156d580 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 263 (262@graphene-263.nancy.grid5000.fr): waiting for synchronization synchro 0x1583e80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 264 (263@graphene-264.nancy.grid5000.fr): waiting for synchronization synchro 0x1571280 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 265 (264@graphene-265.nancy.grid5000.fr): waiting for synchronization synchro 0x1571190 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 266 (265@graphene-266.nancy.grid5000.fr): waiting for synchronization synchro 0x156e280 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 267 (266@graphene-267.nancy.grid5000.fr): waiting for synchronization synchro 0x1582800 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 268 (267@graphene-268.nancy.grid5000.fr): waiting for synchronization synchro 0x1574700 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 269 (268@graphene-269.nancy.grid5000.fr): waiting for synchronization synchro 0x157eb10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 270 (269@graphene-270.nancy.grid5000.fr): waiting for synchronization synchro 0x156e760 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 271 (270@graphene-271.nancy.grid5000.fr): waiting for synchronization synchro 0x1578990 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 272 (271@graphene-272.nancy.grid5000.fr): waiting for synchronization synchro 0x15839d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 273 (272@graphene-273.nancy.grid5000.fr): waiting for synchronization synchro 0x157a790 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 274 (273@graphene-274.nancy.grid5000.fr): waiting for synchronization synchro 0x1574160 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 275 (274@graphene-275.nancy.grid5000.fr): waiting for synchronization synchro 0x157dc10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 276 (275@graphene-276.nancy.grid5000.fr): waiting for synchronization synchro 0x156ce30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 277 (276@graphene-277.nancy.grid5000.fr): waiting for synchronization synchro 0x157efc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 278 (277@graphene-278.nancy.grid5000.fr): waiting for synchronization synchro 0x1572630 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 279 (278@graphene-279.nancy.grid5000.fr): waiting for synchronization synchro 0x1578210 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 280 (279@graphene-280.nancy.grid5000.fr): waiting for synchronization synchro 0x1570dd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 281 (280@graphene-281.nancy.grid5000.fr): waiting for synchronization synchro 0x157e1b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 282 (281@graphene-282.nancy.grid5000.fr): waiting for synchronization synchro 0x15739e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 283 (282@graphene-283.nancy.grid5000.fr): waiting for synchronization synchro 0x1577d60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 284 (283@graphene-284.nancy.grid5000.fr): waiting for synchronization synchro 0x156bdf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 285 (284@graphene-285.nancy.grid5000.fr): waiting for synchronization synchro 0x157f1a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 286 (285@graphene-286.nancy.grid5000.fr): waiting for synchronization synchro 0x157bc30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 287 (286@graphene-287.nancy.grid5000.fr): waiting for synchronization synchro 0x1577400 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 288 (287@graphene-288.nancy.grid5000.fr): waiting for synchronization synchro 0x1572db0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 289 (288@graphene-289.nancy.grid5000.fr): waiting for synchronization synchro 0x1573350 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 290 (289@graphene-290.nancy.grid5000.fr): waiting for synchronization synchro 0x156eee0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 291 (290@graphene-291.nancy.grid5000.fr): waiting for synchronization synchro 0x1573170 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 292 (291@graphene-292.nancy.grid5000.fr): waiting for synchronization synchro 0x1572bd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 293 (292@graphene-293.nancy.grid5000.fr): waiting for synchronization synchro 0x1577130 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 294 (293@graphene-294.nancy.grid5000.fr): waiting for synchronization synchro 0x1572270 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 295 (294@graphene-295.nancy.grid5000.fr): waiting for synchronization synchro 0x157cb30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 296 (295@graphene-296.nancy.grid5000.fr): waiting for synchronization synchro 0x1573440 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 297 (296@graphene-297.nancy.grid5000.fr): waiting for synchronization synchro 0x157ddf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 298 (297@graphene-298.nancy.grid5000.fr): waiting for synchronization synchro 0x157dd00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 299 (298@graphene-299.nancy.grid5000.fr): waiting for synchronization synchro 0x156ffc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 300 (299@graphene-300.nancy.grid5000.fr): waiting for synchronization synchro 0x157b2d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 301 (300@graphene-301.nancy.grid5000.fr): waiting for synchronization synchro 0x157ba50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 302 (301@graphene-302.nancy.grid5000.fr): waiting for synchronization synchro 0x15784e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 303 (302@graphene-303.nancy.grid5000.fr): waiting for synchronization synchro 0x1572f90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 304 (303@graphene-304.nancy.grid5000.fr): waiting for synchronization synchro 0x15792f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 305 (304@graphene-305.nancy.grid5000.fr): waiting for synchronization synchro 0x1574070 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 306 (305@graphene-306.nancy.grid5000.fr): waiting for synchronization synchro 0x1573260 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 307 (306@graphene-307.nancy.grid5000.fr): waiting for synchronization synchro 0x1572ea0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 308 (307@graphene-308.nancy.grid5000.fr): waiting for synchronization synchro 0x1576e60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 309 (308@graphene-309.nancy.grid5000.fr): waiting for synchronization synchro 0x1581360 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 310 (309@graphene-310.nancy.grid5000.fr): waiting for synchronization synchro 0x1570740 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 311 (310@graphene-311.nancy.grid5000.fr): waiting for synchronization synchro 0x1575ba0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 312 (311@graphene-312.nancy.grid5000.fr): waiting for synchronization synchro 0x1583f70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 313 (312@graphene-313.nancy.grid5000.fr): waiting for synchronization synchro 0x157cfe0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 314 (313@graphene-314.nancy.grid5000.fr): waiting for synchronization synchro 0x156e0e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 315 (314@graphene-315.nancy.grid5000.fr): waiting for synchronization synchro 0x156f660 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 316 (315@graphene-316.nancy.grid5000.fr): waiting for synchronization synchro 0x1571a00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 317 (316@graphene-317.nancy.grid5000.fr): waiting for synchronization synchro 0x1571460 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 318 (317@graphene-318.nancy.grid5000.fr): waiting for synchronization synchro 0x156fcf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 319 (318@graphene-319.nancy.grid5000.fr): waiting for synchronization synchro 0x1571730 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 320 (319@graphene-320.nancy.grid5000.fr): waiting for synchronization synchro 0x1571640 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 321 (320@graphene-321.nancy.grid5000.fr): waiting for synchronization synchro 0x1571550 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 322 (321@graphene-322.nancy.grid5000.fr): waiting for synchronization synchro 0x15747f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 323 (322@graphene-323.nancy.grid5000.fr): waiting for synchronization synchro 0x156f2a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 324 (323@graphene-324.nancy.grid5000.fr): waiting for synchronization synchro 0x1574bb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 325 (324@graphene-325.nancy.grid5000.fr): waiting for synchronization synchro 0x1581540 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 326 (325@graphene-326.nancy.grid5000.fr): waiting for synchronization synchro 0x1570ce0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 327 (326@graphene-327.nancy.grid5000.fr): waiting for synchronization synchro 0x1572720 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 328 (327@graphene-328.nancy.grid5000.fr): waiting for synchronization synchro 0x157e0c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 329 (328@graphene-329.nancy.grid5000.fr): waiting for synchronization synchro 0x1570fb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 330 (329@graphene-330.nancy.grid5000.fr): waiting for synchronization synchro 0x156fc00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 331 (330@graphene-331.nancy.grid5000.fr): waiting for synchronization synchro 0x157a2e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 332 (331@graphene-332.nancy.grid5000.fr): waiting for synchronization synchro 0x1581810 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 333 (332@graphene-333.nancy.grid5000.fr): waiting for synchronization synchro 0x1576140 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 334 (333@graphene-334.nancy.grid5000.fr): waiting for synchronization synchro 0x156edf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 335 (334@graphene-335.nancy.grid5000.fr): waiting for synchronization synchro 0x157e480 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 336 (335@graphene-336.nancy.grid5000.fr): waiting for synchronization synchro 0x15783f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 337 (336@graphene-337.nancy.grid5000.fr): waiting for synchronization synchro 0x156bec0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 338 (337@graphene-338.nancy.grid5000.fr): waiting for synchronization synchro 0x1574610 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 339 (338@graphene-339.nancy.grid5000.fr): waiting for synchronization synchro 0x156d3e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 340 (339@graphene-340.nancy.grid5000.fr): waiting for synchronization synchro 0x1575240 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 341 (340@graphene-341.nancy.grid5000.fr): waiting for synchronization synchro 0x156f840 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 342 (341@graphene-342.nancy.grid5000.fr): waiting for synchronization synchro 0x1583340 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 343 (342@graphene-343.nancy.grid5000.fr): waiting for synchronization synchro 0x15757e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 344 (343@graphene-344.nancy.grid5000.fr): waiting for synchronization synchro 0x1573bc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 345 (344@graphene-345.nancy.grid5000.fr): waiting for synchronization synchro 0x15738f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 346 (345@graphene-346.nancy.grid5000.fr): waiting for synchronization synchro 0x156caf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 347 (346@graphene-347.nancy.grid5000.fr): waiting for synchronization synchro 0x1571820 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 348 (347@graphene-348.nancy.grid5000.fr): waiting for synchronization synchro 0x1569890 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 349 (348@graphene-349.nancy.grid5000.fr): waiting for synchronization synchro 0x15748e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 350 (349@graphene-350.nancy.grid5000.fr): waiting for synchronization synchro 0x1570290 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 351 (350@graphene-351.nancy.grid5000.fr): waiting for synchronization synchro 0x156f930 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 352 (351@graphene-352.nancy.grid5000.fr): waiting for synchronization synchro 0x1576d70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 353 (352@graphene-353.nancy.grid5000.fr): waiting for synchronization synchro 0x156f750 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 354 (353@graphene-354.nancy.grid5000.fr): waiting for synchronization synchro 0x1575150 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 355 (354@graphene-355.nancy.grid5000.fr): waiting for synchronization synchro 0x156f570 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 356 (355@graphene-356.nancy.grid5000.fr): waiting for synchronization synchro 0x156f390 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 357 (356@graphene-357.nancy.grid5000.fr): waiting for synchronization synchro 0x1570380 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 358 (357@graphene-358.nancy.grid5000.fr): waiting for synchronization synchro 0x156e350 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 359 (358@graphene-359.nancy.grid5000.fr): waiting for synchronization synchro 0x157d2b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 360 (359@graphene-360.nancy.grid5000.fr): waiting for synchronization synchro 0x157b1e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 361 (360@graphene-361.nancy.grid5000.fr): waiting for synchronization synchro 0x1577f40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 362 (361@graphene-362.nancy.grid5000.fr): waiting for synchronization synchro 0x156c540 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 363 (362@graphene-363.nancy.grid5000.fr): waiting for synchronization synchro 0x1571dc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 364 (363@graphene-364.nancy.grid5000.fr): waiting for synchronization synchro 0x156ed00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 365 (364@graphene-365.nancy.grid5000.fr): waiting for synchronization synchro 0x156ec10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 366 (365@graphene-366.nancy.grid5000.fr): waiting for synchronization synchro 0x156eb20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 367 (366@graphene-367.nancy.grid5000.fr): waiting for synchronization synchro 0x1584060 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 368 (367@graphene-368.nancy.grid5000.fr): waiting for synchronization synchro 0x156e940 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 369 (368@graphene-369.nancy.grid5000.fr): waiting for synchronization synchro 0x157f290 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 370 (369@graphene-370.nancy.grid5000.fr): waiting for synchronization synchro 0x1574520 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 371 (370@graphene-371.nancy.grid5000.fr): waiting for synchronization synchro 0x156fa20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 372 (371@graphene-372.nancy.grid5000.fr): waiting for synchronization synchro 0x1571910 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 373 (372@graphene-373.nancy.grid5000.fr): waiting for synchronization synchro 0x156e420 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 374 (373@graphene-374.nancy.grid5000.fr): waiting for synchronization synchro 0x1574f70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 375 (374@graphene-375.nancy.grid5000.fr): waiting for synchronization synchro 0x156df40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 376 (375@graphene-376.nancy.grid5000.fr): waiting for synchronization synchro 0x1571af0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 377 (376@graphene-377.nancy.grid5000.fr): waiting for synchronization synchro 0x1570470 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 378 (377@graphene-378.nancy.grid5000.fr): waiting for synchronization synchro 0x156e1b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 379 (378@graphene-379.nancy.grid5000.fr): waiting for synchronization synchro 0x1580820 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 380 (379@graphene-380.nancy.grid5000.fr): waiting for synchronization synchro 0x156fb10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 381 (380@graphene-381.nancy.grid5000.fr): waiting for synchronization synchro 0x156de70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 382 (381@graphene-382.nancy.grid5000.fr): waiting for synchronization synchro 0x156d310 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 383 (382@graphene-383.nancy.grid5000.fr): waiting for synchronization synchro 0x1583610 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 384 (383@graphene-384.nancy.grid5000.fr): waiting for synchronization synchro 0x1579a70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 385 (384@graphene-385.nancy.grid5000.fr): waiting for synchronization synchro 0x15785d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 386 (385@graphene-386.nancy.grid5000.fr): waiting for synchronization synchro 0x156d240 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 387 (386@graphene-387.nancy.grid5000.fr): waiting for synchronization synchro 0x156db30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 388 (387@graphene-388.nancy.grid5000.fr): waiting for synchronization synchro 0x1579200 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 389 (388@graphene-389.nancy.grid5000.fr): waiting for synchronization synchro 0x156d7f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 390 (389@graphene-390.nancy.grid5000.fr): waiting for synchronization synchro 0x1580280 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 391 (390@graphene-391.nancy.grid5000.fr): waiting for synchronization synchro 0x156c060 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 392 (391@graphene-392.nancy.grid5000.fr): waiting for synchronization synchro 0x1571370 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 393 (392@graphene-393.nancy.grid5000.fr): waiting for synchronization synchro 0x1574ca0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 394 (393@graphene-394.nancy.grid5000.fr): waiting for synchronization synchro 0x1571be0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 395 (394@graphene-395.nancy.grid5000.fr): waiting for synchronization synchro 0x1570bf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 396 (395@graphene-396.nancy.grid5000.fr): waiting for synchronization synchro 0x1571cd0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 397 (396@graphene-397.nancy.grid5000.fr): waiting for synchronization synchro 0x157bd20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 398 (397@graphene-398.nancy.grid5000.fr): waiting for synchronization synchro 0x15796b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 399 (398@graphene-399.nancy.grid5000.fr): waiting for synchronization synchro 0x157ae20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 400 (399@graphene-400.nancy.grid5000.fr): waiting for synchronization synchro 0x1573620 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 401 (400@graphene-401.nancy.grid5000.fr): waiting for synchronization synchro 0x157cc20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 402 (401@graphene-402.nancy.grid5000.fr): waiting for synchronization synchro 0x156b5d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 403 (402@graphene-403.nancy.grid5000.fr): waiting for synchronization synchro 0x156c880 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 404 (403@graphene-404.nancy.grid5000.fr): waiting for synchronization synchro 0x1575420 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 405 (404@graphene-405.nancy.grid5000.fr): waiting for synchronization synchro 0x156a800 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 406 (405@graphene-406.nancy.grid5000.fr): waiting for synchronization synchro 0x156b6a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 407 (406@graphene-407.nancy.grid5000.fr): waiting for synchronization synchro 0x156cd60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 408 (407@graphene-408.nancy.grid5000.fr): waiting for synchronization synchro 0x156a9a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 409 (408@graphene-409.nancy.grid5000.fr): waiting for synchronization synchro 0x156c470 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 410 (409@graphene-410.nancy.grid5000.fr): waiting for synchronization synchro 0x156c130 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 411 (410@graphene-411.nancy.grid5000.fr): waiting for synchronization synchro 0x156cc90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 412 (411@graphene-412.nancy.grid5000.fr): waiting for synchronization synchro 0x1572360 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 413 (412@graphene-413.nancy.grid5000.fr): waiting for synchronization synchro 0x1568370 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 414 (413@graphene-414.nancy.grid5000.fr): waiting for synchronization synchro 0x156c2d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 415 (414@graphene-415.nancy.grid5000.fr): waiting for synchronization synchro 0x156b9e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 416 (415@graphene-416.nancy.grid5000.fr): waiting for synchronization synchro 0x156b910 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 417 (416@graphene-417.nancy.grid5000.fr): waiting for synchronization synchro 0x156b770 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 418 (417@graphene-418.nancy.grid5000.fr): waiting for synchronization synchro 0x156ace0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 419 (418@graphene-419.nancy.grid5000.fr): waiting for synchronization synchro 0x1568100 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 420 (419@graphene-420.nancy.grid5000.fr): waiting for synchronization synchro 0x1570650 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 421 (420@graphene-421.nancy.grid5000.fr): waiting for synchronization synchro 0x156b020 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 422 (421@graphene-422.nancy.grid5000.fr): waiting for synchronization synchro 0x156b500 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 423 (422@graphene-423.nancy.grid5000.fr): waiting for synchronization synchro 0x156c7b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 424 (423@graphene-424.nancy.grid5000.fr): waiting for synchronization synchro 0x157e750 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 425 (424@graphene-425.nancy.grid5000.fr): waiting for synchronization synchro 0x1566220 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 426 (425@graphene-426.nancy.grid5000.fr): waiting for synchronization synchro 0x15795c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 427 (426@graphene-427.nancy.grid5000.fr): waiting for synchronization synchro 0x156c200 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 428 (427@graphene-428.nancy.grid5000.fr): waiting for synchronization synchro 0x156adb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 429 (428@graphene-429.nancy.grid5000.fr): waiting for synchronization synchro 0x156b430 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 430 (429@graphene-430.nancy.grid5000.fr): waiting for synchronization synchro 0x156ca20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 431 (430@graphene-431.nancy.grid5000.fr): waiting for synchronization synchro 0x156bd20 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 432 (431@graphene-432.nancy.grid5000.fr): waiting for synchronization synchro 0x156b290 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 433 (432@graphene-433.nancy.grid5000.fr): waiting for synchronization synchro 0x15662f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 434 (433@graphene-434.nancy.grid5000.fr): waiting for synchronization synchro 0x156bc50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 435 (434@graphene-435.nancy.grid5000.fr): waiting for synchronization synchro 0x156ac10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 436 (435@graphene-436.nancy.grid5000.fr): waiting for synchronization synchro 0x1567cf0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 437 (436@graphene-437.nancy.grid5000.fr): waiting for synchronization synchro 0x156bab0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 438 (437@graphene-438.nancy.grid5000.fr): waiting for synchronization synchro 0x156fde0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 439 (438@graphene-439.nancy.grid5000.fr): waiting for synchronization synchro 0x156aa70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 440 (439@graphene-440.nancy.grid5000.fr): waiting for synchronization synchro 0x156b0f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 441 (440@graphene-441.nancy.grid5000.fr): waiting for synchronization synchro 0x1576050 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 442 (441@graphene-442.nancy.grid5000.fr): waiting for synchronization synchro 0x156c3a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 443 (442@graphene-443.nancy.grid5000.fr): waiting for synchronization synchro 0x156a730 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 444 (443@graphene-444.nancy.grid5000.fr): waiting for synchronization synchro 0x15788a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 445 (444@graphene-445.nancy.grid5000.fr): waiting for synchronization synchro 0x1567f60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 446 (445@graphene-446.nancy.grid5000.fr): waiting for synchronization synchro 0x1573800 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 447 (446@graphene-447.nancy.grid5000.fr): waiting for synchronization synchro 0x156c610 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 448 (447@graphene-448.nancy.grid5000.fr): waiting for synchronization synchro 0x156a8d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 449 (448@graphene-449.nancy.grid5000.fr): waiting for synchronization synchro 0x156bf90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 450 (449@graphene-450.nancy.grid5000.fr): waiting for synchronization synchro 0x1580190 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 451 (450@graphene-451.nancy.grid5000.fr): waiting for synchronization synchro 0x15689f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 452 (451@graphene-452.nancy.grid5000.fr): waiting for synchronization synchro 0x1568e00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 453 (452@graphene-453.nancy.grid5000.fr): waiting for synchronization synchro 0x1569d70 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 454 (453@graphene-454.nancy.grid5000.fr): waiting for synchronization synchro 0x1568d30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 455 (454@graphene-455.nancy.grid5000.fr): waiting for synchronization synchro 0x1569fe0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 456 (455@graphene-456.nancy.grid5000.fr): waiting for synchronization synchro 0x157bf00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 457 (456@graphene-457.nancy.grid5000.fr): waiting for synchronization synchro 0x1567400 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 458 (457@graphene-458.nancy.grid5000.fr): waiting for synchronization synchro 0x1566b10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 459 (458@graphene-459.nancy.grid5000.fr): waiting for synchronization synchro 0x1569f10 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 460 (459@graphene-460.nancy.grid5000.fr): waiting for synchronization synchro 0x15675a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 461 (460@graphene-461.nancy.grid5000.fr): waiting for synchronization synchro 0x1582440 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 462 (461@graphene-462.nancy.grid5000.fr): waiting for synchronization synchro 0x157ede0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 463 (462@graphene-463.nancy.grid5000.fr): waiting for synchronization synchro 0x15766e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 464 (463@graphene-464.nancy.grid5000.fr): waiting for synchronization synchro 0x1567a80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 465 (464@graphene-465.nancy.grid5000.fr): waiting for synchronization synchro 0x15678e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 466 (465@graphene-466.nancy.grid5000.fr): waiting for synchronization synchro 0x1568fa0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 467 (466@graphene-467.nancy.grid5000.fr): waiting for synchronization synchro 0x156d990 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 468 (467@graphene-468.nancy.grid5000.fr): waiting for synchronization synchro 0x1567b50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 469 (468@graphene-469.nancy.grid5000.fr): waiting for synchronization synchro 0x156a180 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 470 (469@graphene-470.nancy.grid5000.fr): waiting for synchronization synchro 0x157b960 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 471 (470@graphene-471.nancy.grid5000.fr): waiting for synchronization synchro 0x1567740 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 472 (471@graphene-472.nancy.grid5000.fr): waiting for synchronization synchro 0x156a250 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 473 (472@graphene-473.nancy.grid5000.fr): waiting for synchronization synchro 0x1576410 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 474 (473@graphene-474.nancy.grid5000.fr): waiting for synchronization synchro 0x15692e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 475 (474@graphene-475.nancy.grid5000.fr): waiting for synchronization synchro 0x15674d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 476 (475@graphene-476.nancy.grid5000.fr): waiting for synchronization synchro 0x1568c60 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 477 (476@graphene-477.nancy.grid5000.fr): waiting for synchronization synchro 0x1569070 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 478 (477@graphene-478.nancy.grid5000.fr): waiting for synchronization synchro 0x1568ac0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 479 (478@graphene-479.nancy.grid5000.fr): waiting for synchronization synchro 0x1568ed0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 480 (479@graphene-480.nancy.grid5000.fr): waiting for synchronization synchro 0x1569e40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 481 (480@graphene-481.nancy.grid5000.fr): waiting for synchronization synchro 0x1566e50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 482 (481@graphene-482.nancy.grid5000.fr): waiting for synchronization synchro 0x1581900 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 483 (482@graphene-483.nancy.grid5000.fr): waiting for synchronization synchro 0x1568b90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 484 (483@graphene-484.nancy.grid5000.fr): waiting for synchronization synchro 0x1569960 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 485 (484@graphene-485.nancy.grid5000.fr): waiting for synchronization synchro 0x156a590 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 486 (485@graphene-486.nancy.grid5000.fr): waiting for synchronization synchro 0x1582350 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 487 (486@graphene-487.nancy.grid5000.fr): waiting for synchronization synchro 0x1578120 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 488 (487@graphene-488.nancy.grid5000.fr): waiting for synchronization synchro 0x15778b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 489 (488@graphene-489.nancy.grid5000.fr): waiting for synchronization synchro 0x156af50 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 490 (489@graphene-490.nancy.grid5000.fr): waiting for synchronization synchro 0x156bb80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 491 (490@graphene-491.nancy.grid5000.fr): waiting for synchronization synchro 0x1568440 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 492 (491@graphene-492.nancy.grid5000.fr): waiting for synchronization synchro 0x1568510 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 493 (492@graphene-493.nancy.grid5000.fr): waiting for synchronization synchro 0x156d650 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 494 (493@graphene-494.nancy.grid5000.fr): waiting for synchronization synchro 0x1568030 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 495 (494@graphene-495.nancy.grid5000.fr): waiting for synchronization synchro 0x156b1c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 496 (495@graphene-496.nancy.grid5000.fr): waiting for synchronization synchro 0x156ae80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 497 (496@graphene-497.nancy.grid5000.fr): waiting for synchronization synchro 0x156b840 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 498 (497@graphene-498.nancy.grid5000.fr): waiting for synchronization synchro 0x156c950 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 499 (498@graphene-499.nancy.grid5000.fr): waiting for synchronization synchro 0x15682a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 500 (499@graphene-500.nancy.grid5000.fr): waiting for synchronization synchro 0x156c6e0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 501 (500@graphene-501.nancy.grid5000.fr): waiting for synchronization synchro 0x1567dc0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 502 (501@graphene-502.nancy.grid5000.fr): waiting for synchronization synchro 0x15701a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 503 (502@graphene-503.nancy.grid5000.fr): waiting for synchronization synchro 0x1567810 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 504 (503@graphene-504.nancy.grid5000.fr): waiting for synchronization synchro 0x1569140 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 505 (504@graphene-505.nancy.grid5000.fr): waiting for synchronization synchro 0x157bb40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 506 (505@graphene-506.nancy.grid5000.fr): waiting for synchronization synchro 0x15670c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 507 (506@graphene-507.nancy.grid5000.fr): waiting for synchronization synchro 0x1569620 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 508 (507@graphene-508.nancy.grid5000.fr): waiting for synchronization synchro 0x1569480 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 509 (508@graphene-509.nancy.grid5000.fr): waiting for synchronization synchro 0x157eed0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 510 (509@graphene-510.nancy.grid5000.fr): waiting for synchronization synchro 0x1583ac0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 511 (510@graphene-511.nancy.grid5000.fr): waiting for synchronization synchro 0x1566700 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 512 (511@graphene-512.nancy.grid5000.fr): waiting for synchronization synchro 0x1567330 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 513 (512@graphene-513.nancy.grid5000.fr): waiting for synchronization synchro 0x15693b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 514 (513@graphene-514.nancy.grid5000.fr): waiting for synchronization synchro 0x1581270 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 515 (514@graphene-515.nancy.grid5000.fr): waiting for synchronization synchro 0x1566d80 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 516 (515@graphene-516.nancy.grid5000.fr): waiting for synchronization synchro 0x1569a30 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 517 (516@graphene-517.nancy.grid5000.fr): waiting for synchronization synchro 0x156a4c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 518 (517@graphene-518.nancy.grid5000.fr): waiting for synchronization synchro 0x15758d0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 519 (518@graphene-519.nancy.grid5000.fr): waiting for synchronization synchro 0x1567260 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 520 (519@graphene-520.nancy.grid5000.fr): waiting for synchronization synchro 0x15800a0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 521 (520@graphene-521.nancy.grid5000.fr): waiting for synchronization synchro 0x1566490 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 522 (521@graphene-522.nancy.grid5000.fr): waiting for synchronization synchro 0x156a0b0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 523 (522@graphene-523.nancy.grid5000.fr): waiting for synchronization synchro 0x1569b00 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 524 (523@graphene-524.nancy.grid5000.fr): waiting for synchronization synchro 0x1566a40 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 525 (524@graphene-525.nancy.grid5000.fr): waiting for synchronization synchro 0x1569210 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 526 (525@graphene-526.nancy.grid5000.fr): waiting for synchronization synchro 0x15696f0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 527 (526@graphene-527.nancy.grid5000.fr): waiting for synchronization synchro 0x15697c0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 528 (527@graphene-528.nancy.grid5000.fr): waiting for synchronization synchro 0x1568780 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 529 (528@graphene-529.nancy.grid5000.fr): waiting for synchronization synchro 0x1566630 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 530 (529@graphene-530.nancy.grid5000.fr): waiting for synchronization synchro 0x1566560 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 531 (530@graphene-531.nancy.grid5000.fr): waiting for synchronization synchro 0x1566cb0 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 532 (531@graphene-532.nancy.grid5000.fr): waiting for synchronization synchro 0x1567190 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 533 (532@graphene-533.nancy.grid5000.fr): waiting for synchronization synchro 0x1567e90 (synchro) in state 0 to finish
+  [0.000004] [simix_kernel/INFO] Process 534 (533@graphene-534.nancy.grid5000.fr): waiting for synchronization synchro 0x15681d0 (synchro) in state 0 to finish
+  /home/mquinson/simgrid-3.12//bin/smpirun: line 461: 16235 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+
+*** raw timing information
+Command exited with non-zero status 134
+clock:315.57 user:174.01 sys:144.68 swapped:0 exitval:134 max:2597212544k
+
+*** Result
+FAILED_RESULT: non-zero status (algo:3dmesh numproc:534 msgsize:2331602 hostTime:315.57 hostMem:2597212544k)
+** Test with algorithm basic_linear
