@@ -19,7 +19,7 @@ export PATH="$SGPATH/bin:$PATH"
 platformfile="graphene_1024.xml"
 
 # Max sizes to test
-maxsize=`expr 10 \* 1024 \* 1024`
+maxsize=`expr 2 \* 1024 \* 1024`
 maxproc=1024
 
 # The command to run 
