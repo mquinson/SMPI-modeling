@@ -1,0 +1,1690 @@
+#+TITLE: SMPI Collective evaluation
+#+DATE: Sun Feb 22 14:34:10 CET 2015
+#+AUTHOR: mquinson
+ 
+* People logged when experiment started:
+* Hostname
+graphene-90.nancy.grid5000.fr
+* System information
+Linux graphene-90.nancy.grid5000.fr 3.2.0-4-amd64 #1 SMP Debian 3.2.63-2+deb7u1 x86_64 GNU/Linux
+* CPU info
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Xeon(R) CPU           X3440  @ 2.53GHz
+stepping	: 5
+microcode	: 0x1
+cpu MHz		: 2534.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5054.53
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Xeon(R) CPU           X3440  @ 2.53GHz
+stepping	: 5
+microcode	: 0x1
+cpu MHz		: 2534.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5053.73
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Xeon(R) CPU           X3440  @ 2.53GHz
+stepping	: 5
+microcode	: 0x1
+cpu MHz		: 2534.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5053.74
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 30
+model name	: Intel(R) Xeon(R) CPU           X3440  @ 2.53GHz
+stepping	: 5
+microcode	: 0x1
+cpu MHz		: 2534.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 popcnt lahf_lm ida dtherm tpr_shadow vnmi flexpriority ept vpid
+bogomips	: 5053.74
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+* CPU governor
+performance
+* CPU frequency
+2534000
+* Meminfo
+MemTotal:       16465172 kB
+MemFree:        14859408 kB
+Buffers:          493128 kB
+Cached:           497044 kB
+SwapCached:            0 kB
+Active:          1050196 kB
+Inactive:         293668 kB
+Active(anon):     354080 kB
+Inactive(anon):      680 kB
+Active(file):     696116 kB
+Inactive(file):   292988 kB
+Unevictable:        3476 kB
+Mlocked:            3476 kB
+SwapTotal:       3905532 kB
+SwapFree:        3905532 kB
+Dirty:                64 kB
+Writeback:             0 kB
+AnonPages:        355320 kB
+Mapped:            29348 kB
+Shmem:               852 kB
+Slab:             122080 kB
+SReclaimable:      98844 kB
+SUnreclaim:        23236 kB
+KernelStack:        2280 kB
+PageTables:         4512 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    12138116 kB
+Committed_AS:     925620 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      309888 kB
+VmallocChunk:   34359426372 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       71296 kB
+DirectMap2M:    16697344 kB
+* Memory hierarchy
+Machine (16GB)
+  Socket L#0 + L3 L#0 (8192KB)
+    L2 L#0 (256KB) + L1 L#0 (32KB) + Core L#0 + PU L#0 (P#0)
+    L2 L#1 (256KB) + L1 L#1 (32KB) + Core L#1 + PU L#1 (P#1)
+    L2 L#2 (256KB) + L1 L#2 (32KB) + Core L#2 + PU L#2 (P#2)
+    L2 L#3 (256KB) + L1 L#3 (32KB) + Core L#3 + PU L#3 (P#3)
+  HostBridge L#0
+    PCIBridge
+      PCI 15b3:6732
+        Net L#0 "ib0"
+        Net L#1 "ib1"
+        OpenFabrics L#2 "mlx4_0"
+    PCIBridge
+      PCI 8086:10d3
+        Net L#3 "eth0"
+    PCIBridge
+      PCI 8086:10d3
+        Net L#4 "eth1"
+    PCIBridge
+      PCI 8086:10d3
+        Net L#5 "eth2"
+    PCIBridge
+      PCI 1a03:2000
+    PCI 8086:3b22
+      Block L#6 "sda"
+* Environment Variables
+OAR_JOBID=605481
+OAR_ARRAYID=605481
+OARDIR=/usr/lib/oar
+OAR_WORKING_DIRECTORY=/home/mquinson/Code/SMPI-modeling
+TERM=unknown
+SHELL=/bin/bash
+XDG_SESSION_COOKIE=889921aa795bbff72da6de65547ece7b-1424612050.588794-2143324932
+PERL5LIB=/usr/lib/oar
+OARCONFFILE=/etc/oar/oar.conf
+OAR_USER=mquinson
+LC_ALL=en_US.UTF-8
+USER=mquinson
+OAR_WORKDIR=/home/mquinson/Code/SMPI-modeling
+OARUSER=oar
+OAR_JOB_NAME=
+OAR_NODE_FILE=/var/lib/oar/605481
+OAR_KEY=1
+OAR_RESOURCE_PROPERTIES_FILE=/var/lib/oar/605481_resources
+PATH=/home/mquinson/simgrid-3.12/bin:/usr/lib/oar/oardodo:/usr/lib/oar/oardodo:/usr/local/bin:/usr/bin:/bin:/grid5000/code/bin:/home/mquinson/bin:/home/mquinson/bin:/home/mquinson/bin
+OAR_PROJECT_NAME=default
+OAR_JOB_WALLTIME_SECONDS=259200
+OAR_STDERR=OAR.605481.stderr
+PWD=/home/mquinson/Code/SMPI-modeling/collectives
+LANG=en_US.UTF-8
+P4_GLOBMEMSIZE=33554432
+OAR_ARRAY_ID=605481
+SUDO_COMMAND=OAR
+OAR_FILE_NODES=/var/lib/oar/605481
+SHLVL=3
+HOME=/home/mquinson
+LANGUAGE=en_US:en
+OAR_ARRAYINDEX=1
+OARXAUTHLOCATION=/usr/bin/xauth
+OAR_JOB_WALLTIME=72:0:0
+BASH_ENV=/home/mquinson/.bashrc
+OAR_NODEFILE=/var/lib/oar/605481
+LOGNAME=mquinson
+SSH_CONNECTION=172.16.79.114 44906 172.16.64.90 6667
+OAR_RESOURCE_FILE=/var/lib/oar/605481
+OAR_STDOUT=OAR.605481.stdout
+OARDO_USER=oar
+OAR_JOB_ID=605481
+OAR_CPUSET=/oar/mquinson_605481
+OAR_ARRAY_INDEX=1
+OAR_O_WORKDIR=/home/mquinson/Code/SMPI-modeling
+OARDO_UID=112
+_=/usr/bin/printenv
+* Tools Versions
+** SimGrid Full Version
+SimGrid version 3.12-devel
+Copyright (c) 2004-2015. The Simgrid Team.
+Release build at commit 5a97de8 (2015-02-18 10:05:16 +0100)
+** SimGrid Commit Hash
+5a97de8c98502af9f74cfceb924fa02e0fd80925
+** Linux and gcc versions
+Linux version 3.2.0-4-amd64 (debian-kernel@lists.debian.org) (gcc version 4.6.3 (Debian 4.6.3-14) ) #1 SMP Debian 3.2.63-2+deb7u1
+** Gcc info
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.7/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 4.7.2-5' --with-bugurl=file:///usr/share/doc/gcc-4.7/README.Bugs --enable-languages=c,c++,go,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.7 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.7 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --enable-objc-gc --with-arch-32=i586 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.7.2 (Debian 4.7.2-5) 
+** Make tool
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for x86_64-pc-linux-gnu
+** CMake
+cmake version 2.8.9
+* Compilation result
+* Platform file
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+
+
+<config id="General">
+  <prop id="workstation/model" value="compound"/>
+  <prop id="network/model" value="SMPI"/>
+  <prop id="network/TCP_gamma" value="4194304"/>
+  <prop id="network/sender_gap" value="0"/>
+  <prop id="maxmin/precision" value="1e-9"/>
+  <prop id="smpi/async_small_thres" value="65536"/>
+  <prop id="smpi/send_is_detached_thres" value="327680"/>
+<!--  <prop id="smpi/os" value="1:8.75118726019245e-06:7.09598480584951e-10;1420:1.38989305424406e-05:2.18111838119125e-10;65536:0.000193970854779561:-4.82025737428887e-11;327680:0:0"/>-->
+<!--  <prop id="smpi/or" value="1:9.3069771137911e-06:7.92179414036391e-10;1420:1.43097562292319e-05:8.66975835499791e-10;10000:1.41659209904282e-05:1.00877300603447e-09;65536:0:0"/>-->
+<!--  <prop id="smpi/bw_factor" value="0:0.408465938;1420:0.913760459;65536:0.937794396"/>-->
+<!--  <prop id="smpi/lat_factor" value="0:1.01;1420:4.02;65536:9.77"/>-->
+<!--  -->
+ <prop id="smpi/os" value="0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0"/>
+ <prop id="smpi/or" value="0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0"/>
+ <prop id="smpi/bw_factor" value="0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892"/>
+ <prop id="smpi/lat_factor" value="0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594"/>  
+</config>
+ 
+<AS id="AS_graphene" routing="Full" >
+  <cluster id="AS_sgraphene1" prefix="graphene-" radical="1-256" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene2" prefix="graphene-" radical="257-512" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene3" prefix="graphene-" radical="513-784" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene4" prefix="graphene-" radical="785-1024" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+
+  <link id="switch-backbone1" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter1" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone2" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter2" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone3" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter3" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone4" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter4" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+                
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+          symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>                
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     
+          <ASroute src="AS_sgraphene1" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+               <ASroute src="AS_sgraphene4" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene2" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+              <ASroute src="AS_sgraphene4" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     
+               <ASroute src="AS_sgraphene3" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+     
+                    <ASroute src="AS_sgraphene4" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+ </AS>
+</platform>
+
+* Experiment 1
+Don't do proc:488 size:6395949 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:868 size:8940440 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:853 size:4601788 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:804 size:735499 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:719 size:8376338 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:441 size:9521064 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:684 size:1116088 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:747 size:8348503 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:202 size:8256710 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1003 size:10192647 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:370 size:8089965 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:873 size:9695227 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:837 size:5304856 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:318 size:5192169 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:651 size:4973548 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:43 size:6392109 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:347 size:3057862 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:211 size:7867186 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:280 size:4949178 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:659 size:4134946 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:83 size:3076189 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:193 size:6805356 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:809 size:2971842 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:846 size:7289849 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:920 size:8596436 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:601 size:5962222 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:263 size:2562933 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:696 size:2664308 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:872 size:5331758 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:928 size:5778008 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:996 size:1886839 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:688 size:802107 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:96 size:6822428 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:718 size:3638064 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:468 size:4837993 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:799 size:4590894 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:580 size:4473426 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:277 size:2845774 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:853 size:2590572 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:827 size:7417377 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:283 size:5178584 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:245 size:3496229 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:360 size:8259943 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:690 size:6631405 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:373 size:7871360 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:61 size:807619 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:560 size:7229014 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:882 size:8487795 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:290 size:5170399 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:513 size:7851460 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:574 size:8743952 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:405 size:5117408 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:746 size:10472343 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:978 size:10342989 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:857 size:7574789 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:821 size:3624191 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:972 size:8904772 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:420 size:3013251 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:270 size:4431140 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:262 size:10199628 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:966 size:9732509 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:985 size:4172220 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:370 size:710430 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:341 size:9181292 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:64 size:8456170 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:424 size:6475525 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:774 size:3083036 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:448 size:7191161 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:554 size:9022496 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:21 size:4198334 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:512 size:7715947 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:680 size:783926 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:843 size:8312172 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:915 size:10434349 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:633 size:2085280 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:310 size:7228717 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:602 size:9089562 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:33 size:490630 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:980 size:1125544 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:592 size:9915683 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:844 size:1482993 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:719 size:6357437 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1023 size:4190464 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:865 size:8727669 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:312 size:4993727 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:448 size:1876740 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:50 size:10075193 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:410 size:6203676 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:212 size:5295718 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:745 size:10049674 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:643 size:1743571 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:313 size:5562573 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:497 size:3480318 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:556 size:3054826 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:880 size:10440044 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:115 size:8382451 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:194 size:457186 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:662 size:10125658 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:303 size:10361204 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:638 size:8483279 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:593 size:6515876 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:72 size:2241852 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:828 size:556937 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:708 size:1037087 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:395 size:736490 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:386 size:7291411 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:552 size:6167681 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:554 size:435811 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:299 size:9786984 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:332 size:2776940 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:826 size:8922376 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:384 size:3509136 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:606 size:9449466 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:896 size:8136884 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:440 size:4788203 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:286 size:4874278 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:187 size:2803568 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:246 size:2919189 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:916 size:2159945 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:231 size:9731763 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:478 size:7890495 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:607 size:1041521 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:577 size:2311317 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:415 size:4130559 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:608 size:10461178 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:351 size:1036310 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:623 size:8463266 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:846 size:7834289 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:419 size:7827188 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:732 size:5864363 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:950 size:5288225 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:306 size:1726647 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:394 size:1261876 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:132 size:9690835 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:490 size:4086067 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:168 size:6160732 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:456 size:9726878 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:431 size:5224686 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:343 size:8830270 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:981 size:8847384 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:743 size:3460596 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:30 size:2947637 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:220 size:6106134 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:671 size:951347 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:731 size:800331 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:626 size:6802183 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:50 size:10111987 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1008 size:4773967 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:842 size:9067480 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:973 size:9358540 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:979 size:7211089 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:251 size:8229667 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:925 size:10441199 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:983 size:8981998 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:681 size:9903821 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:222 size:1061627 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:128 size:2842460 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:627 size:3094880 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:501 size:5449314 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:21 size:7354107 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:584 size:5744320 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:495 size:2753219 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:685 size:9083608 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1011 size:6651147 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:93 size:3350600 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:879 size:7248745 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:651 size:4395562 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:915 size:8185652 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:197 size:10436861 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:107 size:5843416 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:874 size:3644187 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:942 size:8068267 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:370 size:1771351 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:701 size:4788688 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:332 size:354455 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:106 size:2421649 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:769 size:8175882 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:30 size:7801373 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:782 size:73932 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:605 size:9829408 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:109 size:3917128 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:672 size:1754610 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:202 size:294332 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:466 size:8060291 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:104 size:9505084 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:336 size:6984320 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:700 size:4745447 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:501 size:7830016 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:774 size:7156200 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:36 size:5922331 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:145 size:3626489 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1004 size:648300 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:435 size:9169012 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:838 size:9508845 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:988 size:1333501 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:274 size:10202036 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:746 size:6774167 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:932 size:9252113 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:121 size:7883806 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:89 size:9523179 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:403 size:9836689 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:255 size:228025 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:685 size:7115345 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:526 size:6134613 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:827 size:1677643 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:646 size:6399240 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:9 size:4936461 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:657 size:2362572 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:172 size:3281459 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:496 size:767864 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:65 size:1723598 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:807 size:3822029 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:122 size:2374406 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:181 size:3702940 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:282 size:3999754 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:666 size:10140703 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:111 size:8602119 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:47 size:3074225 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:773 size:1444272 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:41 size:3544902 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:204 size:7644782 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:246 size:1567714 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:880 size:217752 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:286 size:7415223 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:930 size:2636681 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:885 size:4941569 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:62 size:6728173 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:184 size:9566133 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:409 size:2049613 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:698 size:6659820 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:299 size:5324614 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:433 size:8657384 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:364 size:5512916 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:501 size:8363075 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:826 size:6790366 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:484 size:7209922 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1006 size:2950853 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:481 size:7848139 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:988 size:3540811 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:20 size:7796376 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:646 size:146461 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:498 size:7240687 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1016 size:6542383 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:230 size:5509329 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:867 size:666352 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:69 size:10423417 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:532 size:7150847 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:406 size:4399797 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:115 size:6712246 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:78 size:5996938 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:319 size:8345104 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:325 size:7314606 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:527 size:2593196 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:138 size:1568950 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:251 size:5533745 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:484 size:10203350 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:918 size:754134 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:653 size:8209798 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:170 size:9739150 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:494 size:5712647 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:388 size:7004913 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:572 size:4643247 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:22 size:4356689 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:992 size:10459251 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:477 size:7243283 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:297 size:168476 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:574 size:9409627 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:705 size:3293361 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:282 size:805756 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:168 size:2678861 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:536 size:224026 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:48 size:4897648 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:5 size:8899666 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:877 size:1460467 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:186 size:2711508 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:724 size:4308216 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:355 size:405035 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:505 size:2956368 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:981 size:9399423 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:128 size:6805191 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:703 size:4301970 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:356 size:1944619 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:775 size:2585829 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:804 size:6414964 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:990 size:4618910 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:608 size:6012530 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:617 size:10003299 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:109 size:3674356 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:402 size:9915220 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:168 size:51276 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:735 size:5242727 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:747 size:3433989 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:123 size:4190215 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1017 size:1502588 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:580 size:7534168 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:550 size:5139181 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:525 size:4433015 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:518 size:3839804 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:413 size:644606 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:135 size:5145926 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:350 size:5332993 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:515 size:7076667 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:905 size:1951177 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:154 size:6642445 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:977 size:6483290 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:884 size:8335381 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:789 size:1417435 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:975 size:387058 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:339 size:7456350 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:271 size:9862415 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:202 size:3938075 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:220 size:1315933 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:784 size:683529 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:738 size:4457153 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:102 size:4571913 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:839 size:2927146 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:362 size:6248126 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:433 size:5677929 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:175 size:910069 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:593 size:4590743 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:156 size:7349367 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:516 size:1568756 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:334 size:2801832 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:72 size:3461207 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:526 size:4373415 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:853 size:9500228 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:661 size:1262926 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:753 size:9871604 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:159 size:1674552 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:664 size:8695120 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:597 size:38861 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:403 size:356919 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:603 size:8354278 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:755 size:5919870 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:772 size:1616531 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:576 size:5660447 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:767 size:5689312 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:723 size:8995263 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:134 size:3525810 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:950 size:9971311 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:458 size:3757755 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:746 size:2121674 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:317 size:2018465 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:728 size:5171602 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:873 size:4742457 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:419 size:9231255 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:918 size:10280497 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:800 size:383682 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:842 size:2174085 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:418 size:8580333 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:165 size:7349005 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:424 size:10256957 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:776 size:5758196 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:999 size:9478769 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:826 size:6484084 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:917 size:7800720 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:466 size:3596631 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:206 size:3029535 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:878 size:2254437 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:635 size:2985220 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:972 size:6977094 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:529 size:10156149 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:708 size:1298063 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:141 size:2944095 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:70 size:6928296 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:522 size:8825024 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:261 size:8481082 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:641 size:8632052 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:976 size:7761981 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:906 size:6883582 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:478 size:6474671 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:588 size:1531970 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:707 size:6179547 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:292 size:2287074 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:378 size:7786225 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:484 size:6162775 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:593 size:7277819 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1020 size:1844625 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:695 size:5721482 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:510 size:8758327 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:545 size:10000115 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:767 size:556427 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:715 size:8261025 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:11 size:2808236 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:26 size:10390774 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:317 size:5610209 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:584 size:4992414 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:178 size:2405527 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:954 size:4776028 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:320 size:7126102 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:887 size:380472 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:304 size:4778224 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:451 size:8225738 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:439 size:4941412 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:47 size:8158824 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:333 size:1914942 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:589 size:5623943 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:360 size:9559947 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:64 size:2151977 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:784 size:5070293 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:157 size:8088956 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:837 size:7270930 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:818 size:4603707 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:84 size:4782033 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:724 size:5846064 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1010 size:10117251 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:960 size:5035425 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:831 size:7472528 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:303 size:3982187 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:310 size:7563337 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:426 size:2743413 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:771 size:2530147 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:849 size:8348597 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:939 size:5813539 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:474 size:2339188 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:550 size:9107802 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:670 size:10147810 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:64 size:5137889 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:396 size:6770736 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:992 size:104105 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:588 size:9197583 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:494 size:3240861 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:313 size:3271744 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:476 size:2143109 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:481 size:9463858 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:418 size:10039911 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:398 size:7974229 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:876 size:9828512 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:789 size:3771652 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:575 size:9649842 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:435 size:4490674 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:299 size:8745898 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:524 size:3087532 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:215 size:5625164 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:129 size:559470 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:361 size:2442402 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:784 size:5966165 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:4 size:6614671 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:836 size:724159 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:624 size:2274794 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:352 size:4464314 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:106 size:9855277 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:566 size:3467788 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:529 size:2415139 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:231 size:2230388 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:642 size:5875089 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:10 size:7239310 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:215 size:5634698 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:481 size:2973452 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:258 size:9849118 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:275 size:8593304 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:300 size:2094609 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:401 size:1465376 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:981 size:9532309 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:311 size:7044310 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:865 size:421801 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:258 size:6002841 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:238 size:5912508 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:394 size:9429119 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:2 size:148260 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1021 size:9813695 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:240 size:8260861 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:460 size:7808929 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:803 size:6741015 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:897 size:9973288 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:190 size:3436171 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:720 size:4440497 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:263 size:6387154 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:569 size:1972404 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:216 size:7452886 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:150 size:1431401 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:959 size:3585074 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:231 size:3975029 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:226 size:4683881 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:465 size:10098269 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:1006 size:4993052 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:293 size:3367421 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:653 size:869355 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:767 size:2132814 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:945 size:8668825 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:784 size:3233812 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:270 size:7743648 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:939 size:991931 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:902 size:7907601 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:686 size:6183782 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:644 size:8458571 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:427 size:10317711 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:972 size:2491974 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:759 size:4356215 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:177 size:7244343 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:163 size:2272840 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:638 size:8896457 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:829 size:6792779 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:981 size:2924321 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:736 size:9834953 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:646 size:814470 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:356 size:6028823 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:42 size:8878483 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:212 size:2544571 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:443 size:7012128 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:872 size:2161522 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:345 size:4912923 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:885 size:130949 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:565 size:2789434 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:81 size:6055509 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:435 size:5184215 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:817 size:9989299 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:745 size:9982510 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:847 size:4851922 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:87 size:2306316 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:507 size:1132127 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:299 size:2396570 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:982 size:5643156 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:632 size:3900195 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:302 size:871349 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:471 size:3646469 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:623 size:3413371 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:14 size:7247794 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:385 size:6448805 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:378 size:7709406 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:282 size:2120207 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:769 size:822107 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:735 size:1248529 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:786 size:670302 as there is not enough memory (free mem: 14836304 kb)
+Don't do proc:692 size:8279827 as there is not enough memory (free mem: 14836304 kb)
+Do proc:520 size:6343 freemem:14836304k mem usage:6596720
+** Test with algorithm 2dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 520 ./alltoall 6343 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:2dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:1.058072 Success numproc=520 msgsize=6343
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '2dmesh'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:29.52 user:13.51 sys:12.37 swapped:0 exitval:0 max:14148928k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:2dmesh numproc:520 msgsize:6343 hostTime:29.52 hostMem:14148928k simTime:1.058072 
+** Test with algorithm 3dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 520 ./alltoall 6343 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:3dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+[0.000000] all_to_all returned 12
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '3dmesh'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[0.000000] /home/mquinson/Code/simgrid/src/simix/smx_global.c:463: [simix_kernel/CRITICAL] Oops ! Deadlock or code not perfectly clean.
+[0.000000] [simix_kernel/INFO] 519 processes are still running, waiting for something.
+[0.000000] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[0.000000] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr): waiting for synchronization synchro 0x1370120 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr): waiting for synchronization synchro 0x1368ce0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr): waiting for synchronization synchro 0x135df70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr): waiting for synchronization synchro 0x1360220 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr): waiting for synchronization synchro 0x135f7d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr): waiting for synchronization synchro 0x13723d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr): waiting for synchronization synchro 0x13632e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr): waiting for synchronization synchro 0x13690a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr): waiting for synchronization synchro 0x136ce80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr): waiting for synchronization synchro 0x136e6e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr): waiting for synchronization synchro 0x135cb50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr): waiting for synchronization synchro 0x136fb80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr): waiting for synchronization synchro 0x136c9d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr): waiting for synchronization synchro 0x136e5f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr): waiting for synchronization synchro 0x1369fa0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr): waiting for synchronization synchro 0x1375760 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr): waiting for synchronization synchro 0x13726a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr): waiting for synchronization synchro 0x1373b40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr): waiting for synchronization synchro 0x1364f00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr): waiting for synchronization synchro 0x1363d30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr): waiting for synchronization synchro 0x136c520 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr): waiting for synchronization synchro 0x1373690 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr): waiting for synchronization synchro 0x135c9b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr): waiting for synchronization synchro 0x1366c10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr): waiting for synchronization synchro 0x136dd80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr): waiting for synchronization synchro 0x1368b00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr): waiting for synchronization synchro 0x1363c40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr): waiting for synchronization synchro 0x1361f30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr): waiting for synchronization synchro 0x135f9b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr): waiting for synchronization synchro 0x135e7e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr): waiting for synchronization synchro 0x1365e00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr): waiting for synchronization synchro 0x1366940 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr): waiting for synchronization synchro 0x1368bf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr): waiting for synchronization synchro 0x136abd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr): waiting for synchronization synchro 0x135d2a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr): waiting for synchronization synchro 0x136bad0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr): waiting for synchronization synchro 0x136dc90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr): waiting for synchronization synchro 0x135a040 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr): waiting for synchronization synchro 0x13724c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr): waiting for synchronization synchro 0x1372010 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr): waiting for synchronization synchro 0x1359340 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr): waiting for synchronization synchro 0x1373960 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr): waiting for synchronization synchro 0x13721f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr): waiting for synchronization synchro 0x136ff40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr): waiting for synchronization synchro 0x136de70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr): waiting for synchronization synchro 0x135fc80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr): waiting for synchronization synchro 0x1363e20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr): waiting for synchronization synchro 0x135a520 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr): waiting for synchronization synchro 0x136fe50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr): waiting for synchronization synchro 0x135a380 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr): waiting for synchronization synchro 0x1366490 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr): waiting for synchronization synchro 0x135fe60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr): waiting for synchronization synchro 0x1365770 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr): waiting for synchronization synchro 0x13634c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr): waiting for synchronization synchro 0x1374e00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr): waiting for synchronization synchro 0x135bd80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr): waiting for synchronization synchro 0x1366580 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr): waiting for synchronization synchro 0x1367de0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr): waiting for synchronization synchro 0x136f5e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr): waiting for synchronization synchro 0x136dba0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr): waiting for synchronization synchro 0x135f6e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr): waiting for synchronization synchro 0x1362110 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr): waiting for synchronization synchro 0x13651d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr): waiting for synchronization synchro 0x135d850 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr): waiting for synchronization synchro 0x1368650 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr): waiting for synchronization synchro 0x136a720 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr): waiting for synchronization synchro 0x1362e30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr): waiting for synchronization synchro 0x1361300 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr): waiting for synchronization synchro 0x1362f20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr): waiting for synchronization synchro 0x136acc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr): waiting for synchronization synchro 0x13606d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr): waiting for synchronization synchro 0x1359ea0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr): waiting for synchronization synchro 0x1374860 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr): waiting for synchronization synchro 0x135ac70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr): waiting for synchronization synchro 0x1369cd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr): waiting for synchronization synchro 0x136be90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr): waiting for synchronization synchro 0x136e9b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr): waiting for synchronization synchro 0x1366670 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr): waiting for synchronization synchro 0x1372100 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr): waiting for synchronization synchro 0x136e7d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr): waiting for synchronization synchro 0x1361d50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr): waiting for synchronization synchro 0x1367a20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr): waiting for synchronization synchro 0x135ccf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr): waiting for synchronization synchro 0x136cbb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr): waiting for synchronization synchro 0x1367480 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr): waiting for synchronization synchro 0x135c5a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr): waiting for synchronization synchro 0x13598f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr): waiting for synchronization synchro 0x1371200 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr): waiting for synchronization synchro 0x1370030 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr): waiting for synchronization synchro 0x1364000 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr): waiting for synchronization synchro 0x1373ff0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr): waiting for synchronization synchro 0x136a810 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr): waiting for synchronization synchro 0x1368ec0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr): waiting for synchronization synchro 0x1375490 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr): waiting for synchronization synchro 0x13671b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr): waiting for synchronization synchro 0x1375ee0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr): waiting for synchronization synchro 0x13595b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr): waiting for synchronization synchro 0x1372e20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr): waiting for synchronization synchro 0x1364690 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr): waiting for synchronization synchro 0x136aae0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr): waiting for synchronization synchro 0x136d8d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr): waiting for synchronization synchro 0x1368920 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr): waiting for synchronization synchro 0x13670c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr): waiting for synchronization synchro 0x1366a30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr): waiting for synchronization synchro 0x135b630 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr): waiting for synchronization synchro 0x13742c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr): waiting for synchronization synchro 0x13761b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr): waiting for synchronization synchro 0x13714d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr): waiting for synchronization synchro 0x13732d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr): waiting for synchronization synchro 0x136f220 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr): waiting for synchronization synchro 0x1363880 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr): waiting for synchronization synchro 0x135c400 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr): waiting for synchronization synchro 0x13604f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr): waiting for synchronization synchro 0x1358f30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr): waiting for synchronization synchro 0x13605e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr): waiting for synchronization synchro 0x13635b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr): waiting for synchronization synchro 0x1369be0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr): waiting for synchronization synchro 0x13654a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr): waiting for synchronization synchro 0x1368290 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr): waiting for synchronization synchro 0x1364960 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr): waiting for synchronization synchro 0x135f8c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr): waiting for synchronization synchro 0x1375670 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr): waiting for synchronization synchro 0x135b8a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr): waiting for synchronization synchro 0x1375580 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr): waiting for synchronization synchro 0x13653b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr): waiting for synchronization synchro 0x136f9a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr): waiting for synchronization synchro 0x136bcb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr): waiting for synchronization synchro 0x136b260 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr): waiting for synchronization synchro 0x1361990 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr): waiting for synchronization synchro 0x135afb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr): waiting for synchronization synchro 0x136af90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr): waiting for synchronization synchro 0x1360310 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr): waiting for synchronization synchro 0x136fc70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr): waiting for synchronization synchro 0x136ef50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr): waiting for synchronization synchro 0x1365680 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr): waiting for synchronization synchro 0x1361a80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr): waiting for synchronization synchro 0x135bb10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr): waiting for synchronization synchro 0x136c160 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr): waiting for synchronization synchro 0x135ee70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr): waiting for synchronization synchro 0x135cdc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr): waiting for synchronization synchro 0x1365590 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr): waiting for synchronization synchro 0x13640f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr): waiting for synchronization synchro 0x1368dd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr): waiting for synchronization synchro 0x136a360 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr): waiting for synchronization synchro 0x1361120 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr): waiting for synchronization synchro 0x1368740 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr): waiting for synchronization synchro 0x13680b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr): waiting for synchronization synchro 0x1369dc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr): waiting for synchronization synchro 0x135ed80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr): waiting for synchronization synchro 0x136c070 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr): waiting for synchronization synchro 0x1361e40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr): waiting for synchronization synchro 0x1365950 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr): waiting for synchronization synchro 0x1374770 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr): waiting for synchronization synchro 0x1376390 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr): waiting for synchronization synchro 0x136a270 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr): waiting for synchronization synchro 0x136e140 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr): waiting for synchronization synchro 0x136c700 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr): waiting for synchronization synchro 0x1364e10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr): waiting for synchronization synchro 0x1360d60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr): waiting for synchronization synchro 0x136d510 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr): waiting for synchronization synchro 0x135e330 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr): waiting for synchronization synchro 0x136e500 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr): waiting for synchronization synchro 0x1362200 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr): waiting for synchronization synchro 0x135faa0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr): waiting for synchronization synchro 0x13713e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr): waiting for synchronization synchro 0x1375850 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr): waiting for synchronization synchro 0x136ec80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr): waiting for synchronization synchro 0x136c7f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr): waiting for synchronization synchro 0x136d7e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr): waiting for synchronization synchro 0x135e8d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr): waiting for synchronization synchro 0x135d9f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr): waiting for synchronization synchro 0x1370c60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr): waiting for synchronization synchro 0x1370d50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr): waiting for synchronization synchro 0x13716b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr): waiting for synchronization synchro 0x136a900 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr): waiting for synchronization synchro 0x13681a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr): waiting for synchronization synchro 0x13717a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr): waiting for synchronization synchro 0x136c8e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr): waiting for synchronization synchro 0x1364780 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr): waiting for synchronization synchro 0x135e9c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr): waiting for synchronization synchro 0x136b080 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr): waiting for synchronization synchro 0x136fd60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr): waiting for synchronization synchro 0x1364a50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr): waiting for synchronization synchro 0x13625c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr): waiting for synchronization synchro 0x136e230 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 187 (186@graphene-187.nancy.grid5000.fr): waiting for synchronization synchro 0x135d100 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 188 (187@graphene-188.nancy.grid5000.fr): waiting for synchronization synchro 0x1359750 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 189 (188@graphene-189.nancy.grid5000.fr): waiting for synchronization synchro 0x1369eb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 190 (189@graphene-190.nancy.grid5000.fr): waiting for synchronization synchro 0x1359680 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 191 (190@graphene-191.nancy.grid5000.fr): waiting for synchronization synchro 0x13650e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 192 (191@graphene-192.nancy.grid5000.fr): waiting for synchronization synchro 0x135c670 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 193 (192@graphene-193.nancy.grid5000.fr): waiting for synchronization synchro 0x136dab0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 194 (193@graphene-194.nancy.grid5000.fr): waiting for synchronization synchro 0x1375940 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 195 (194@graphene-195.nancy.grid5000.fr): waiting for synchronization synchro 0x1375c10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 196 (195@graphene-196.nancy.grid5000.fr): waiting for synchronization synchro 0x1364d20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 197 (196@graphene-197.nancy.grid5000.fr): waiting for synchronization synchro 0x135ad40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 198 (197@graphene-198.nancy.grid5000.fr): waiting for synchronization synchro 0x135dca0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 199 (198@graphene-199.nancy.grid5000.fr): waiting for synchronization synchro 0x1371c50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 200 (199@graphene-200.nancy.grid5000.fr): waiting for synchronization synchro 0x1374b30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 201 (200@graphene-201.nancy.grid5000.fr): waiting for synchronization synchro 0x13623e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 202 (201@graphene-202.nancy.grid5000.fr): waiting for synchronization synchro 0x1368380 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 203 (202@graphene-203.nancy.grid5000.fr): waiting for synchronization synchro 0x13645a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 204 (203@graphene-204.nancy.grid5000.fr): waiting for synchronization synchro 0x1363100 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 205 (204@graphene-205.nancy.grid5000.fr): waiting for synchronization synchro 0x13760c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 206 (205@graphene-206.nancy.grid5000.fr): waiting for synchronization synchro 0x13712f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 207 (206@graphene-207.nancy.grid5000.fr): waiting for synchronization synchro 0x135f410 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 208 (207@graphene-208.nancy.grid5000.fr): waiting for synchronization synchro 0x1360040 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 209 (208@graphene-209.nancy.grid5000.fr): waiting for synchronization synchro 0x1369190 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 210 (209@graphene-210.nancy.grid5000.fr): waiting for synchronization synchro 0x135d030 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 211 (210@graphene-211.nancy.grid5000.fr): waiting for synchronization synchro 0x136c610 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 212 (211@graphene-212.nancy.grid5000.fr): waiting for synchronization synchro 0x13608b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 213 (212@graphene-213.nancy.grid5000.fr): waiting for synchronization synchro 0x13715c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 214 (213@graphene-214.nancy.grid5000.fr): waiting for synchronization synchro 0x1375b20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 215 (214@graphene-215.nancy.grid5000.fr): waiting for synchronization synchro 0x136d9c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 216 (215@graphene-216.nancy.grid5000.fr): waiting for synchronization synchro 0x13753a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 217 (216@graphene-217.nancy.grid5000.fr): waiting for synchronization synchro 0x1363f10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 218 (217@graphene-218.nancy.grid5000.fr): waiting for synchronization synchro 0x1373000 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 219 (218@graphene-219.nancy.grid5000.fr): waiting for synchronization synchro 0x1369460 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 220 (219@graphene-220.nancy.grid5000.fr): waiting for synchronization synchro 0x136f400 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 221 (220@graphene-221.nancy.grid5000.fr): waiting for synchronization synchro 0x1367b10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 222 (221@graphene-222.nancy.grid5000.fr): waiting for synchronization synchro 0x1369370 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 223 (222@graphene-223.nancy.grid5000.fr): waiting for synchronization synchro 0x135ae10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 224 (223@graphene-224.nancy.grid5000.fr): waiting for synchronization synchro 0x1374a40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 225 (224@graphene-225.nancy.grid5000.fr): waiting for synchronization synchro 0x13591a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 226 (225@graphene-226.nancy.grid5000.fr): waiting for synchronization synchro 0x1358d90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 227 (226@graphene-227.nancy.grid5000.fr): waiting for synchronization synchro 0x13743b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 228 (227@graphene-228.nancy.grid5000.fr): waiting for synchronization synchro 0x1370b70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 229 (228@graphene-229.nancy.grid5000.fr): waiting for synchronization synchro 0x136aea0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 230 (229@graphene-230.nancy.grid5000.fr): waiting for synchronization synchro 0x136f040 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 231 (230@graphene-231.nancy.grid5000.fr): waiting for synchronization synchro 0x1358e60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 232 (231@graphene-232.nancy.grid5000.fr): waiting for synchronization synchro 0x1374ef0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 233 (232@graphene-233.nancy.grid5000.fr): waiting for synchronization synchro 0x13744a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 234 (233@graphene-234.nancy.grid5000.fr): waiting for synchronization synchro 0x135ba40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 235 (234@graphene-235.nancy.grid5000.fr): waiting for synchronization synchro 0x136a450 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 236 (235@graphene-236.nancy.grid5000.fr): waiting for synchronization synchro 0x1367fc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 237 (236@graphene-237.nancy.grid5000.fr): waiting for synchronization synchro 0x1364870 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 238 (237@graphene-238.nancy.grid5000.fr): waiting for synchronization synchro 0x1371980 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 239 (238@graphene-239.nancy.grid5000.fr): waiting for synchronization synchro 0x1368830 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 240 (239@graphene-240.nancy.grid5000.fr): waiting for synchronization synchro 0x13735a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 241 (240@graphene-241.nancy.grid5000.fr): waiting for synchronization synchro 0x135a860 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 242 (241@graphene-242.nancy.grid5000.fr): waiting for synchronization synchro 0x136f8b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 243 (242@graphene-243.nancy.grid5000.fr): waiting for synchronization synchro 0x13672a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 244 (243@graphene-244.nancy.grid5000.fr): waiting for synchronization synchro 0x1364ff0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 245 (244@graphene-245.nancy.grid5000.fr): waiting for synchronization synchro 0x136ee60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 246 (245@graphene-246.nancy.grid5000.fr): waiting for synchronization synchro 0x1374590 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 247 (246@graphene-247.nancy.grid5000.fr): waiting for synchronization synchro 0x135f5f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 248 (247@graphene-248.nancy.grid5000.fr): waiting for synchronization synchro 0x13615d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 249 (248@graphene-249.nancy.grid5000.fr): waiting for synchronization synchro 0x1368a10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 250 (249@graphene-250.nancy.grid5000.fr): waiting for synchronization synchro 0x1367390 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 251 (250@graphene-251.nancy.grid5000.fr): waiting for synchronization synchro 0x1369730 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 252 (251@graphene-252.nancy.grid5000.fr): waiting for synchronization synchro 0x1371020 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 253 (252@graphene-253.nancy.grid5000.fr): waiting for synchronization synchro 0x1369550 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 254 (253@graphene-254.nancy.grid5000.fr): waiting for synchronization synchro 0x136f310 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 255 (254@graphene-255.nancy.grid5000.fr): waiting for synchronization synchro 0x1371a70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 256 (255@graphene-256.nancy.grid5000.fr): waiting for synchronization synchro 0x136b350 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 257 (256@graphene-257.nancy.grid5000.fr): waiting for synchronization synchro 0x1362c50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 258 (257@graphene-258.nancy.grid5000.fr): waiting for synchronization synchro 0x1370e40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 259 (258@graphene-259.nancy.grid5000.fr): waiting for synchronization synchro 0x13607c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 260 (259@graphene-260.nancy.grid5000.fr): waiting for synchronization synchro 0x1372a60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 261 (260@graphene-261.nancy.grid5000.fr): waiting for synchronization synchro 0x1363970 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 262 (261@graphene-262.nancy.grid5000.fr): waiting for synchronization synchro 0x1370a80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 263 (262@graphene-263.nancy.grid5000.fr): waiting for synchronization synchro 0x135f140 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 264 (263@graphene-264.nancy.grid5000.fr): waiting for synchronization synchro 0x1373870 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 265 (264@graphene-265.nancy.grid5000.fr): waiting for synchronization synchro 0x135dd90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 266 (265@graphene-266.nancy.grid5000.fr): waiting for synchronization synchro 0x136b170 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 267 (266@graphene-267.nancy.grid5000.fr): waiting for synchronization synchro 0x136c250 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 268 (267@graphene-268.nancy.grid5000.fr): waiting for synchronization synchro 0x136d240 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 269 (268@graphene-269.nancy.grid5000.fr): waiting for synchronization synchro 0x1374fe0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 270 (269@graphene-270.nancy.grid5000.fr): waiting for synchronization synchro 0x136bbc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 271 (270@graphene-271.nancy.grid5000.fr): waiting for synchronization synchro 0x1370990 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 272 (271@graphene-272.nancy.grid5000.fr): waiting for synchronization synchro 0x135ce90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 273 (272@graphene-273.nancy.grid5000.fr): waiting for synchronization synchro 0x1367570 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 274 (273@graphene-274.nancy.grid5000.fr): waiting for synchronization synchro 0x136b800 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 275 (274@graphene-275.nancy.grid5000.fr): waiting for synchronization synchro 0x135d440 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 276 (275@graphene-276.nancy.grid5000.fr): waiting for synchronization synchro 0x136b8f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 277 (276@graphene-277.nancy.grid5000.fr): waiting for synchronization synchro 0x1360400 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 278 (277@graphene-278.nancy.grid5000.fr): waiting for synchronization synchro 0x136f6d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 279 (278@graphene-279.nancy.grid5000.fr): waiting for synchronization synchro 0x1359f70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 280 (279@graphene-280.nancy.grid5000.fr): waiting for synchronization synchro 0x1359c30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 281 (280@graphene-281.nancy.grid5000.fr): waiting for synchronization synchro 0x1364b40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 282 (281@graphene-282.nancy.grid5000.fr): waiting for synchronization synchro 0x135e6f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 283 (282@graphene-283.nancy.grid5000.fr): waiting for synchronization synchro 0x13751c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 284 (283@graphene-284.nancy.grid5000.fr): waiting for synchronization synchro 0x1369a00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 285 (284@graphene-285.nancy.grid5000.fr): waiting for synchronization synchro 0x1368560 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 286 (285@graphene-286.nancy.grid5000.fr): waiting for synchronization synchro 0x135e600 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 287 (286@graphene-287.nancy.grid5000.fr): waiting for synchronization synchro 0x136df60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 288 (287@graphene-288.nancy.grid5000.fr): waiting for synchronization synchro 0x135a790 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 289 (288@graphene-289.nancy.grid5000.fr): waiting for synchronization synchro 0x1362020 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 290 (289@graphene-290.nancy.grid5000.fr): waiting for synchronization synchro 0x1361030 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 291 (290@graphene-291.nancy.grid5000.fr): waiting for synchronization synchro 0x135a930 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 292 (291@graphene-292.nancy.grid5000.fr): waiting for synchronization synchro 0x136b530 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 293 (292@graphene-293.nancy.grid5000.fr): waiting for synchronization synchro 0x135d510 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 294 (293@graphene-294.nancy.grid5000.fr): waiting for synchronization synchro 0x135c8e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 295 (294@graphene-295.nancy.grid5000.fr): waiting for synchronization synchro 0x136d600 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 296 (295@graphene-296.nancy.grid5000.fr): waiting for synchronization synchro 0x1364c30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 297 (296@graphene-297.nancy.grid5000.fr): waiting for synchronization synchro 0x136fa90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 298 (297@graphene-298.nancy.grid5000.fr): waiting for synchronization synchro 0x1368470 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 299 (298@graphene-299.nancy.grid5000.fr): waiting for synchronization synchro 0x13643c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 300 (299@graphene-300.nancy.grid5000.fr): waiting for synchronization synchro 0x13618a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 301 (300@graphene-301.nancy.grid5000.fr): waiting for synchronization synchro 0x1372970 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 302 (301@graphene-302.nancy.grid5000.fr): waiting for synchronization synchro 0x1367750 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 303 (302@graphene-303.nancy.grid5000.fr): waiting for synchronization synchro 0x1365c20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 304 (303@graphene-304.nancy.grid5000.fr): waiting for synchronization synchro 0x136ed70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 305 (304@graphene-305.nancy.grid5000.fr): waiting for synchronization synchro 0x13624d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 306 (305@graphene-306.nancy.grid5000.fr): waiting for synchronization synchro 0x1375df0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 307 (306@graphene-307.nancy.grid5000.fr): waiting for synchronization synchro 0x135ff50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 308 (307@graphene-308.nancy.grid5000.fr): waiting for synchronization synchro 0x136cd90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 309 (308@graphene-309.nancy.grid5000.fr): waiting for synchronization synchro 0x1362980 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 310 (309@graphene-310.nancy.grid5000.fr): waiting for synchronization synchro 0x135e150 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 311 (310@graphene-311.nancy.grid5000.fr): waiting for synchronization synchro 0x136e320 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 312 (311@graphene-312.nancy.grid5000.fr): waiting for synchronization synchro 0x13750d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 313 (312@graphene-313.nancy.grid5000.fr): waiting for synchronization synchro 0x136b440 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 314 (313@graphene-314.nancy.grid5000.fr): waiting for synchronization synchro 0x135c810 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 315 (314@graphene-315.nancy.grid5000.fr): waiting for synchronization synchro 0x13617b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 316 (315@graphene-316.nancy.grid5000.fr): waiting for synchronization synchro 0x136a540 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 317 (316@graphene-317.nancy.grid5000.fr): waiting for synchronization synchro 0x13631f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 318 (317@graphene-318.nancy.grid5000.fr): waiting for synchronization synchro 0x135b2f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 319 (318@graphene-319.nancy.grid5000.fr): waiting for synchronization synchro 0x1372c40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 320 (319@graphene-320.nancy.grid5000.fr): waiting for synchronization synchro 0x135e240 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 321 (320@graphene-321.nancy.grid5000.fr): waiting for synchronization synchro 0x135e510 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 322 (321@graphene-322.nancy.grid5000.fr): waiting for synchronization synchro 0x136eb90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 323 (322@graphene-323.nancy.grid5000.fr): waiting for synchronization synchro 0x13627a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 324 (323@graphene-324.nancy.grid5000.fr): waiting for synchronization synchro 0x135bbe0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 325 (324@graphene-325.nancy.grid5000.fr): waiting for synchronization synchro 0x1370300 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 326 (325@graphene-326.nancy.grid5000.fr): waiting for synchronization synchro 0x136d330 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 327 (326@graphene-327.nancy.grid5000.fr): waiting for synchronization synchro 0x1358cc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 328 (327@graphene-328.nancy.grid5000.fr): waiting for synchronization synchro 0x135bcb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 329 (328@graphene-329.nancy.grid5000.fr): waiting for synchronization synchro 0x1376570 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 330 (329@graphene-330.nancy.grid5000.fr): waiting for synchronization synchro 0x13644b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 331 (330@graphene-331.nancy.grid5000.fr): waiting for synchronization synchro 0x136f7c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 332 (331@graphene-332.nancy.grid5000.fr): waiting for synchronization synchro 0x1360b80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 333 (332@graphene-333.nancy.grid5000.fr): waiting for synchronization synchro 0x135bff0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 334 (333@graphene-334.nancy.grid5000.fr): waiting for synchronization synchro 0x135fb90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 335 (334@graphene-335.nancy.grid5000.fr): waiting for synchronization synchro 0x1365b30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 336 (335@graphene-336.nancy.grid5000.fr): waiting for synchronization synchro 0x13662b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 337 (336@graphene-337.nancy.grid5000.fr): waiting for synchronization synchro 0x13722e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 338 (337@graphene-338.nancy.grid5000.fr): waiting for synchronization synchro 0x1361b70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 339 (338@graphene-339.nancy.grid5000.fr): waiting for synchronization synchro 0x1367c00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 340 (339@graphene-340.nancy.grid5000.fr): waiting for synchronization synchro 0x1367ed0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 341 (340@graphene-341.nancy.grid5000.fr): waiting for synchronization synchro 0x1373f00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 342 (341@graphene-342.nancy.grid5000.fr): waiting for synchronization synchro 0x13733c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 343 (342@graphene-343.nancy.grid5000.fr): waiting for synchronization synchro 0x135b560 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 344 (343@graphene-344.nancy.grid5000.fr): waiting for synchronization synchro 0x13725b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 345 (344@graphene-345.nancy.grid5000.fr): waiting for synchronization synchro 0x135c4d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 346 (345@graphene-346.nancy.grid5000.fr): waiting for synchronization synchro 0x13708a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 347 (346@graphene-347.nancy.grid5000.fr): waiting for synchronization synchro 0x1365860 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 348 (347@graphene-348.nancy.grid5000.fr): waiting for synchronization synchro 0x1359a90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 349 (348@graphene-349.nancy.grid5000.fr): waiting for synchronization synchro 0x1371890 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 350 (349@graphene-350.nancy.grid5000.fr): waiting for synchronization synchro 0x13740e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 351 (350@graphene-351.nancy.grid5000.fr): waiting for synchronization synchro 0x1370f30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 352 (351@graphene-352.nancy.grid5000.fr): waiting for synchronization synchro 0x135d6b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 353 (352@graphene-353.nancy.grid5000.fr): waiting for synchronization synchro 0x1372b50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 354 (353@graphene-354.nancy.grid5000.fr): waiting for synchronization synchro 0x1374c20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 355 (354@graphene-355.nancy.grid5000.fr): waiting for synchronization synchro 0x1366df0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 356 (355@graphene-356.nancy.grid5000.fr): waiting for synchronization synchro 0x135dbb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 357 (356@graphene-357.nancy.grid5000.fr): waiting for synchronization synchro 0x135fd70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 358 (357@graphene-358.nancy.grid5000.fr): waiting for synchronization synchro 0x136bda0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 359 (358@graphene-359.nancy.grid5000.fr): waiting for synchronization synchro 0x136b620 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 360 (359@graphene-360.nancy.grid5000.fr): waiting for synchronization synchro 0x1369280 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 361 (360@graphene-361.nancy.grid5000.fr): waiting for synchronization synchro 0x135f050 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 362 (361@graphene-362.nancy.grid5000.fr): waiting for synchronization synchro 0x1363b50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 363 (362@graphene-363.nancy.grid5000.fr): waiting for synchronization synchro 0x13752b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 364 (363@graphene-364.nancy.grid5000.fr): waiting for synchronization synchro 0x13734b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 365 (364@graphene-365.nancy.grid5000.fr): waiting for synchronization synchro 0x135c190 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 366 (365@graphene-366.nancy.grid5000.fr): waiting for synchronization synchro 0x13616c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 367 (366@graphene-367.nancy.grid5000.fr): waiting for synchronization synchro 0x1371110 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 368 (367@graphene-368.nancy.grid5000.fr): waiting for synchronization synchro 0x135e420 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 369 (368@graphene-369.nancy.grid5000.fr): waiting for synchronization synchro 0x1372880 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 370 (369@graphene-370.nancy.grid5000.fr): waiting for synchronization synchro 0x135c740 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 371 (370@graphene-371.nancy.grid5000.fr): waiting for synchronization synchro 0x1359410 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 372 (371@graphene-372.nancy.grid5000.fr): waiting for synchronization synchro 0x1366d00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 373 (372@graphene-373.nancy.grid5000.fr): waiting for synchronization synchro 0x135b970 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 374 (373@graphene-374.nancy.grid5000.fr): waiting for synchronization synchro 0x1362890 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 375 (374@graphene-375.nancy.grid5000.fr): waiting for synchronization synchro 0x13741d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 376 (375@graphene-376.nancy.grid5000.fr): waiting for synchronization synchro 0x136bf80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 377 (376@graphene-377.nancy.grid5000.fr): waiting for synchronization synchro 0x136c430 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 378 (377@graphene-378.nancy.grid5000.fr): waiting for synchronization synchro 0x136a9f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 379 (378@graphene-379.nancy.grid5000.fr): waiting for synchronization synchro 0x135a110 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 380 (379@graphene-380.nancy.grid5000.fr): waiting for synchronization synchro 0x1360f40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 381 (380@graphene-381.nancy.grid5000.fr): waiting for synchronization synchro 0x135b220 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 382 (381@graphene-382.nancy.grid5000.fr): waiting for synchronization synchro 0x135aba0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 383 (382@graphene-383.nancy.grid5000.fr): waiting for synchronization synchro 0x135ca80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 384 (383@graphene-384.nancy.grid5000.fr): waiting for synchronization synchro 0x135cc20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 385 (384@graphene-385.nancy.grid5000.fr): waiting for synchronization synchro 0x135c260 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 386 (385@graphene-386.nancy.grid5000.fr): waiting for synchronization synchro 0x136b710 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 387 (386@graphene-387.nancy.grid5000.fr): waiting for synchronization synchro 0x136a630 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 388 (387@graphene-388.nancy.grid5000.fr): waiting for synchronization synchro 0x1367840 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 389 (388@graphene-389.nancy.grid5000.fr): waiting for synchronization synchro 0x136cac0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 390 (389@graphene-390.nancy.grid5000.fr): waiting for synchronization synchro 0x135c0c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 391 (390@graphene-391.nancy.grid5000.fr): waiting for synchronization synchro 0x136c340 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 392 (391@graphene-392.nancy.grid5000.fr): waiting for synchronization synchro 0x1373780 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 393 (392@graphene-393.nancy.grid5000.fr): waiting for synchronization synchro 0x13706c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 394 (393@graphene-394.nancy.grid5000.fr): waiting for synchronization synchro 0x1374680 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 395 (394@graphene-395.nancy.grid5000.fr): waiting for synchronization synchro 0x135eba0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 396 (395@graphene-396.nancy.grid5000.fr): waiting for synchronization synchro 0x1369910 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 397 (396@graphene-397.nancy.grid5000.fr): waiting for synchronization synchro 0x136cf70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 398 (397@graphene-398.nancy.grid5000.fr): waiting for synchronization synchro 0x1366850 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 399 (398@graphene-399.nancy.grid5000.fr): waiting for synchronization synchro 0x1362d40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 400 (399@graphene-400.nancy.grid5000.fr): waiting for synchronization synchro 0x135cf60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 401 (400@graphene-401.nancy.grid5000.fr): waiting for synchronization synchro 0x1376480 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 402 (401@graphene-402.nancy.grid5000.fr): waiting for synchronization synchro 0x136d150 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 403 (402@graphene-403.nancy.grid5000.fr): waiting for synchronization synchro 0x1373a50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 404 (403@graphene-404.nancy.grid5000.fr): waiting for synchronization synchro 0x1363a60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 405 (404@graphene-405.nancy.grid5000.fr): waiting for synchronization synchro 0x1366b20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 406 (405@graphene-406.nancy.grid5000.fr): waiting for synchronization synchro 0x135b700 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 407 (406@graphene-407.nancy.grid5000.fr): waiting for synchronization synchro 0x13707b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 408 (407@graphene-408.nancy.grid5000.fr): waiting for synchronization synchro 0x1365a40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 409 (408@graphene-409.nancy.grid5000.fr): waiting for synchronization synchro 0x1360c70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 410 (409@graphene-410.nancy.grid5000.fr): waiting for synchronization synchro 0x1361210 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 411 (410@graphene-411.nancy.grid5000.fr): waiting for synchronization synchro 0x1359820 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 412 (411@graphene-412.nancy.grid5000.fr): waiting for synchronization synchro 0x1367930 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 413 (412@graphene-413.nancy.grid5000.fr): waiting for synchronization synchro 0x13613f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 414 (413@graphene-414.nancy.grid5000.fr): waiting for synchronization synchro 0x135d920 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 415 (414@graphene-415.nancy.grid5000.fr): waiting for synchronization synchro 0x13614e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 416 (415@graphene-416.nancy.grid5000.fr): waiting for synchronization synchro 0x1369820 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 417 (416@graphene-417.nancy.grid5000.fr): waiting for synchronization synchro 0x136b9e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 418 (417@graphene-418.nancy.grid5000.fr): waiting for synchronization synchro 0x13590d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 419 (418@graphene-419.nancy.grid5000.fr): waiting for synchronization synchro 0x1373c30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 420 (419@graphene-420.nancy.grid5000.fr): waiting for synchronization synchro 0x1359d00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 421 (420@graphene-421.nancy.grid5000.fr): waiting for synchronization synchro 0x1374d10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 422 (421@graphene-422.nancy.grid5000.fr): waiting for synchronization synchro 0x136d420 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 423 (422@graphene-423.nancy.grid5000.fr): waiting for synchronization synchro 0x135a2b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 424 (423@graphene-424.nancy.grid5000.fr): waiting for synchronization synchro 0x1370210 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 425 (424@graphene-425.nancy.grid5000.fr): waiting for synchronization synchro 0x1360a90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 426 (425@graphene-426.nancy.grid5000.fr): waiting for synchronization synchro 0x1366760 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 427 (426@graphene-427.nancy.grid5000.fr): waiting for synchronization synchro 0x1372f10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 428 (427@graphene-428.nancy.grid5000.fr): waiting for synchronization synchro 0x135b490 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 429 (428@graphene-429.nancy.grid5000.fr): waiting for synchronization synchro 0x135f230 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 430 (429@graphene-430.nancy.grid5000.fr): waiting for synchronization synchro 0x136f130 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 431 (430@graphene-431.nancy.grid5000.fr): waiting for synchronization synchro 0x135d5e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 432 (431@graphene-432.nancy.grid5000.fr): waiting for synchronization synchro 0x135aad0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 433 (432@graphene-433.nancy.grid5000.fr): waiting for synchronization synchro 0x135c330 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 434 (433@graphene-434.nancy.grid5000.fr): waiting for synchronization synchro 0x135ef60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 435 (434@graphene-435.nancy.grid5000.fr): waiting for synchronization synchro 0x136d6f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 436 (435@graphene-436.nancy.grid5000.fr): waiting for synchronization synchro 0x135be50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 437 (436@graphene-437.nancy.grid5000.fr): waiting for synchronization synchro 0x135d370 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 438 (437@graphene-438.nancy.grid5000.fr): waiting for synchronization synchro 0x135bf20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 439 (438@graphene-439.nancy.grid5000.fr): waiting for synchronization synchro 0x135f320 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 440 (439@graphene-440.nancy.grid5000.fr): waiting for synchronization synchro 0x136adb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 441 (440@graphene-441.nancy.grid5000.fr): waiting for synchronization synchro 0x13705d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 442 (441@graphene-442.nancy.grid5000.fr): waiting for synchronization synchro 0x1371e30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 443 (442@graphene-443.nancy.grid5000.fr): waiting for synchronization synchro 0x1374950 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 444 (443@graphene-444.nancy.grid5000.fr): waiting for synchronization synchro 0x135a5f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 445 (444@graphene-445.nancy.grid5000.fr): waiting for synchronization synchro 0x1373d20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 446 (445@graphene-446.nancy.grid5000.fr): waiting for synchronization synchro 0x13703f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 447 (446@graphene-447.nancy.grid5000.fr): waiting for synchronization synchro 0x1362b60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 448 (447@graphene-448.nancy.grid5000.fr): waiting for synchronization synchro 0x13599c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 449 (448@graphene-449.nancy.grid5000.fr): waiting for synchronization synchro 0x135a6c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 450 (449@graphene-450.nancy.grid5000.fr): waiting for synchronization synchro 0x1359b60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 451 (450@graphene-451.nancy.grid5000.fr): waiting for synchronization synchro 0x1362a70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 452 (451@graphene-452.nancy.grid5000.fr): waiting for synchronization synchro 0x1359270 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 453 (452@graphene-453.nancy.grid5000.fr): waiting for synchronization synchro 0x1363790 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 454 (453@graphene-454.nancy.grid5000.fr): waiting for synchronization synchro 0x1363010 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 455 (454@graphene-455.nancy.grid5000.fr): waiting for synchronization synchro 0x135b150 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 456 (455@graphene-456.nancy.grid5000.fr): waiting for synchronization synchro 0x136e8c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 457 (456@graphene-457.nancy.grid5000.fr): waiting for synchronization synchro 0x1373e10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 458 (457@graphene-458.nancy.grid5000.fr): waiting for synchronization synchro 0x13594e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 459 (458@graphene-459.nancy.grid5000.fr): waiting for synchronization synchro 0x1375a30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 460 (459@graphene-460.nancy.grid5000.fr): waiting for synchronization synchro 0x135a1e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 461 (460@graphene-461.nancy.grid5000.fr): waiting for synchronization synchro 0x136a180 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 462 (461@graphene-462.nancy.grid5000.fr): waiting for synchronization synchro 0x13626b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 463 (462@graphene-463.nancy.grid5000.fr): waiting for synchronization synchro 0x13730f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 464 (463@graphene-464.nancy.grid5000.fr): waiting for synchronization synchro 0x135de80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 465 (464@graphene-465.nancy.grid5000.fr): waiting for synchronization synchro 0x135d1d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 466 (465@graphene-466.nancy.grid5000.fr): waiting for synchronization synchro 0x13762a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 467 (466@graphene-467.nancy.grid5000.fr): waiting for synchronization synchro 0x135b080 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 468 (467@graphene-468.nancy.grid5000.fr): waiting for synchronization synchro 0x136cca0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 469 (468@graphene-469.nancy.grid5000.fr): waiting for synchronization synchro 0x135e060 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 470 (469@graphene-470.nancy.grid5000.fr): waiting for synchronization synchro 0x1375d00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 471 (470@graphene-471.nancy.grid5000.fr): waiting for synchronization synchro 0x135aa00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 472 (471@graphene-472.nancy.grid5000.fr): waiting for synchronization synchro 0x1371d40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 473 (472@graphene-473.nancy.grid5000.fr): waiting for synchronization synchro 0x136a090 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 474 (473@graphene-474.nancy.grid5000.fr): waiting for synchronization synchro 0x13731e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 475 (474@graphene-475.nancy.grid5000.fr): waiting for synchronization synchro 0x1365fe0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 476 (475@graphene-476.nancy.grid5000.fr): waiting for synchronization synchro 0x13642d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 477 (476@graphene-477.nancy.grid5000.fr): waiting for synchronization synchro 0x13636a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 478 (477@graphene-478.nancy.grid5000.fr): waiting for synchronization synchro 0x1360130 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 479 (478@graphene-479.nancy.grid5000.fr): waiting for synchronization synchro 0x13660d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 480 (479@graphene-480.nancy.grid5000.fr): waiting for synchronization synchro 0x135a450 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 481 (480@graphene-481.nancy.grid5000.fr): waiting for synchronization synchro 0x135f500 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 482 (481@graphene-482.nancy.grid5000.fr): waiting for synchronization synchro 0x1367cf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 483 (482@graphene-483.nancy.grid5000.fr): waiting for synchronization synchro 0x1372790 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 484 (483@graphene-484.nancy.grid5000.fr): waiting for synchronization synchro 0x1368fb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 485 (484@graphene-485.nancy.grid5000.fr): waiting for synchronization synchro 0x1371f20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 486 (485@graphene-486.nancy.grid5000.fr): waiting for synchronization synchro 0x1375fd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 487 (486@graphene-487.nancy.grid5000.fr): waiting for synchronization synchro 0x1369640 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 488 (487@graphene-488.nancy.grid5000.fr): waiting for synchronization synchro 0x136e410 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 489 (488@graphene-489.nancy.grid5000.fr): waiting for synchronization synchro 0x1361c60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 490 (489@graphene-490.nancy.grid5000.fr): waiting for synchronization synchro 0x1365d10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 491 (490@graphene-491.nancy.grid5000.fr): waiting for synchronization synchro 0x1366ee0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 492 (491@graphene-492.nancy.grid5000.fr): waiting for synchronization synchro 0x1367660 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 493 (492@graphene-493.nancy.grid5000.fr): waiting for synchronization synchro 0x135b3c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 494 (493@graphene-494.nancy.grid5000.fr): waiting for synchronization synchro 0x135dac0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 495 (494@graphene-495.nancy.grid5000.fr): waiting for synchronization synchro 0x13663a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 496 (495@graphene-496.nancy.grid5000.fr): waiting for synchronization synchro 0x13661c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 497 (496@graphene-497.nancy.grid5000.fr): waiting for synchronization synchro 0x136f4f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 498 (497@graphene-498.nancy.grid5000.fr): waiting for synchronization synchro 0x135ec90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 499 (498@graphene-499.nancy.grid5000.fr): waiting for synchronization synchro 0x1359dd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 500 (499@graphene-500.nancy.grid5000.fr): waiting for synchronization synchro 0x1371b60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 501 (500@graphene-501.nancy.grid5000.fr): waiting for synchronization synchro 0x13704e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 502 (501@graphene-502.nancy.grid5000.fr): waiting for synchronization synchro 0x135eab0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 503 (502@graphene-503.nancy.grid5000.fr): waiting for synchronization synchro 0x136d060 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 504 (503@graphene-504.nancy.grid5000.fr): waiting for synchronization synchro 0x1372d30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 505 (504@graphene-505.nancy.grid5000.fr): waiting for synchronization synchro 0x1376660 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 506 (505@graphene-506.nancy.grid5000.fr): waiting for synchronization synchro 0x13652c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 507 (506@graphene-507.nancy.grid5000.fr): waiting for synchronization synchro 0x13609a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 508 (507@graphene-508.nancy.grid5000.fr): waiting for synchronization synchro 0x135aee0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 509 (508@graphene-509.nancy.grid5000.fr): waiting for synchronization synchro 0x1369af0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 510 (509@graphene-510.nancy.grid5000.fr): waiting for synchronization synchro 0x135b7d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 511 (510@graphene-511.nancy.grid5000.fr): waiting for synchronization synchro 0x1366fd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 512 (511@graphene-512.nancy.grid5000.fr): waiting for synchronization synchro 0x136e050 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 513 (512@graphene-513.nancy.grid5000.fr): waiting for synchronization synchro 0x13641e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 514 (513@graphene-514.nancy.grid5000.fr): waiting for synchronization synchro 0x135d780 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 515 (514@graphene-515.nancy.grid5000.fr): waiting for synchronization synchro 0x1359000 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 516 (515@graphene-516.nancy.grid5000.fr): waiting for synchronization synchro 0x1360e50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 517 (516@graphene-517.nancy.grid5000.fr): waiting for synchronization synchro 0x1365ef0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 518 (517@graphene-518.nancy.grid5000.fr): waiting for synchronization synchro 0x13622f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 519 (518@graphene-519.nancy.grid5000.fr): waiting for synchronization synchro 0x13633d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 520 (519@graphene-520.nancy.grid5000.fr): waiting for synchronization synchro 0x136eaa0 (synchro) in state 0 to finish
+/home/mquinson/simgrid-3.12/bin/smpirun: line 461: 15504 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:8.65 user:4.36 sys:0.83 swapped:0 exitval:134 max:1690852k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:3dmesh numproc:520 msgsize:6343 hostTime:8.65 hostMem:1690852k)
+** Test with algorithm basic_linear
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 520 ./alltoall 6343 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:basic_linear --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.567501 Success numproc=520 msgsize=6343
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'basic_linear'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:50.05 user:45.05 sys:1.53 swapped:0 exitval:0 max:3739644k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:basic_linear numproc:520 msgsize:6343 hostTime:50.05 hostMem:3739644k simTime:0.567501 
+** Test with algorithm bruck
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 520 ./alltoall 6343 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:bruck --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.567501 Success numproc=520 msgsize=6343
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'bruck'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:51.65 user:46.42 sys:1.57 swapped:0 exitval:0 max:3739436k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:bruck numproc:520 msgsize:6343 hostTime:51.65 hostMem:3739436k simTime:0.567501 
+** Test with algorithm pair
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 520 ./alltoall 6343 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:pair --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'pair'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+** SimGrid: UNCAUGHT EXCEPTION received on ./alltoall(0): category: invalid argument; value: 0
+** alltoall pair algorithm can't be used with non power of two number of processes ! 
+** Thrown by 497() in this process
+[graphene-498.nancy.grid5000.fr:497:(0) 0.000000] /home/mquinson/Code/simgrid/src/xbt/ex.c:146: [xbt_ex/CRITICAL] alltoall pair algorithm can't be used with non power of two number of processes ! 
+
+**   In smpi_coll_tuned_alltoall_pair() at /home/mquinson/Code/simgrid/src/smpi/colls/alltoall-pair.c:82
+**   In PMPI_Alltoall() at /home/mquinson/Code/simgrid/src/smpi/smpi_pmpi.c:2424
+**   In smpi_simulated_main_() at ??:0
+**   In smx_ctx_raw_stop() at /home/mquinson/Code/simgrid/src/simix/smx_context_raw.c:402
+/home/mquinson/simgrid-3.12/bin/smpirun: line 461: 24977 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:9.35 user:4.36 sys:0.88 swapped:0 exitval:134 max:1691268k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:pair numproc:520 msgsize:6343 hostTime:9.35 hostMem:1691268k)
+** Test with algorithm rdb
