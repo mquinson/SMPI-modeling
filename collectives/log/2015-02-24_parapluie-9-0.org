@@ -1,0 +1,1095 @@
+#+TITLE: SMPI Collective evaluation
+#+DATE: Tue Feb 24 07:55:17 CET 2015
+#+AUTHOR: mquinson
+ 
+* People logged when experiment started:
+* Hostname
+parapluie-9.rennes.grid5000.fr
+* System information
+Linux parapluie-9.rennes.grid5000.fr 3.2.0-4-amd64 #1 SMP Debian 3.2.63-2+deb7u1 x86_64 GNU/Linux
+* CPU info
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 0
+cpu cores	: 12
+apicid		: 16
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.36
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 1
+cpu cores	: 12
+apicid		: 17
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.11
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 2
+cpu cores	: 12
+apicid		: 18
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.11
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 3
+cpu cores	: 12
+apicid		: 19
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.11
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 4
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 4
+cpu cores	: 12
+apicid		: 20
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 5
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 5
+cpu cores	: 12
+apicid		: 21
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 6
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 0
+cpu cores	: 12
+apicid		: 22
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 7
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 1
+cpu cores	: 12
+apicid		: 23
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 8
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 2
+cpu cores	: 12
+apicid		: 24
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 9
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 3
+cpu cores	: 12
+apicid		: 25
+initial apicid	: 9
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 10
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 4
+cpu cores	: 12
+apicid		: 26
+initial apicid	: 10
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 11
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 12
+core id		: 5
+cpu cores	: 12
+apicid		: 27
+initial apicid	: 11
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 12
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 0
+cpu cores	: 12
+apicid		: 32
+initial apicid	: 16
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 13
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 1
+cpu cores	: 12
+apicid		: 33
+initial apicid	: 17
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 14
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 2
+cpu cores	: 12
+apicid		: 34
+initial apicid	: 18
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 15
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 3
+cpu cores	: 12
+apicid		: 35
+initial apicid	: 19
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.11
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 16
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 4
+cpu cores	: 12
+apicid		: 36
+initial apicid	: 20
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 17
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 5
+cpu cores	: 12
+apicid		: 37
+initial apicid	: 21
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 18
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 0
+cpu cores	: 12
+apicid		: 38
+initial apicid	: 22
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 19
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 1
+cpu cores	: 12
+apicid		: 39
+initial apicid	: 23
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.13
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 20
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 2
+cpu cores	: 12
+apicid		: 40
+initial apicid	: 24
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 21
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 3
+cpu cores	: 12
+apicid		: 41
+initial apicid	: 25
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 22
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 4
+cpu cores	: 12
+apicid		: 42
+initial apicid	: 26
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.11
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 23
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 9
+model name	: AMD Opteron(tm) Processor 6164 HE
+stepping	: 1
+microcode	: 0x10000c4
+cpu MHz		: 1700.000
+cache size	: 512 KB
+physical id	: 1
+siblings	: 12
+core id		: 5
+cpu cores	: 12
+apicid		: 43
+initial apicid	: 27
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate npt lbrv svm_lock nrip_save pausefilter
+bogomips	: 3400.12
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+* CPU governor
+performance
+* CPU frequency
+1700000
+* Meminfo
+MemTotal:       49566324 kB
+MemFree:        48667976 kB
+Buffers:          264256 kB
+Cached:           194032 kB
+SwapCached:        11640 kB
+Active:           286668 kB
+Inactive:         194844 kB
+Active(anon):      14476 kB
+Inactive(anon):    11244 kB
+Active(file):     272192 kB
+Inactive(file):   183600 kB
+Unevictable:        3476 kB
+Mlocked:            3476 kB
+SwapTotal:       3905532 kB
+SwapFree:        3881624 kB
+Dirty:                28 kB
+Writeback:             0 kB
+AnonPages:         13524 kB
+Mapped:             9116 kB
+Shmem:               104 kB
+Slab:             123724 kB
+SReclaimable:      91648 kB
+SUnreclaim:        32076 kB
+KernelStack:        2800 kB
+PageTables:         3504 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    28688692 kB
+Committed_AS:     245892 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      391848 kB
+VmallocChunk:   34321601860 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      111232 kB
+DirectMap2M:     6178816 kB
+DirectMap1G:    44040192 kB
+* Memory hierarchy
+Machine (48GB)
+  Socket L#0 (24GB)
+    NUMANode L#0 (P#0 12GB)
+      L3 L#0 (5118KB)
+        L2 L#0 (512KB) + L1 L#0 (64KB) + Core L#0 + PU L#0 (P#0)
+        L2 L#1 (512KB) + L1 L#1 (64KB) + Core L#1 + PU L#1 (P#1)
+        L2 L#2 (512KB) + L1 L#2 (64KB) + Core L#2 + PU L#2 (P#2)
+        L2 L#3 (512KB) + L1 L#3 (64KB) + Core L#3 + PU L#3 (P#3)
+        L2 L#4 (512KB) + L1 L#4 (64KB) + Core L#4 + PU L#4 (P#4)
+        L2 L#5 (512KB) + L1 L#5 (64KB) + Core L#5 + PU L#5 (P#5)
+      HostBridge L#0
+        PCIBridge
+          PCI 15b3:634a
+            Net L#0 "ib0"
+            Net L#1 "ib1"
+            OpenFabrics L#2 "mlx4_0"
+        PCIBridge
+          PCI 8086:10c9
+            Net L#3 "eth0"
+          PCI 8086:10c9
+            Net L#4 "eth1"
+        PCIBridge
+          PCI 8086:10c9
+            Net L#5 "eth2"
+          PCI 8086:10c9
+            Net L#6 "eth3"
+        PCIBridge
+          PCI 102b:0522
+        PCI 1002:4391
+          Block L#7 "sda"
+        PCI 1002:439c
+    NUMANode L#1 (P#1 12GB) + L3 L#1 (5118KB)
+      L2 L#6 (512KB) + L1 L#6 (64KB) + Core L#6 + PU L#6 (P#6)
+      L2 L#7 (512KB) + L1 L#7 (64KB) + Core L#7 + PU L#7 (P#7)
+      L2 L#8 (512KB) + L1 L#8 (64KB) + Core L#8 + PU L#8 (P#8)
+      L2 L#9 (512KB) + L1 L#9 (64KB) + Core L#9 + PU L#9 (P#9)
+      L2 L#10 (512KB) + L1 L#10 (64KB) + Core L#10 + PU L#10 (P#10)
+      L2 L#11 (512KB) + L1 L#11 (64KB) + Core L#11 + PU L#11 (P#11)
+  Socket L#1 (24GB)
+    NUMANode L#2 (P#3 12GB) + L3 L#2 (5118KB)
+      L2 L#12 (512KB) + L1 L#12 (64KB) + Core L#12 + PU L#12 (P#12)
+      L2 L#13 (512KB) + L1 L#13 (64KB) + Core L#13 + PU L#13 (P#13)
+      L2 L#14 (512KB) + L1 L#14 (64KB) + Core L#14 + PU L#14 (P#14)
+      L2 L#15 (512KB) + L1 L#15 (64KB) + Core L#15 + PU L#15 (P#15)
+      L2 L#16 (512KB) + L1 L#16 (64KB) + Core L#16 + PU L#16 (P#16)
+      L2 L#17 (512KB) + L1 L#17 (64KB) + Core L#17 + PU L#17 (P#17)
+    NUMANode L#3 (P#2 12GB) + L3 L#3 (5118KB)
+      L2 L#18 (512KB) + L1 L#18 (64KB) + Core L#18 + PU L#18 (P#18)
+      L2 L#19 (512KB) + L1 L#19 (64KB) + Core L#19 + PU L#19 (P#19)
+      L2 L#20 (512KB) + L1 L#20 (64KB) + Core L#20 + PU L#20 (P#20)
+      L2 L#21 (512KB) + L1 L#21 (64KB) + Core L#21 + PU L#21 (P#21)
+      L2 L#22 (512KB) + L1 L#22 (64KB) + Core L#22 + PU L#22 (P#22)
+      L2 L#23 (512KB) + L1 L#23 (64KB) + Core L#23 + PU L#23 (P#23)
+* Environment Variables
+OAR_JOBID=701463
+OAR_ARRAYID=701463
+OARDIR=/usr/lib/oar
+OAR_WORKING_DIRECTORY=/home/mquinson
+TERM=unknown
+SHELL=/bin/bash
+XDG_SESSION_COOKIE=c58e076c93e6df09e57173ea547dcbf2-1424760916.995073-633584914
+PERL5LIB=/usr/lib/oar
+OARCONFFILE=/etc/oar/oar.conf
+OAR_USER=mquinson
+LC_ALL=en_US.UTF-8
+USER=mquinson
+OAR_WORKDIR=/home/mquinson
+OARUSER=oar
+OAR_JOB_NAME=
+OAR_NODE_FILE=/var/lib/oar/701463
+OAR_KEY=1
+OAR_RESOURCE_PROPERTIES_FILE=/var/lib/oar/701463_resources
+PATH=/home/mquinson/simgrid-3.12/bin:/usr/lib/oar/oardodo:/usr/lib/oar/oardodo:/usr/local/bin:/usr/bin:/bin:/grid5000/code/bin
+OAR_PROJECT_NAME=default
+OAR_JOB_WALLTIME_SECONDS=259200
+OAR_STDERR=OAR.701463.stderr
+PWD=/home/mquinson/Code/SMPI-modeling/collectives
+LANG=en_US.UTF-8
+OAR_ARRAY_ID=701463
+SUDO_COMMAND=OAR
+OAR_FILE_NODES=/var/lib/oar/701463
+SHLVL=3
+HOME=/home/mquinson
+LANGUAGE=en_US:en
+OAR_ARRAYINDEX=1
+OARXAUTHLOCATION=/usr/bin/xauth
+OAR_JOB_WALLTIME=72:0:0
+BASH_ENV=/home/mquinson/.bashrc
+OAR_NODEFILE=/var/lib/oar/701463
+LOGNAME=mquinson
+SSH_CONNECTION=172.16.111.110 51986 172.16.99.9 6667
+OAR_RESOURCE_FILE=/var/lib/oar/701463
+OAR_STDOUT=OAR.701463.stdout
+OARDO_USER=oar
+OAR_JOB_ID=701463
+OAR_CPUSET=/oar/mquinson_701463
+OAR_ARRAY_INDEX=1
+OAR_O_WORKDIR=/home/mquinson
+OARDO_UID=112
+_=/usr/bin/printenv
+* Tools Versions
+** SimGrid Full Version
+SimGrid version 3.12-devel
+Copyright (c) 2004-2015. The Simgrid Team.
+Release build at commit 5a97de8 (2015-02-18 10:05:16 +0100)
+** SimGrid Commit Hash
+5a97de8c98502af9f74cfceb924fa02e0fd80925
+** Linux and gcc versions
+Linux version 3.2.0-4-amd64 (debian-kernel@lists.debian.org) (gcc version 4.6.3 (Debian 4.6.3-14) ) #1 SMP Debian 3.2.63-2+deb7u1
+** Gcc info
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.7/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 4.7.2-5' --with-bugurl=file:///usr/share/doc/gcc-4.7/README.Bugs --enable-languages=c,c++,go,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.7 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.7 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --enable-objc-gc --with-arch-32=i586 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.7.2 (Debian 4.7.2-5) 
+** Make tool
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for x86_64-pc-linux-gnu
+** CMake
+cmake version 2.8.9
+* Compilation result
+* Platform file
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+
+
+<config id="General">
+  <prop id="workstation/model" value="compound"/>
+  <prop id="network/model" value="SMPI"/>
+  <prop id="network/TCP_gamma" value="4194304"/>
+  <prop id="network/sender_gap" value="0"/>
+  <prop id="maxmin/precision" value="1e-9"/>
+  <prop id="smpi/async_small_thres" value="65536"/>
+  <prop id="smpi/send_is_detached_thres" value="327680"/>
+<!--  <prop id="smpi/os" value="1:8.75118726019245e-06:7.09598480584951e-10;1420:1.38989305424406e-05:2.18111838119125e-10;65536:0.000193970854779561:-4.82025737428887e-11;327680:0:0"/>-->
+<!--  <prop id="smpi/or" value="1:9.3069771137911e-06:7.92179414036391e-10;1420:1.43097562292319e-05:8.66975835499791e-10;10000:1.41659209904282e-05:1.00877300603447e-09;65536:0:0"/>-->
+<!--  <prop id="smpi/bw_factor" value="0:0.408465938;1420:0.913760459;65536:0.937794396"/>-->
+<!--  <prop id="smpi/lat_factor" value="0:1.01;1420:4.02;65536:9.77"/>-->
+<!--  -->
+ <prop id="smpi/os" value="0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0"/>
+ <prop id="smpi/or" value="0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0"/>
+ <prop id="smpi/bw_factor" value="0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892"/>
+ <prop id="smpi/lat_factor" value="0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594"/>  
+</config>
+ 
+<AS id="AS_graphene" routing="Full" >
+  <cluster id="AS_sgraphene1" prefix="graphene-" radical="1-256" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene2" prefix="graphene-" radical="257-512" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene3" prefix="graphene-" radical="513-784" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene4" prefix="graphene-" radical="785-1024" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+
+  <link id="switch-backbone1" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter1" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone2" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter2" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone3" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter3" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone4" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter4" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+                
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+          symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>                
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     
+          <ASroute src="AS_sgraphene1" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+               <ASroute src="AS_sgraphene4" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene2" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+              <ASroute src="AS_sgraphene4" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     
+               <ASroute src="AS_sgraphene3" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+     
+                    <ASroute src="AS_sgraphene4" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+ </AS>
+</platform>
+
+* Experiment 1
+Don't do proc:1003 size:1772082 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:579 size:754818 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:546 size:1790805 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:209 size:951608 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:824 size:362879 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:386 size:1018273 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:881 size:837562 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:858 size:825819 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:918 size:1052516 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:335 size:1053992 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:464 size:521855 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:961 size:1495870 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:602 size:1844296 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:749 size:1538063 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:249 size:2051005 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:609 size:1690183 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:478 size:1129845 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:67 size:461838 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:259 size:841232 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:719 size:1089140 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:442 size:1094189 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:715 size:1680339 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:596 size:1164132 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:850 size:559055 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:426 size:186148 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:939 size:1470137 as there is not enough memory (free mem: 48639728 kb)
+Don't do proc:157 size:2033147 as there is not enough memory (free mem: 48639728 kb)
+Do proc:256 size:93458 freemem:48639728k mem usage:47850496
+** Test with algorithm 2dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 256 ./alltoall 93458 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:2dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '2dmesh'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Invalid XML (XML input line 1, state 1): Unexpected character `<' in prolog.
+[0.000000] /home/mquinson/Code/simgrid/src/simix/smx_deployment.c:131: [simix_deployment/ERROR] Unrecoverable error at tmpBeac1i:1. The full exception stack follows, in case it helps you to diagnose the problem.
+** SimGrid: UNCAUGHT EXCEPTION received on ./alltoall(0): category: unknown error; value: 0
+** Parse error at tmpBeac1i:1
+** Thrown by () in this process
+[0.000000] /home/mquinson/Code/simgrid/src/xbt/ex.c:146: [xbt_ex/CRITICAL] Parse error at tmpBeac1i:1
+
+**   In SIMIX_launch_application() at /home/mquinson/Code/simgrid/src/simix/smx_deployment.c:127
+**   In smpi_main() at /home/mquinson/Code/simgrid/src/smpi/smpi_global.c:661
+**   In __libc_start_main() at /build/eglibc-gqss97/eglibc-2.13/csu/libc-start.c:276
+**   In _start() at ??:0
+/home/mquinson/simgrid-3.12/bin/smpirun: line 461: 16528 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+rm: cannot remove `tmphostCJdSPo': No such file or directory
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:7.07 user:4.10 sys:0.50 swapped:0 exitval:134 max:14412k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:2dmesh numproc:256 msgsize:93458 hostTime:7.07 hostMem:14412k)
+** Test with algorithm 3dmesh
