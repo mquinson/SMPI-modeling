@@ -93,7 +93,10 @@ for nbtest in `seq 1 200` ; do
       
 
       echo "** Test with algorithm $algo" >> $logfile
+      watchdogtime=`expr 60 \* 60 \* 1` # 1 hour
+      (sleep $watchdogtime 2>/dev/null; killall alltoall)&
       /usr/bin/time -f "$timefmt" -o $me.timings `printf "$cmd" $proc $size "$algo"` > $me.stdout 2> $me.stderr
+      killall sleep 2>/dev/null
       echo "*** Command" >> $logfile
       echo "#+BEGIN_EXAMPLE" >> $logfile
       printf "$cmd" $proc $size $algo >> $logfile

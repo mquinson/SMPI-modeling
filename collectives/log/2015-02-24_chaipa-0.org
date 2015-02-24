@@ -1,0 +1,1301 @@
+#+TITLE: SMPI Collective evaluation
+#+DATE: mardi 24 février 2015, 08:09:36 (UTC+0100)
+#+AUTHOR: mquinson
+ 
+* People logged when experiment started:
+mquinson tty1         2015-02-03 18:47
+mquinson :0           2015-02-03 18:47 (:0)
+mquinson pts/1        2015-02-03 18:48 (:0.0)
+mquinson pts/2        2015-02-03 22:57 (:0.0)
+mquinson pts/3        2015-02-21 16:16 (:0.0)
+mquinson pts/4        2015-02-03 22:45 (:0.0)
+mquinson pts/5        2015-02-03 22:58 (:0.0)
+mquinson pts/7        2015-02-05 16:38 (:0.0)
+mquinson pts/6        2015-02-16 09:29 (:0.0)
+mquinson pts/8        2015-02-21 20:49 (:0.0)
+mquinson pts/10       2015-02-19 10:21 (:0.0)
+mquinson pts/11       2015-02-22 19:03 (:0.0)
+mquinson pts/12       2015-02-19 10:01 (:0.0)
+mquinson pts/13       2015-02-17 14:27 (:0.0)
+mquinson pts/14       2015-02-19 16:44 (:0.0)
+mquinson pts/15       2015-02-22 19:25 (:0.0)
+mquinson pts/16       2015-02-20 21:22 (:0.0)
+mquinson pts/17       2015-02-23 10:16 (:0.0)
+mquinson pts/19       2015-02-18 16:55 (:0.0)
+* Hostname
+chaipa
+* System information
+Linux chaipa 3.16-2-amd64 #1 SMP Debian 3.16.3-2 (2014-09-20) x86_64 GNU/Linux
+* CPU info
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3540M CPU @ 3.00GHz
+stepping	: 9
+microcode	: 0x16
+cpu MHz		: 1216.640
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 5986.56
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3540M CPU @ 3.00GHz
+stepping	: 9
+microcode	: 0x16
+cpu MHz		: 1297.031
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 5986.56
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3540M CPU @ 3.00GHz
+stepping	: 9
+microcode	: 0x16
+cpu MHz		: 1269.843
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 5986.56
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3540M CPU @ 3.00GHz
+stepping	: 9
+microcode	: 0x16
+cpu MHz		: 1217.460
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 5986.56
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+* CPU governor
+powersave
+* CPU frequency
+Unknown (information not available)
+* Meminfo
+MemTotal:       16401544 kB
+MemFree:         5325732 kB
+MemAvailable:   10001888 kB
+Buffers:          404452 kB
+Cached:          4417824 kB
+SwapCached:            0 kB
+Active:          9169952 kB
+Inactive:        1346228 kB
+Active(anon):    5720500 kB
+Inactive(anon):   110736 kB
+Active(file):    3449452 kB
+Inactive(file):  1235492 kB
+Unevictable:          96 kB
+Mlocked:              96 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                20 kB
+Writeback:             0 kB
+AnonPages:       5694008 kB
+Mapped:           417456 kB
+Shmem:            137332 kB
+Slab:             295300 kB
+SReclaimable:     244628 kB
+SUnreclaim:        50672 kB
+KernelStack:       10400 kB
+PageTables:        56932 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     8200772 kB
+Committed_AS:   10414048 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      317984 kB
+VmallocChunk:   34359322924 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      102348 kB
+DirectMap2M:    16605184 kB
+* Memory hierarchy
+./simgrid_hostinfo.sh: ligne 35: lstopo : commande introuvable
+* Environment Variables
+XDG_VTNR=7
+SSH_AGENT_PID=2240
+XDG_SESSION_ID=3
+GPG_AGENT_INFO=/tmp/gpg-UaPWyh/S.gpg-agent:2261:1
+GLADE_PIXMAP_PATH=:
+GRAS_ROOT=/opt/simgrid
+TERM=xterm
+SHELL=/bin/bash
+XDG_MENU_PREFIX=xfce-
+VALGRIND_OPTS=--leak-check=yes --leak-resolution=high --num-callers=40 --tool=memcheck --suppressions=/home/mquinson/.valgrind.supp
+WINDOWID=58925433
+USER=mquinson
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+LD_LIBRARY_PATH=/opt/simgrid/lib
+DEBEMAIL=mquinson@debian.org
+GLADE_MODULE_PATH=:
+SSH_AUTH_SOCK=/tmp/ssh-fwh1WqsBN88i/agent.2198
+SESSION_MANAGER=local/chaipa:@/tmp/.ICE-unix/2254,unix/chaipa:/tmp/.ICE-unix/2254
+USERNAME=mquinson
+DEB_BUILD_OPTIONS=parallel=4
+XDG_CONFIG_DIRS=/etc/xdg
+PATH=/opt/simgrid//bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/mquinson/SCRIPTS:/usr/sbin:/sbin:/opt/simgrid/bin
+DESKTOP_SESSION=xfce
+PWD=/home/mquinson/Code/SMPI-modeling/collectives
+EDITOR=jed
+LANG=fr_FR.UTF-8
+GDMSESSION=xfce
+HISTCONTROL=ignoreboth
+GPG_TTY=/dev/pts/17
+SHLVL=3
+XDG_SEAT=seat0
+HOME=/home/mquinson
+XDG_SESSION_DESKTOP=xfce
+LOGNAME=mquinson
+XDG_DATA_DIRS=/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-p60sAMaRGt,guid=3d800b6457ae9442302dd2dd54d109c6
+DEBFULLNAME=Martin Quinson
+WINDOWPATH=7
+XDG_RUNTIME_DIR=/run/user/1000
+DISPLAY=:0.0
+GLADE_CATALOG_PATH=:
+XDG_CURRENT_DESKTOP=XFCE
+COLORTERM=xfce4-terminal
+XAUTHORITY=/var/run/gdm3/auth-for-mquinson-orkW3I/database
+_=/usr/bin/printenv
+* Tools Versions
+** SimGrid Full Version
+SimGrid version 3.12-devel
+Copyright (c) 2004-2014. The Simgrid Team.
+Release build at commit 491af46 (2015-02-16 15:31:17 +0100)
+** SimGrid Commit Hash
+491af463998597b43a8b9c68c126f97f0089ab5e
+** Linux and gcc versions
+Linux version 3.16-2-amd64 (debian-kernel@lists.debian.org) (gcc version 4.8.3 (Debian 4.8.3-11) ) #1 SMP Debian 3.16.3-2 (2014-09-20)
+** Gcc info
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.9/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 4.9.1-19' --with-bugurl=file:///usr/share/doc/gcc-4.9/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.9 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.9 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.9-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.9-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.9-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --with-arch-32=i586 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.9.1 (Debian 4.9.1-19) 
+** Make tool
+GNU Make 4.0
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+** CMake
+cmake version 3.0.2
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+* Compilation result
+* Platform file
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+
+
+<config id="General">
+  <prop id="workstation/model" value="compound"/>
+  <prop id="network/model" value="SMPI"/>
+  <prop id="network/TCP_gamma" value="4194304"/>
+  <prop id="network/sender_gap" value="0"/>
+  <prop id="maxmin/precision" value="1e-9"/>
+  <prop id="smpi/async_small_thres" value="65536"/>
+  <prop id="smpi/send_is_detached_thres" value="327680"/>
+<!--  <prop id="smpi/os" value="1:8.75118726019245e-06:7.09598480584951e-10;1420:1.38989305424406e-05:2.18111838119125e-10;65536:0.000193970854779561:-4.82025737428887e-11;327680:0:0"/>-->
+<!--  <prop id="smpi/or" value="1:9.3069771137911e-06:7.92179414036391e-10;1420:1.43097562292319e-05:8.66975835499791e-10;10000:1.41659209904282e-05:1.00877300603447e-09;65536:0:0"/>-->
+<!--  <prop id="smpi/bw_factor" value="0:0.408465938;1420:0.913760459;65536:0.937794396"/>-->
+<!--  <prop id="smpi/lat_factor" value="0:1.01;1420:4.02;65536:9.77"/>-->
+<!--  -->
+ <prop id="smpi/os" value="0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0"/>
+ <prop id="smpi/or" value="0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0"/>
+ <prop id="smpi/bw_factor" value="0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892"/>
+ <prop id="smpi/lat_factor" value="0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594"/>  
+</config>
+ 
+<AS id="AS_graphene" routing="Full" >
+  <cluster id="AS_sgraphene1" prefix="graphene-" radical="1-256" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene2" prefix="graphene-" radical="257-512" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene3" prefix="graphene-" radical="513-784" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+  <cluster id="AS_sgraphene4" prefix="graphene-" radical="785-1024" suffix=".nancy.grid5000.fr"
+           power="4.18E9" core="4" bw="1.25E8" lat="2.4E-5"
+           sharing_policy="FULLDUPLEX" limiter_link="1.875E8" loopback_lat="1.5E-9" loopback_bw="6000000000"></cluster>
+
+  <link id="switch-backbone1" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter1" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone2" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter2" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone3" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter3" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+  <link id="switch-backbone4" bandwidth="1162500000" latency="1.5E-6" sharing_policy="FULLDUPLEX"/>
+  <link id="explicit-limiter4" bandwidth="1511250000" latency="0" sharing_policy="SHARED"/>
+
+
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+                
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene2" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+          symmetrical="NO"
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>                
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     <ASroute src="AS_sgraphene1" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+     
+          <ASroute src="AS_sgraphene1" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone1" direction="UP"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+               <ASroute src="AS_sgraphene4" dst="AS_sgraphene1"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene1_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter1"/>
+                <link_ctn id="switch-backbone1" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene2" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone2" direction="UP"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+          <ASroute src="AS_sgraphene3" dst="AS_sgraphene4"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="switch-backbone4" direction="DOWN"/>
+     </ASroute>
+              <ASroute src="AS_sgraphene4" dst="AS_sgraphene3"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="switch-backbone3" direction="DOWN"/>
+     </ASroute>
+     
+               <ASroute src="AS_sgraphene3" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene3_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone3" direction="UP"/>
+                <link_ctn id="explicit-limiter3"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+     
+                    <ASroute src="AS_sgraphene4" dst="AS_sgraphene2"
+         gw_src="graphene-AS_sgraphene4_router.nancy.grid5000.fr"
+         gw_dst="graphene-AS_sgraphene2_router.nancy.grid5000.fr"
+         symmetrical="NO"         
+         >
+                <link_ctn id="switch-backbone4" direction="UP"/>
+                <link_ctn id="explicit-limiter4"/>
+                <link_ctn id="explicit-limiter2"/>
+                <link_ctn id="switch-backbone2" direction="DOWN"/>
+     </ASroute>
+ </AS>
+</platform>
+
+* Experiment 1
+Don't do proc:936 size:1285036 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:506 size:462826 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:725 size:1351274 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:215 size:1655814 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:323 size:1070706 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:140 size:1030167 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:561 size:1381242 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:152 size:2036002 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:750 size:557769 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:842 size:304773 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:765 size:1148114 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:995 size:235205 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:214 size:907891 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:842 size:1328390 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:684 size:447388 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:386 size:1073492 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:557 size:50668 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:714 size:487347 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:793 size:802928 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:923 size:1490098 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:973 size:1555855 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:878 size:882018 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:340 size:1727452 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:735 size:1711978 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:542 size:1966446 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:440 size:1895827 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:1016 size:460850 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:429 size:483631 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:872 size:1754770 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:35 size:460845 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:201 size:1145846 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:312 size:1224451 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:322 size:1526910 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:850 size:716996 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:283 size:1067776 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:926 size:1675575 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:610 size:1813452 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:836 size:1158552 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:323 size:951827 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:980 size:1966444 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:699 size:622358 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:76 size:1321289 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:460 size:1544060 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:444 size:2069373 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:990 size:952741 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:210 size:835372 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:764 size:1602079 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:671 size:922593 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:991 size:1665523 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:911 size:947158 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:110 size:2052969 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:821 size:22032 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:559 size:214062 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:577 size:1919543 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:157 size:736257 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:327 size:112345 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:787 size:1488857 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:119 size:1756121 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:203 size:73101 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:901 size:1158272 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:197 size:537206 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:665 size:1704017 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:637 size:1269803 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:170 size:1891268 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:341 size:1379886 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:129 size:1266515 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:696 size:62665 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:908 size:628275 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:57 size:2041387 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:40 size:1574213 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:671 size:1765339 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:6 size:559451 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:986 size:909011 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:18 size:2042608 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:748 size:29691 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:316 size:1668302 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:632 size:345007 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:918 size:1127947 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:991 size:759756 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:753 size:1185100 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:269 size:1202048 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:24 size:648764 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:125 size:1150571 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:892 size:2043341 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:79 size:1745562 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:575 size:662496 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:988 size:1471916 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:258 size:1032758 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:411 size:1490360 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:671 size:2012070 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:146 size:1396580 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:886 size:1610082 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:665 size:1146489 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:994 size:756844 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:724 size:1358743 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:956 size:1036823 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:895 size:2054589 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:601 size:106554 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:371 size:863962 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:292 size:711540 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:49 size:1877381 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:91 size:292993 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:18 size:2025119 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:11 size:1565734 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:108 size:467087 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:903 size:1142030 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:244 size:1938112 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:660 size:1751570 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:97 size:305893 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:836 size:1513264 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:234 size:1824300 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:642 size:2028568 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:930 size:153137 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:493 size:330578 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:569 size:1670205 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:510 size:293509 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:355 size:1120715 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:294 size:1035636 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:882 size:589476 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:445 size:764333 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:269 size:1899368 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:189 size:1977330 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:410 size:1401797 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:998 size:317685 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:1004 size:1707443 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:28 size:361631 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:849 size:1206517 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:776 size:2081095 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:127 size:741240 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:790 size:1472425 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:700 size:178504 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:697 size:251313 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:1005 size:1586606 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:737 size:1727718 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:140 size:128625 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:870 size:373620 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:567 size:1891336 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:20 size:775901 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:519 size:586848 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:346 size:294818 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:338 size:1412016 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:293 size:1966311 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:588 size:351012 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:233 size:1245615 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:127 size:2044800 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:177 size:1638351 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:395 size:1547477 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:623 size:1760127 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:674 size:778614 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:587 size:1297059 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:351 size:914088 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:787 size:644062 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:639 size:1895580 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:223 size:1594744 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:681 size:581786 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:515 size:710260 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:321 size:1383032 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:853 size:1743705 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:689 size:249106 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:418 size:468964 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:163 size:71682 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:810 size:334327 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:597 size:1400114 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:759 size:1136798 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:998 size:1226074 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:159 size:1636874 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:297 size:1465776 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:46 size:1816259 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:1005 size:595849 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:146 size:1319188 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:165 size:332792 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:865 size:512141 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:449 size:636784 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:252 size:2088870 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:632 size:470773 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:309 size:347099 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:1015 size:829367 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:778 size:842093 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:656 size:1023332 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:904 size:1580574 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:768 size:1556835 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:390 size:1447867 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:624 size:884124 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:251 size:1955037 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:984 size:928723 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:175 size:1505864 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:711 size:1823120 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:649 size:530089 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:977 size:1886426 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:291 size:1537134 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:6 size:1746735 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:670 size:1910155 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:857 size:114380 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:591 size:583394 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:153 size:2073592 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:864 size:1304348 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:425 size:2034704 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:271 size:1946662 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:301 size:1287991 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:844 size:1288821 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:634 size:625597 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:418 size:616102 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:981 size:1196205 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:672 size:1589135 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:849 size:1675482 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:1005 size:519908 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:5 size:864364 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:622 size:1568871 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:922 size:870548 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:961 size:2073557 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:740 size:1223373 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:781 size:38734 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:510 size:1444520 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:539 size:362667 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:642 size:929173 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:298 size:1676591 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:688 size:1392151 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:537 size:1760132 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:225 size:623598 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:916 size:590853 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:951 size:229988 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:888 size:112895 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:565 size:1361173 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:579 size:418917 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:720 size:224448 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:453 size:610984 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:661 size:707811 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:676 size:1463049 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:756 size:1322892 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:549 size:919300 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:50 size:260157 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:294 size:459737 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:842 size:893113 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:826 size:233579 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:550 size:1596677 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:971 size:529377 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:519 size:486696 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:996 size:147878 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:101 size:1752958 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:241 size:20174 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:619 size:1614674 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:240 size:1862574 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:213 size:1633861 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:351 size:759834 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:919 size:541617 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:90 size:561332 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:795 size:295194 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:317 size:1910696 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:721 size:1419345 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:207 size:1238158 as there is not enough memory (free mem: 5325328 kb)
+Don't do proc:901 size:1713451 as there is not enough memory (free mem: 5325328 kb)
+Do proc:10 size:10956 freemem:5325328k mem usage:219120
+** Test with algorithm 2dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:2dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.006109 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '2dmesh'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 2dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 2dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.07 user:0.02 sys:0.01 swapped:0 exitval:0 max:24456k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:2dmesh numproc:10 msgsize:10956 hostTime:0.07 hostMem:24456k simTime:0.006109 
+** Test with algorithm 3dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:3dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+[0.000000] all_to_all returned 12
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '3dmesh'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 3dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 3dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[0.000000] /home/mquinson/Code/simgrid/src/simix/smx_global.c:463: [simix_kernel/CRITICAL] Oops ! Deadlock or code not perfectly clean.
+[0.000000] [simix_kernel/INFO] 9 processes are still running, waiting for something.
+[0.000000] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[0.000000] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd260 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd710 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr): waiting for synchronization synchro 0x11fcf90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd620 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd080 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd530 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd800 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd440 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr): waiting for synchronization synchro 0x11fd170 (synchro) in state 0 to finish
+Aborted
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:0.06 user:0.02 sys:0.00 swapped:0 exitval:134 max:15312k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:3dmesh numproc:10 msgsize:10956 hostTime:0.06 hostMem:15312k)
+** Test with algorithm basic_linear
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:basic_linear --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.001217 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'basic_linear'
+[0.000000] [smpi_coll/INFO] Switch to algorithm basic_linear for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm basic_linear for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.07 user:0.03 sys:0.00 swapped:0 exitval:0 max:16336k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:basic_linear numproc:10 msgsize:10956 hostTime:0.07 hostMem:16336k simTime:0.001217 
+** Test with algorithm bruck
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:bruck --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.001217 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'bruck'
+[0.000000] [smpi_coll/INFO] Switch to algorithm bruck for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm bruck for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.07 user:0.02 sys:0.01 swapped:0 exitval:0 max:16368k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:bruck numproc:10 msgsize:10956 hostTime:0.07 hostMem:16368k simTime:0.001217 
+** Test with algorithm pair
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:pair --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'pair'
+[0.000000] [smpi_coll/INFO] Switch to algorithm pair for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm pair for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+** SimGrid: UNCAUGHT EXCEPTION received on ./alltoall(0): category: invalid argument; value: 0
+** alltoall pair algorithm can't be used with non power of two number of processes ! 
+** Thrown by 5() in this process
+[graphene-6.nancy.grid5000.fr:5:(0) 0.000000] /home/mquinson/Code/simgrid/src/xbt/ex.c:146: [xbt_ex/CRITICAL] alltoall pair algorithm can't be used with non power of two number of processes ! 
+
+**   In smpi_coll_tuned_alltoall_pair() at /home/mquinson/Code/simgrid/src/smpi/colls/alltoall-pair.c:82
+**   In PMPI_Alltoall() at /home/mquinson/Code/simgrid/src/smpi/smpi_pmpi.c:2422
+**   In MPI_Alltoall() at /home/mquinson/Code/simgrid/src/smpi/smpi_mpi.c:501
+**   In smpi_simulated_main_() at ??:?
+**   In smx_ctx_raw_wrapper() at /home/mquinson/Code/simgrid/src/simix/smx_context_raw.c:390
+Aborted
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:0.25 user:0.05 sys:0.06 swapped:0 exitval:134 max:19436k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:pair numproc:10 msgsize:10956 hostTime:0.25 hostMem:19436k)
+** Test with algorithm rdb
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:rdb --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.018251 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'rdb'
+[0.000000] [smpi_coll/INFO] Switch to algorithm rdb for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm rdb for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.11 user:0.04 sys:0.01 swapped:0 exitval:0 max:26980k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:rdb numproc:10 msgsize:10956 hostTime:0.11 hostMem:26980k simTime:0.018251 
+** Test with algorithm ring
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.002537 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.09 user:0.04 sys:0.00 swapped:0 exitval:0 max:15636k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring numproc:10 msgsize:10956 hostTime:0.09 hostMem:15636k simTime:0.002537 
+** Test with algorithm ring_light_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_light_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.003057 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_light_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_light_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_light_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.09 user:0.04 sys:0.00 swapped:0 exitval:0 max:15668k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring_light_barrier numproc:10 msgsize:10956 hostTime:0.09 hostMem:15668k simTime:0.003057 
+** Test with algorithm ring_mpi_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_mpi_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.004285 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_mpi_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_mpi_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_mpi_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.11 user:0.06 sys:0.00 swapped:0 exitval:0 max:15652k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring_mpi_barrier numproc:10 msgsize:10956 hostTime:0.11 hostMem:15652k simTime:0.004285 
+** Test with algorithm ring_one_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_one_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.002723 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_one_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_one_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_one_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.10 user:0.05 sys:0.00 swapped:0 exitval:0 max:15740k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring_one_barrier numproc:10 msgsize:10956 hostTime:0.10 hostMem:15740k simTime:0.002723 
+** Test with algorithm mvapich2_scatter_dest
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mvapich2_scatter_dest --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.001547 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mvapich2_scatter_dest'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2_scatter_dest for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2_scatter_dest for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.08 user:0.04 sys:0.00 swapped:0 exitval:0 max:15916k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:mvapich2_scatter_dest numproc:10 msgsize:10956 hostTime:0.08 hostMem:15916k simTime:0.001547 
+** Test with algorithm mvapich2
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mvapich2 --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.001547 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mvapich2'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2 for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2 for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.07 user:0.02 sys:0.01 swapped:0 exitval:0 max:15912k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:mvapich2 numproc:10 msgsize:10956 hostTime:0.07 hostMem:15912k simTime:0.001547 
+** Test with algorithm ompi
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ompi --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.002537 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ompi'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ompi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ompi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.08 user:0.04 sys:0.00 swapped:0 exitval:0 max:15488k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ompi numproc:10 msgsize:10956 hostTime:0.08 hostMem:15488k simTime:0.002537 
+** Test with algorithm mpich
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mpich --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.001217 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mpich'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.07 user:0.03 sys:0.00 swapped:0 exitval:0 max:16504k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:mpich numproc:10 msgsize:10956 hostTime:0.07 hostMem:16504k simTime:0.001217 
+** Test with algorithm impi
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 10 ./alltoall 10956 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:impi --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.002245 Success numproc=10 msgsize=10956
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'impi'
+[0.000000] [smpi_coll/INFO] Switch to algorithm impi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm impi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:0.08 user:0.04 sys:0.00 swapped:0 exitval:0 max:15896k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:impi numproc:10 msgsize:10956 hostTime:0.08 hostMem:15896k simTime:0.002245 
