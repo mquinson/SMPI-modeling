@@ -3203,3 +3203,801 @@ clock:0.35 user:0.14 sys:0.05 swapped:0 exitval:0 max:123232k
 #+END_EXAMPLE
 *** Result
 PRECIOUS_RESULT algo:impi numproc:15 msgsize:507685 hostTime:0.35 hostMem:123232k simTime:0.078386 
+* Experiment 3
+Don't do proc:830 size:1630715 as there is not enough memory (free mem: 490624648 kb)
+Don't do proc:501 size:1132240 as there is not enough memory (free mem: 490624648 kb)
+Don't do proc:816 size:1865770 as there is not enough memory (free mem: 490624648 kb)
+Don't do proc:988 size:1503762 as there is not enough memory (free mem: 490624648 kb)
+Don't do proc:748 size:1048666 as there is not enough memory (free mem: 490624648 kb)
+Don't do proc:688 size:1337239 as there is not enough memory (free mem: 490624648 kb)
+Do proc:186 size:167120 freemem:490624648k mem usage:62168640
+** Test with algorithm 2dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:2dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:11.803131 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '2dmesh'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 2dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 2dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:225.11 user:122.20 sys:101.78 swapped:0 exitval:0 max:53048368k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:2dmesh numproc:186 msgsize:167120 hostTime:225.11 hostMem:53048368k simTime:11.803131 
+** Test with algorithm 3dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:3dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+[0.000000] all_to_all returned 12
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '3dmesh'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 3dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 3dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[0.000000] /home/quinson/Code/simgrid/src/simix/smx_global.c:463: [simix_kernel/CRITICAL] Oops ! Deadlock or code not perfectly clean.
+[0.000000] [simix_kernel/INFO] 185 processes are still running, waiting for something.
+[0.000000] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[0.000000] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc400 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc220 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc6d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd5d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd990 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc9a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc8b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr): waiting for synchronization synchro 0x18bcc70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr): waiting for synchronization synchro 0x18bce50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc7c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr): waiting for synchronization synchro 0x18bcd60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd7b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr): waiting for synchronization synchro 0x18bca90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr): waiting for synchronization synchro 0x18bbd70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc040 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd030 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc5e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc130 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc4f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd300 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd6c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr): waiting for synchronization synchro 0x18bbe60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd120 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr): waiting for synchronization synchro 0x18bcb80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd3f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr): waiting for synchronization synchro 0x18bbb90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr): waiting for synchronization synchro 0x18bc310 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr): waiting for synchronization synchro 0x18bcf40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr): waiting for synchronization synchro 0x18bbc80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd210 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd4e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr): waiting for synchronization synchro 0x18bd8a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr): waiting for synchronization synchro 0x18bbf50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr): waiting for synchronization synchro 0x18b41b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr): waiting for synchronization synchro 0x18b2e00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9d90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5b00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba150 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6cd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4cf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb050 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr): waiting for synchronization synchro 0x18b32b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5290 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr): waiting for synchronization synchro 0x18baab0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5bf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7540 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5a10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr): waiting for synchronization synchro 0x18b2ef0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3df0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr): waiting for synchronization synchro 0x18b60a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba330 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7450 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6dc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb500 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba060 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr): waiting for synchronization synchro 0x18b30d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4c00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5fb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr): waiting for synchronization synchro 0x18b31c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr): waiting for synchronization synchro 0x18baba0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6730 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr): waiting for synchronization synchro 0x18b97f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8080 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3940 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7720 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4930 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba510 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3850 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5560 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr): waiting for synchronization synchro 0x18baf60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8350 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3580 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba420 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7810 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba9c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6eb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9160 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6370 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9ca0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5ce0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr): waiting for synchronization synchro 0x18b98e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6460 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6190 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3a30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9e80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7ae0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8530 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8bc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9340 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8800 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr): waiting for synchronization synchro 0x18b33a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4660 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5830 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr): waiting for synchronization synchro 0x18b79f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5920 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3c10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5740 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9250 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8260 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8440 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr): waiting for synchronization synchro 0x18b51a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8f80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr): waiting for synchronization synchro 0x18bac90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7630 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6910 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3760 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9070 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5dd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4ed0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6640 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7ea0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba8d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8620 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr): waiting for synchronization synchro 0x18b88f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9610 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9430 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb230 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb6e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7bd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba600 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7900 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7cc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5470 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9520 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7090 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3ee0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7270 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4a20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6af0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb7d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr): waiting for synchronization synchro 0x18b2d10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8e90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8da0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3fd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr): waiting for synchronization synchro 0x18b40c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr): waiting for synchronization synchro 0x18b99d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3670 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb5f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4de0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr): waiting for synchronization synchro 0x18bbaa0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9700 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9f70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5ec0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4480 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3d00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6280 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6be0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4390 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6fa0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba240 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9bb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8170 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb8c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8cb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5650 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb140 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr): waiting for synchronization synchro 0x18b42a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr): waiting for synchronization synchro 0x18b2fe0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr): waiting for synchronization synchro 0x18bad80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4fc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4570 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr): waiting for synchronization synchro 0x18b89e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr): waiting for synchronization synchro 0x18b50b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba7e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4750 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr): waiting for synchronization synchro 0x18b9ac0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7360 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb9b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3b20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7180 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8710 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6820 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr): waiting for synchronization synchro 0x18b5380 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6a00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4b10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr): waiting for synchronization synchro 0x18b8ad0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb410 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr): waiting for synchronization synchro 0x18b6550 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr): waiting for synchronization synchro 0x18b3490 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr): waiting for synchronization synchro 0x18bae70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr): waiting for synchronization synchro 0x18bb320 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7f90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr): waiting for synchronization synchro 0x18ba6f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr): waiting for synchronization synchro 0x18b7db0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr): waiting for synchronization synchro 0x18b4840 (synchro) in state 0 to finish
+Aborted
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:4.21 user:1.88 sys:1.23 swapped:0 exitval:134 max:5659664k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:3dmesh numproc:186 msgsize:167120 hostTime:4.21 hostMem:5659664k)
+** Test with algorithm basic_linear
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:basic_linear --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.330359 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'basic_linear'
+[0.000000] [smpi_coll/INFO] Switch to algorithm basic_linear for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm basic_linear for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:12.98 user:7.82 sys:4.20 swapped:0 exitval:0 max:11319988k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:basic_linear numproc:186 msgsize:167120 hostTime:12.98 hostMem:11319988k simTime:0.330359 
+** Test with algorithm bruck
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:bruck --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.330359 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'bruck'
+[0.000000] [smpi_coll/INFO] Switch to algorithm bruck for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm bruck for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:12.54 user:7.06 sys:4.40 swapped:0 exitval:0 max:11320016k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:bruck numproc:186 msgsize:167120 hostTime:12.54 hostMem:11320016k simTime:0.330359 
+** Test with algorithm pair
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:pair --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'pair'
+[0.000000] [smpi_coll/INFO] Switch to algorithm pair for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm pair for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+** SimGrid: UNCAUGHT EXCEPTION received on ./alltoall(0): category: invalid argument; value: 0
+** alltoall pair algorithm can't be used with non power of two number of processes ! 
+** Thrown by 185() in this process
+[graphene-186.nancy.grid5000.fr:185:(0) 0.000000] /home/quinson/Code/simgrid/src/xbt/ex.c:146: [xbt_ex/CRITICAL] alltoall pair algorithm can't be used with non power of two number of processes ! 
+
+**   In smpi_coll_tuned_alltoall_pair() at /home/quinson/Code/simgrid/src/smpi/colls/alltoall-pair.c:82
+**   In PMPI_Alltoall() at /home/quinson/Code/simgrid/src/smpi/smpi_pmpi.c:2424
+**   In smpi_simulated_main_() at ??:0
+**   In smx_ctx_raw_stop() at /home/quinson/Code/simgrid/src/simix/smx_context_raw.c:402
+Aborted
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:5.07 user:1.96 sys:1.38 swapped:0 exitval:134 max:5659900k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:pair numproc:186 msgsize:167120 hostTime:5.07 hostMem:5659900k)
+** Test with algorithm rdb
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:rdb --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'rdb'
+[0.000000] [smpi_coll/INFO] Switch to algorithm rdb for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm rdb for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Segmentation fault.
+Try to enable SMPI variable privatization with --cfg=smpi/privatize_global_variables:yes.
+Segmentation fault
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 139
+clock:589.03 user:413.93 sys:173.57 swapped:0 exitval:139 max:274019916k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:rdb numproc:186 msgsize:167120 hostTime:589.03 hostMem:274019916k)
+** Test with algorithm ring
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.436242 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:8.67 user:6.51 sys:1.30 swapped:0 exitval:0 max:5690452k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring numproc:186 msgsize:167120 hostTime:8.67 hostMem:5690452k simTime:0.436242 
+** Test with algorithm ring_light_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_light_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.448212 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_light_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_light_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_light_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:9.17 user:6.91 sys:1.26 swapped:0 exitval:0 max:5690656k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring_light_barrier numproc:186 msgsize:167120 hostTime:9.17 hostMem:5690656k simTime:0.448212 
+** Test with algorithm ring_mpi_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_mpi_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.489843 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_mpi_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_mpi_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_mpi_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:11.16 user:7.31 sys:2.85 swapped:0 exitval:0 max:5690628k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring_mpi_barrier numproc:186 msgsize:167120 hostTime:11.16 hostMem:5690628k simTime:0.489843 
+** Test with algorithm ring_one_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_one_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.436567 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_one_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_one_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_one_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:11.23 user:6.06 sys:4.11 swapped:0 exitval:0 max:5690408k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ring_one_barrier numproc:186 msgsize:167120 hostTime:11.23 hostMem:5690408k simTime:0.436567 
+** Test with algorithm mvapich2_scatter_dest
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mvapich2_scatter_dest --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.356830 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mvapich2_scatter_dest'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2_scatter_dest for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2_scatter_dest for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:8.88 user:6.58 sys:1.37 swapped:0 exitval:0 max:5782220k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:mvapich2_scatter_dest numproc:186 msgsize:167120 hostTime:8.88 hostMem:5782220k simTime:0.356830 
+** Test with algorithm mvapich2
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mvapich2 --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.356830 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mvapich2'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2 for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2 for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:8.83 user:6.61 sys:1.35 swapped:0 exitval:0 max:5782092k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:mvapich2 numproc:186 msgsize:167120 hostTime:8.83 hostMem:5782092k simTime:0.356830 
+** Test with algorithm ompi
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ompi --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.436242 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ompi'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ompi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ompi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:8.82 user:6.46 sys:1.48 swapped:0 exitval:0 max:5690360k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:ompi numproc:186 msgsize:167120 hostTime:8.82 hostMem:5690360k simTime:0.436242 
+** Test with algorithm mpich
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mpich --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.436242 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mpich'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:8.61 user:6.47 sys:1.26 swapped:0 exitval:0 max:5690528k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:mpich numproc:186 msgsize:167120 hostTime:8.61 hostMem:5690528k simTime:0.436242 
+** Test with algorithm impi
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 186 ./alltoall 167120 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:impi --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+simTime:0.358231 Success numproc=186 msgsize=167120
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'impi'
+[0.000000] [smpi_coll/INFO] Switch to algorithm impi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm impi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+clock:9.17 user:6.50 sys:1.80 swapped:0 exitval:0 max:5782712k
+
+#+END_EXAMPLE
+*** Result
+PRECIOUS_RESULT algo:impi numproc:186 msgsize:167120 hostTime:9.17 hostMem:5782712k simTime:0.358231 
