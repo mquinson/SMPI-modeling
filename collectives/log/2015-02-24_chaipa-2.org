@@ -2550,3 +2550,1833 @@ clock:1.17 user:0.96 sys:0.04 swapped:0 exitval:137 max:420492k
 #+END_EXAMPLE
 *** Result
 FAILED_RESULT: non-zero status (algo:impi numproc:92 msgsize:46885 hostTime:1.17 hostMem:420492k)
+* Experiment 4
+Don't do proc:873 size:944823 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:568 size:726467 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:461 size:2034917 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:300 size:214229 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:859 size:1501673 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:755 size:1946251 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:26 size:1828169 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:14 size:2061990 as there is not enough memory (free mem: 10634980 kb)
+Don't do proc:1002 size:1957289 as there is not enough memory (free mem: 10634980 kb)
+Do proc:261 size:5658 freemem:10634980k mem usage:2953476
+** Test with algorithm 2dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:2dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '2dmesh'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 2dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 2dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.47 user:0.51 sys:0.56 swapped:0 exitval:137 max:2131012k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:2dmesh numproc:261 msgsize:5658 hostTime:1.47 hostMem:2131012k)
+** Test with algorithm 3dmesh
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:3dmesh --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+[0.000000] all_to_all returned 12
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to '3dmesh'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 3dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm 3dmesh for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[0.000000] /home/mquinson/Code/simgrid/src/simix/smx_global.c:463: [simix_kernel/CRITICAL] Oops ! Deadlock or code not perfectly clean.
+[0.000000] [simix_kernel/INFO] 260 processes are still running, waiting for something.
+[0.000000] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[0.000000] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9490 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9580 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr): waiting for synchronization synchro 0x21af160 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr): waiting for synchronization synchro 0x21a84a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2e60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr): waiting for synchronization synchro 0x21a34f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr): waiting for synchronization synchro 0x21a17e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr): waiting for synchronization synchro 0x21aee90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0d90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr): waiting for synchronization synchro 0x21aeda0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4f30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa2a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae800 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0520 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr): waiting for synchronization synchro 0x21aef80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1c90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr): waiting for synchronization synchro 0x21af250 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2500 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr): waiting for synchronization synchro 0x21a82c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae9e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr): waiting for synchronization synchro 0x21aafc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae530 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae170 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae440 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae260 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa750 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae8f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8a40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr): waiting for synchronization synchro 0x21a27d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae710 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1ba0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr): waiting for synchronization synchro 0x21af070 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr): waiting for synchronization synchro 0x21aebc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr): waiting for synchronization synchro 0x21aead0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae350 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0610 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr): waiting for synchronization synchro 0x21aecb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3e50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr): waiting for synchronization synchro 0x21a39a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae620 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr): waiting for synchronization synchro 0x21abec0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5c50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab1a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1330 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4120 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0070 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6b50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa390 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr): waiting for synchronization synchro 0x21a54d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1d80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr): waiting for synchronization synchro 0x21a71e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr): waiting for synchronization synchro 0x21acfa0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab650 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr): waiting for synchronization synchro 0x21abfb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab740 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3130 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad450 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2050 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0f70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa660 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr): waiting for synchronization synchro 0x21adf90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr): waiting for synchronization synchro 0x21a52f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0160 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr): waiting for synchronization synchro 0x21adae0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr): waiting for synchronization synchro 0x21abb00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2230 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7f00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2140 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr): waiting for synchronization synchro 0x21aade0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2320 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad360 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9b20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr): waiting for synchronization synchro 0x21a73c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr): waiting for synchronization synchro 0x21a43f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1510 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa480 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9940 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr): waiting for synchronization synchro 0x21aceb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8590 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5110 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad180 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa930 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1150 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9670 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr): waiting for synchronization synchro 0x21aca00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr): waiting for synchronization synchro 0x21addb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5890 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9a30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9760 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr): waiting for synchronization synchro 0x21aaa20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr): waiting for synchronization synchro 0x21a53e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr): waiting for synchronization synchro 0x21a93a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8680 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1060 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7ff0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9df0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3400 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr): waiting for synchronization synchro 0x21adbd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa1b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0700 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr): waiting for synchronization synchro 0x21aab10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4e40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5d40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr): waiting for synchronization synchro 0x21a72d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr): waiting for synchronization synchro 0x21ae080 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8ef0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6100 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad270 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr): waiting for synchronization synchro 0x21a62e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9fd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr): waiting for synchronization synchro 0x21a83b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad810 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9c10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr): waiting for synchronization synchro 0x21a61f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0ac0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr): waiting for synchronization synchro 0x21a74b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9850 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr): waiting for synchronization synchro 0x21a81d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac910 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac550 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7d20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8950 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1ab0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr): waiting for synchronization synchro 0x21a35e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6d30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8860 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4300 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4d50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr): waiting for synchronization synchro 0x21abbf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr): waiting for synchronization synchro 0x21acbe0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac730 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad900 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab380 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5980 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1f60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa570 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8e00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac190 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr): waiting for synchronization synchro 0x21aba10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4990 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr): waiting for synchronization synchro 0x21a63d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr): waiting for synchronization synchro 0x21a38b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7780 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr): waiting for synchronization synchro 0x21a28c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr): waiting for synchronization synchro 0x21a16f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8d10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2aa0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5a70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6a60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr): waiting for synchronization synchro 0x21a65b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab290 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad9f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac460 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab920 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr): waiting for synchronization synchro 0x21a91c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab560 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5020 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0340 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad630 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr): waiting for synchronization synchro 0x21a26e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7870 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac370 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr): waiting for synchronization synchro 0x219ff80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab470 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr): waiting for synchronization synchro 0x21a09d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr): waiting for synchronization synchro 0x21accd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr): waiting for synchronization synchro 0x21a25f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2410 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr): waiting for synchronization synchro 0x21a90d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8770 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr): waiting for synchronization synchro 0x21a56b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6f10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr): waiting for synchronization synchro 0x21a55c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4030 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4210 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr): waiting for synchronization synchro 0x21a44e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8fe0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac280 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr): waiting for synchronization synchro 0x21acdc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6010 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr): waiting for synchronization synchro 0x21acaf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5200 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr): waiting for synchronization synchro 0x21aacf0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr): waiting for synchronization synchro 0x21aac00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5e30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 187 (186@graphene-187.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac0a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 188 (187@graphene-188.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3f40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 189 (188@graphene-189.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3b80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 190 (189@graphene-190.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4a80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 191 (190@graphene-191.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad540 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 192 (191@graphene-192.nancy.grid5000.fr): waiting for synchronization synchro 0x21a45d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 193 (192@graphene-193.nancy.grid5000.fr): waiting for synchronization synchro 0x21a46c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 194 (193@graphene-194.nancy.grid5000.fr): waiting for synchronization synchro 0x21adcc0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 195 (194@graphene-195.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0250 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 196 (195@graphene-196.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2f50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 197 (196@graphene-197.nancy.grid5000.fr): waiting for synchronization synchro 0x21a75a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 198 (197@graphene-198.nancy.grid5000.fr): waiting for synchronization synchro 0x21abce0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 199 (198@graphene-199.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7000 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 200 (199@graphene-200.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8b30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 201 (200@graphene-201.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac640 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 202 (201@graphene-202.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0430 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 203 (202@graphene-203.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab0b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 204 (203@graphene-204.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1240 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 205 (204@graphene-205.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7c30 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 206 (205@graphene-206.nancy.grid5000.fr): waiting for synchronization synchro 0x21ac820 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 207 (206@graphene-207.nancy.grid5000.fr): waiting for synchronization synchro 0x21adea0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 208 (207@graphene-208.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6c40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 209 (208@graphene-209.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1600 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 210 (209@graphene-210.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2b90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 211 (210@graphene-211.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad090 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 212 (211@graphene-212.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5b60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 213 (212@graphene-213.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3310 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 214 (213@graphene-214.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa0c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 215 (214@graphene-215.nancy.grid5000.fr): waiting for synchronization synchro 0x21a66a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 216 (215@graphene-216.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0bb0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 217 (216@graphene-217.nancy.grid5000.fr): waiting for synchronization synchro 0x21abdd0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 218 (217@graphene-218.nancy.grid5000.fr): waiting for synchronization synchro 0x21a37c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 219 (218@graphene-219.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7b40 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 220 (219@graphene-220.nancy.grid5000.fr): waiting for synchronization synchro 0x21a18d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 221 (220@graphene-221.nancy.grid5000.fr): waiting for synchronization synchro 0x21a92b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 222 (221@graphene-222.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2d70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 223 (222@graphene-223.nancy.grid5000.fr): waiting for synchronization synchro 0x21a47b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 224 (223@graphene-224.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3d60 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 225 (224@graphene-225.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1420 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 226 (225@graphene-226.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3220 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 227 (226@graphene-227.nancy.grid5000.fr): waiting for synchronization synchro 0x21ab830 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 228 (227@graphene-228.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6790 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 229 (228@graphene-229.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7690 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 230 (229@graphene-230.nancy.grid5000.fr): waiting for synchronization synchro 0x21a5f20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 231 (230@graphene-231.nancy.grid5000.fr): waiting for synchronization synchro 0x21ad720 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 232 (231@graphene-232.nancy.grid5000.fr): waiting for synchronization synchro 0x21a1e70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 233 (232@graphene-233.nancy.grid5000.fr): waiting for synchronization synchro 0x21a07f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 234 (233@graphene-234.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0ca0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 235 (234@graphene-235.nancy.grid5000.fr): waiting for synchronization synchro 0x21a2c80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 236 (235@graphene-236.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3c70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 237 (236@graphene-237.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9ee0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 238 (237@graphene-238.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6e20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 239 (238@graphene-239.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7e10 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 240 (239@graphene-240.nancy.grid5000.fr): waiting for synchronization synchro 0x21aa840 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 241 (240@graphene-241.nancy.grid5000.fr): waiting for synchronization synchro 0x21a08e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 242 (241@graphene-242.nancy.grid5000.fr): waiting for synchronization synchro 0x21a0e80 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 243 (242@graphene-243.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7a50 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 244 (243@graphene-244.nancy.grid5000.fr): waiting for synchronization synchro 0x21a8c20 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 245 (244@graphene-245.nancy.grid5000.fr): waiting for synchronization synchro 0x21a70f0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 246 (245@graphene-246.nancy.grid5000.fr): waiting for synchronization synchro 0x21a9d00 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 247 (246@graphene-247.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4b70 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 248 (247@graphene-248.nancy.grid5000.fr): waiting for synchronization synchro 0x21a19c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 249 (248@graphene-249.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6970 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 250 (249@graphene-250.nancy.grid5000.fr): waiting for synchronization synchro 0x21a6880 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 251 (250@graphene-251.nancy.grid5000.fr): waiting for synchronization synchro 0x21aaed0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 252 (251@graphene-252.nancy.grid5000.fr): waiting for synchronization synchro 0x21a36d0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 253 (252@graphene-253.nancy.grid5000.fr): waiting for synchronization synchro 0x21a48a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 254 (253@graphene-254.nancy.grid5000.fr): waiting for synchronization synchro 0x21a7960 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 255 (254@graphene-255.nancy.grid5000.fr): waiting for synchronization synchro 0x21a57a0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 256 (255@graphene-256.nancy.grid5000.fr): waiting for synchronization synchro 0x21a80e0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 257 (256@graphene-257.nancy.grid5000.fr): waiting for synchronization synchro 0x21a64c0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 258 (257@graphene-258.nancy.grid5000.fr): waiting for synchronization synchro 0x21a29b0 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 259 (258@graphene-259.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3040 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 260 (259@graphene-260.nancy.grid5000.fr): waiting for synchronization synchro 0x21a3a90 (synchro) in state 0 to finish
+[0.000000] [simix_kernel/INFO] Process 261 (260@graphene-261.nancy.grid5000.fr): waiting for synchronization synchro 0x21a4c60 (synchro) in state 0 to finish
+Aborted
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:0.59 user:0.10 sys:0.12 swapped:0 exitval:134 max:393760k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:3dmesh numproc:261 msgsize:5658 hostTime:0.59 hostMem:393760k)
+** Test with algorithm basic_linear
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:basic_linear --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'basic_linear'
+[0.000000] [smpi_coll/INFO] Switch to algorithm basic_linear for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm basic_linear for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.47 user:0.93 sys:0.10 swapped:0 exitval:137 max:424528k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:basic_linear numproc:261 msgsize:5658 hostTime:1.47 hostMem:424528k)
+** Test with algorithm bruck
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:bruck --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'bruck'
+[0.000000] [smpi_coll/INFO] Switch to algorithm bruck for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm bruck for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.44 user:0.93 sys:0.11 swapped:0 exitval:137 max:427224k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:bruck numproc:261 msgsize:5658 hostTime:1.44 hostMem:427224k)
+** Test with algorithm pair
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:pair --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'pair'
+[0.000000] [smpi_coll/INFO] Switch to algorithm pair for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm pair for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+** SimGrid: UNCAUGHT EXCEPTION received on ./alltoall(0): category: invalid argument; value: 0
+** alltoall pair algorithm can't be used with non power of two number of processes ! 
+** Thrown by 257() in this process
+[graphene-258.nancy.grid5000.fr:257:(0) 0.000000] /home/mquinson/Code/simgrid/src/xbt/ex.c:146: [xbt_ex/CRITICAL] alltoall pair algorithm can't be used with non power of two number of processes ! 
+
+**   In smpi_coll_tuned_alltoall_pair() at /home/mquinson/Code/simgrid/src/smpi/colls/alltoall-pair.c:82
+**   In PMPI_Alltoall() at /home/mquinson/Code/simgrid/src/smpi/smpi_pmpi.c:2422
+**   In MPI_Alltoall() at /home/mquinson/Code/simgrid/src/smpi/smpi_mpi.c:501
+**   In smpi_simulated_main_() at ??:?
+**   In smx_ctx_raw_wrapper() at /home/mquinson/Code/simgrid/src/simix/smx_context_raw.c:390
+Aborted
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 134
+clock:0.69 user:0.13 sys:0.14 swapped:0 exitval:134 max:394340k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:pair numproc:261 msgsize:5658 hostTime:0.69 hostMem:394340k)
+** Test with algorithm rdb
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:rdb --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'rdb'
+[0.000000] [smpi_coll/INFO] Switch to algorithm rdb for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm rdb for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.52 user:0.44 sys:0.68 swapped:0 exitval:137 max:3663624k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:rdb numproc:261 msgsize:5658 hostTime:1.52 hostMem:3663624k)
+** Test with algorithm ring
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.48 user:0.92 sys:0.13 swapped:0 exitval:137 max:395896k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:ring numproc:261 msgsize:5658 hostTime:1.48 hostMem:395896k)
+** Test with algorithm ring_light_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_light_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_light_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_light_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_light_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.40 user:0.96 sys:0.08 swapped:0 exitval:137 max:396052k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:ring_light_barrier numproc:261 msgsize:5658 hostTime:1.40 hostMem:396052k)
+** Test with algorithm ring_mpi_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_mpi_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_mpi_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_mpi_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_mpi_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.43 user:0.93 sys:0.11 swapped:0 exitval:137 max:396136k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:ring_mpi_barrier numproc:261 msgsize:5658 hostTime:1.43 hostMem:396136k)
+** Test with algorithm ring_one_barrier
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ring_one_barrier --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ring_one_barrier'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_one_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ring_one_barrier for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.45 user:0.96 sys:0.08 swapped:0 exitval:137 max:396100k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:ring_one_barrier numproc:261 msgsize:5658 hostTime:1.45 hostMem:396100k)
+** Test with algorithm mvapich2_scatter_dest
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mvapich2_scatter_dest --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mvapich2_scatter_dest'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2_scatter_dest for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2_scatter_dest for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+Killed
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command exited with non-zero status 137
+clock:1.40 user:0.94 sys:0.10 swapped:0 exitval:137 max:401384k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: non-zero status (algo:mvapich2_scatter_dest numproc:261 msgsize:5658 hostTime:1.40 hostMem:401384k)
+** Test with algorithm mvapich2
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mvapich2 --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'mvapich2'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2 for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm mvapich2 for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] CTRL-C pressed. The current status will be displayed before exit (disable that behavior with option 'verbose-exit').
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] 261 processes are still running, waiting for something.
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 1 (0@graphene-1.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 187 (186@graphene-187.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 188 (187@graphene-188.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 189 (188@graphene-189.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 190 (189@graphene-190.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 191 (190@graphene-191.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 192 (191@graphene-192.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 193 (192@graphene-193.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 194 (193@graphene-194.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 195 (194@graphene-195.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 196 (195@graphene-196.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 197 (196@graphene-197.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 198 (197@graphene-198.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 199 (198@graphene-199.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 200 (199@graphene-200.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 201 (200@graphene-201.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 202 (201@graphene-202.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 203 (202@graphene-203.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 204 (203@graphene-204.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 205 (204@graphene-205.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 206 (205@graphene-206.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 207 (206@graphene-207.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 208 (207@graphene-208.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 209 (208@graphene-209.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 210 (209@graphene-210.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 211 (210@graphene-211.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 212 (211@graphene-212.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 213 (212@graphene-213.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 214 (213@graphene-214.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 215 (214@graphene-215.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 216 (215@graphene-216.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 217 (216@graphene-217.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 218 (217@graphene-218.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 219 (218@graphene-219.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 220 (219@graphene-220.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 221 (220@graphene-221.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 222 (221@graphene-222.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 223 (222@graphene-223.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 224 (223@graphene-224.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 225 (224@graphene-225.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 226 (225@graphene-226.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 227 (226@graphene-227.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 228 (227@graphene-228.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 229 (228@graphene-229.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 230 (229@graphene-230.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 231 (230@graphene-231.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 232 (231@graphene-232.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 233 (232@graphene-233.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 234 (233@graphene-234.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 235 (234@graphene-235.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 236 (235@graphene-236.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 237 (236@graphene-237.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 238 (237@graphene-238.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 239 (238@graphene-239.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 240 (239@graphene-240.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 241 (240@graphene-241.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 242 (241@graphene-242.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 243 (242@graphene-243.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 244 (243@graphene-244.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 245 (244@graphene-245.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 246 (245@graphene-246.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 247 (246@graphene-247.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 248 (247@graphene-248.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 249 (248@graphene-249.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 250 (249@graphene-250.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 251 (250@graphene-251.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 252 (251@graphene-252.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 253 (252@graphene-253.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 254 (253@graphene-254.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 255 (254@graphene-255.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 256 (255@graphene-256.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 257 (256@graphene-257.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 258 (257@graphene-258.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 259 (258@graphene-259.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 260 (259@graphene-260.nancy.grid5000.fr)
+[graphene-154.nancy.grid5000.fr:153:(0) 0.000000] [simix_kernel/INFO] Process 261 (260@graphene-261.nancy.grid5000.fr)
+Segmentation fault.
+Try to enable SMPI variable privatization with --cfg=smpi/privatize_global_variables:yes.
+Segmentation fault
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command terminated by signal 2
+clock:0.40 user:0.05 sys:0.02 swapped:0 exitval:0 max:15324k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: signal detected (algo:mvapich2 numproc:261 msgsize:5658 hostTime:0.40 hostMem:15324k)
+** Test with algorithm ompi
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:ompi --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'ompi'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ompi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm ompi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[0.004194] [simix_kernel/INFO] CTRL-C pressed. The current status will be displayed before exit (disable that behavior with option 'verbose-exit').
+[0.004194] [simix_kernel/INFO] 261 processes are still running, waiting for something.
+[0.004194] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[0.004194] [simix_kernel/INFO] Process 1 (0@graphene-1.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 187 (186@graphene-187.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 188 (187@graphene-188.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 189 (188@graphene-189.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 190 (189@graphene-190.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 191 (190@graphene-191.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 192 (191@graphene-192.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 193 (192@graphene-193.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 194 (193@graphene-194.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 195 (194@graphene-195.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 196 (195@graphene-196.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 197 (196@graphene-197.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 198 (197@graphene-198.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 199 (198@graphene-199.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 200 (199@graphene-200.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 201 (200@graphene-201.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 202 (201@graphene-202.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 203 (202@graphene-203.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 204 (203@graphene-204.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 205 (204@graphene-205.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 206 (205@graphene-206.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 207 (206@graphene-207.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 208 (207@graphene-208.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 209 (208@graphene-209.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 210 (209@graphene-210.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 211 (210@graphene-211.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 212 (211@graphene-212.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 213 (212@graphene-213.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 214 (213@graphene-214.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 215 (214@graphene-215.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 216 (215@graphene-216.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 217 (216@graphene-217.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 218 (217@graphene-218.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 219 (218@graphene-219.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 220 (219@graphene-220.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 221 (220@graphene-221.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 222 (221@graphene-222.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 223 (222@graphene-223.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 224 (223@graphene-224.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 225 (224@graphene-225.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 226 (225@graphene-226.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 227 (226@graphene-227.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 228 (227@graphene-228.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 229 (228@graphene-229.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 230 (229@graphene-230.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 231 (230@graphene-231.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 232 (231@graphene-232.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 233 (232@graphene-233.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 234 (233@graphene-234.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 235 (234@graphene-235.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 236 (235@graphene-236.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 237 (236@graphene-237.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 238 (237@graphene-238.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 239 (238@graphene-239.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 240 (239@graphene-240.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 241 (240@graphene-241.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 242 (241@graphene-242.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 243 (242@graphene-243.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 244 (243@graphene-244.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 245 (244@graphene-245.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 246 (245@graphene-246.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 247 (246@graphene-247.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 248 (247@graphene-248.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 249 (248@graphene-249.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 250 (249@graphene-250.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 251 (250@graphene-251.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 252 (251@graphene-252.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 253 (252@graphene-253.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 254 (253@graphene-254.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 255 (254@graphene-255.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 256 (255@graphene-256.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 257 (256@graphene-257.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 258 (257@graphene-258.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 259 (258@graphene-259.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 260 (259@graphene-260.nancy.grid5000.fr)
+[0.004194] [simix_kernel/INFO] Process 261 (260@graphene-261.nancy.grid5000.fr)
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd140 (4967) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf0c0 (4966) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9ea0 (4965) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbfd0 (4964) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9a20 (4963) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb1c0 (4962) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dd0470 (4961) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca320 (4970) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcaef0 (4972) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8c10 (4974) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce3d0 (4975) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf540 (4977) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcdd10 (4978) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcedf0 (4979) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8d30 (4981) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc840 (4982) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcfe40 (4983) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dccd50 (4984) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce850 (4985) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb520 (4986) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcdfe0 (4987) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dccf00 (4988) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8040 (4989) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb9a0 (4990) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd1d0 (4991) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dced60 (4992) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd650 (4993) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf4b0 (4994) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcdad0 (4996) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8700 (4997) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc180 (4998) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd0b0 (4999) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf390 (5000) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb880 (5001) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd530 (5002) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd260 (5003) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca9e0 (5004) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca200 (5005) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcebb0 (5006) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc2a0 (5007) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd890 (5008) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc80d0 (5009) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9630 (5010) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce340 (5011) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca170 (5012) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcfc00 (5013) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9bd0 (5014) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9b40 (5015) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcaf80 (5016) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc570 (5017) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd410 (5018) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbd90 (5019) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc9f0 (5020) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd2f0 (5021) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dd0110 (5022) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca560 (5023) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcecd0 (5024) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca290 (5025) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcfae0 (5026) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf6f0 (5027) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb250 (5028) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dd0350 (5029) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dccb10 (5030) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc4e0 (5031) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca4d0 (5032) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcad40 (5033) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc96c0 (5034) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce100 (5035) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce580 (5036) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8160 (5037) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dd02c0 (5038) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc720 (5040) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb5b0 (5041) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf810 (5042) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc060 (5043) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dceb20 (5044) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca8c0 (5045) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dccde0 (5046) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9990 (5047) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcaa70 (5048) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd5c0 (5049) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8310 (5050) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8550 (5051) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbeb0 (5052) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc450 (5053) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcccc0 (5054) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb640 (5055) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9000 (5056) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc960 (5057) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc88b0 (5058) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9120 (5060) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca050 (5061) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9f30 (5062) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbc70 (5063) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc85e0 (5065) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd020 (5066) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf930 (5067) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc81f0 (5068) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9750 (5069) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd800 (5070) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc89d0 (5071) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf8a0 (5072) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbbe0 (5073) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb010 (5074) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce970 (5075) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dccf90 (5076) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcce70 (5077) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9d80 (5078) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8430 (5079) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce2b0 (5080) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf270 (5081) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb910 (5082) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcdec0 (5084) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9ab0 (5085) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbe20 (5086) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8af0 (5087) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb760 (5088) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca440 (5089) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce730 (5090) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce190 (5091) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbb50 (5092) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8820 (5093) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca950 (5094) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcfc90 (5095) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcab00 (5096) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf1e0 (5097) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8940 (5098) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbf40 (5099) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc8e50 (5100) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb7f0 (5101) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcdc80 (5102) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd380 (5103) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcae60 (5104) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcfb70 (5105) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcbd00 (5106) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc91b0 (5108) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcea00 (5109) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcf9c0 (5111) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9870 (5112) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc97e0 (5113) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc7f20 (5120) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc7e90 (5132) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcfdb0 (5137) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc690 (5139) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9090 (5141) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc3c0 (5145) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dce4f0 (5146) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcc7b0 (5148) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcb400 (5149) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dca680 (5150) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd920 (5152) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9510 (5153) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcd4a0 (5157) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcefa0 (5161) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dcea90 (5177) still in LMM system when freing it: this may be a bug
+[0.004194] /home/mquinson/Code/simgrid/src/surf/maxmin.cpp:85: [surf_maxmin/WARNING] Variable 0x1dc9e10 (5221) still in LMM system when freing it: this may be a bug
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command terminated by signal 2
+clock:0.98 user:0.47 sys:0.09 swapped:0 exitval:0 max:396296k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: signal detected (algo:ompi numproc:261 msgsize:5658 hostTime:0.98 hostMem:396296k)
+** Test with algorithm mpich
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:mpich --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command terminated by signal 2
+clock:0.17 user:0.00 sys:0.01 swapped:0 exitval:0 max:4188k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: signal detected (algo:mpich numproc:261 msgsize:5658 hostTime:0.17 hostMem:4188k)
+** Test with algorithm impi
+*** Command
+#+BEGIN_EXAMPLE
+smpirun -platform graphene_1024.xml -np 261 ./alltoall 5658 --cfg=smpi/running_power:20000 --cfg=smpi/alltoall:impi --cfg=maxmin/precision:1e-7
+#+END_EXAMPLE
+*** raw stdout
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+*** raw stderr
+#+BEGIN_EXAMPLE
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'surf/precision' to '1e-9'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/model' to 'SMPI'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/TCP_gamma' to '4194304'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/running_power' to '20000'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/alltoall' to 'impi'
+[0.000000] [smpi_coll/INFO] Switch to algorithm impi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'maxmin/precision' to '1e-7'
+[0.000000] [smpi_coll/INFO] Switch to algorithm impi for collective alltoall
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/bw_factor' to '0:0.400976530736138;1420:0.913555534273577;32768:1.07831886657594;65536:0.956083935262915;327680:0.929867998857892'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/TCP_gamma' is already defined by user!
+[0.000000] [surf_parse/INFO] The custom configuration 'maxmin/precision' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/or' to '0:8.14025462333494e-06:8.3958813204998e-10;1420:1.26995184134793e-05:9.09218191293861e-10;32768:3.09570602567453e-05:6.95645307772806e-10;65536:0:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/os' to '0:8.9300920419081e-06:7.65438202550106e-10;1420:1.39684254077781e-05:2.97409403415968e-10;32768:1.54082820250394e-05:2.44104034252286e-10;65536:0.000237866424242424:0;327680:0:0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'network/sender_gap' to '0'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/send_is_detached_thres' to '327680'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'workstation/model' to 'compound'
+[0.000000] [surf_parse/INFO] The custom configuration 'network/model' is already defined by user!
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/async_small_thres' to '65536'
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'smpi/lat_factor' to '0:1.35489260823384;1420:3.43725032107889;32768:5.72164710873587;65536:11.9885319715471;327680:9.65041953605594'
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] CTRL-C pressed. The current status will be displayed before exit (disable that behavior with option 'verbose-exit').
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] 261 processes are still running, waiting for something.
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Legend of the following listing: "Process <pid> (<name>@<host>): <status>"
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 1 (0@graphene-1.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 2 (1@graphene-2.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 3 (2@graphene-3.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 4 (3@graphene-4.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 5 (4@graphene-5.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 6 (5@graphene-6.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 7 (6@graphene-7.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 8 (7@graphene-8.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 9 (8@graphene-9.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 10 (9@graphene-10.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 11 (10@graphene-11.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 12 (11@graphene-12.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 13 (12@graphene-13.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 14 (13@graphene-14.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 15 (14@graphene-15.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 16 (15@graphene-16.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 17 (16@graphene-17.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 18 (17@graphene-18.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 19 (18@graphene-19.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 20 (19@graphene-20.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 21 (20@graphene-21.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 22 (21@graphene-22.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 23 (22@graphene-23.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 24 (23@graphene-24.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 25 (24@graphene-25.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 26 (25@graphene-26.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 27 (26@graphene-27.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 28 (27@graphene-28.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 29 (28@graphene-29.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 30 (29@graphene-30.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 31 (30@graphene-31.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 32 (31@graphene-32.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 33 (32@graphene-33.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 34 (33@graphene-34.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 35 (34@graphene-35.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 36 (35@graphene-36.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 37 (36@graphene-37.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 38 (37@graphene-38.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 39 (38@graphene-39.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 40 (39@graphene-40.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 41 (40@graphene-41.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 42 (41@graphene-42.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 43 (42@graphene-43.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 44 (43@graphene-44.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 45 (44@graphene-45.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 46 (45@graphene-46.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 47 (46@graphene-47.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 48 (47@graphene-48.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 49 (48@graphene-49.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 50 (49@graphene-50.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 51 (50@graphene-51.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 52 (51@graphene-52.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 53 (52@graphene-53.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 54 (53@graphene-54.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 55 (54@graphene-55.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 56 (55@graphene-56.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 57 (56@graphene-57.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 58 (57@graphene-58.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 59 (58@graphene-59.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 60 (59@graphene-60.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 61 (60@graphene-61.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 62 (61@graphene-62.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 63 (62@graphene-63.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 64 (63@graphene-64.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 65 (64@graphene-65.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 66 (65@graphene-66.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 67 (66@graphene-67.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 68 (67@graphene-68.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 69 (68@graphene-69.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 70 (69@graphene-70.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 71 (70@graphene-71.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 72 (71@graphene-72.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 73 (72@graphene-73.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 74 (73@graphene-74.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 75 (74@graphene-75.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 76 (75@graphene-76.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 77 (76@graphene-77.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 78 (77@graphene-78.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 79 (78@graphene-79.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 80 (79@graphene-80.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 81 (80@graphene-81.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 82 (81@graphene-82.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 83 (82@graphene-83.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 84 (83@graphene-84.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 85 (84@graphene-85.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 86 (85@graphene-86.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 87 (86@graphene-87.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 88 (87@graphene-88.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 89 (88@graphene-89.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 90 (89@graphene-90.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 91 (90@graphene-91.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 92 (91@graphene-92.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 93 (92@graphene-93.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 94 (93@graphene-94.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 95 (94@graphene-95.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 96 (95@graphene-96.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 97 (96@graphene-97.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 98 (97@graphene-98.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 99 (98@graphene-99.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 100 (99@graphene-100.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 101 (100@graphene-101.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 102 (101@graphene-102.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 103 (102@graphene-103.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 104 (103@graphene-104.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 105 (104@graphene-105.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 106 (105@graphene-106.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 107 (106@graphene-107.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 108 (107@graphene-108.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 109 (108@graphene-109.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 110 (109@graphene-110.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 111 (110@graphene-111.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 112 (111@graphene-112.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 113 (112@graphene-113.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 114 (113@graphene-114.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 115 (114@graphene-115.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 116 (115@graphene-116.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 117 (116@graphene-117.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 118 (117@graphene-118.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 119 (118@graphene-119.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 120 (119@graphene-120.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 121 (120@graphene-121.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 122 (121@graphene-122.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 123 (122@graphene-123.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 124 (123@graphene-124.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 125 (124@graphene-125.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 126 (125@graphene-126.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 127 (126@graphene-127.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 128 (127@graphene-128.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 129 (128@graphene-129.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 130 (129@graphene-130.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 131 (130@graphene-131.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 132 (131@graphene-132.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 133 (132@graphene-133.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 134 (133@graphene-134.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 135 (134@graphene-135.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 136 (135@graphene-136.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 137 (136@graphene-137.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 138 (137@graphene-138.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 139 (138@graphene-139.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 140 (139@graphene-140.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 141 (140@graphene-141.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 142 (141@graphene-142.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 143 (142@graphene-143.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 144 (143@graphene-144.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 145 (144@graphene-145.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 146 (145@graphene-146.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 147 (146@graphene-147.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 148 (147@graphene-148.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 149 (148@graphene-149.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 150 (149@graphene-150.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 151 (150@graphene-151.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 152 (151@graphene-152.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 153 (152@graphene-153.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 154 (153@graphene-154.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 155 (154@graphene-155.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 156 (155@graphene-156.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 157 (156@graphene-157.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 158 (157@graphene-158.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 159 (158@graphene-159.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 160 (159@graphene-160.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 161 (160@graphene-161.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 162 (161@graphene-162.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 163 (162@graphene-163.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 164 (163@graphene-164.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 165 (164@graphene-165.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 166 (165@graphene-166.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 167 (166@graphene-167.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 168 (167@graphene-168.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 169 (168@graphene-169.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 170 (169@graphene-170.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 171 (170@graphene-171.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 172 (171@graphene-172.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 173 (172@graphene-173.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 174 (173@graphene-174.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 175 (174@graphene-175.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 176 (175@graphene-176.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 177 (176@graphene-177.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 178 (177@graphene-178.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 179 (178@graphene-179.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 180 (179@graphene-180.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 181 (180@graphene-181.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 182 (181@graphene-182.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 183 (182@graphene-183.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 184 (183@graphene-184.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 185 (184@graphene-185.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 186 (185@graphene-186.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 187 (186@graphene-187.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 188 (187@graphene-188.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 189 (188@graphene-189.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 190 (189@graphene-190.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 191 (190@graphene-191.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 192 (191@graphene-192.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 193 (192@graphene-193.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 194 (193@graphene-194.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 195 (194@graphene-195.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 196 (195@graphene-196.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 197 (196@graphene-197.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 198 (197@graphene-198.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 199 (198@graphene-199.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 200 (199@graphene-200.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 201 (200@graphene-201.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 202 (201@graphene-202.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 203 (202@graphene-203.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 204 (203@graphene-204.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 205 (204@graphene-205.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 206 (205@graphene-206.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 207 (206@graphene-207.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 208 (207@graphene-208.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 209 (208@graphene-209.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 210 (209@graphene-210.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 211 (210@graphene-211.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 212 (211@graphene-212.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 213 (212@graphene-213.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 214 (213@graphene-214.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 215 (214@graphene-215.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 216 (215@graphene-216.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 217 (216@graphene-217.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 218 (217@graphene-218.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 219 (218@graphene-219.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 220 (219@graphene-220.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 221 (220@graphene-221.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 222 (221@graphene-222.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 223 (222@graphene-223.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 224 (223@graphene-224.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 225 (224@graphene-225.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 226 (225@graphene-226.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 227 (226@graphene-227.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 228 (227@graphene-228.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 229 (228@graphene-229.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 230 (229@graphene-230.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 231 (230@graphene-231.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 232 (231@graphene-232.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 233 (232@graphene-233.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 234 (233@graphene-234.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 235 (234@graphene-235.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 236 (235@graphene-236.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 237 (236@graphene-237.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 238 (237@graphene-238.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 239 (238@graphene-239.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 240 (239@graphene-240.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 241 (240@graphene-241.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 242 (241@graphene-242.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 243 (242@graphene-243.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 244 (243@graphene-244.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 245 (244@graphene-245.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 246 (245@graphene-246.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 247 (246@graphene-247.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 248 (247@graphene-248.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 249 (248@graphene-249.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 250 (249@graphene-250.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 251 (250@graphene-251.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 252 (251@graphene-252.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 253 (252@graphene-253.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 254 (253@graphene-254.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 255 (254@graphene-255.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 256 (255@graphene-256.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 257 (256@graphene-257.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 258 (257@graphene-258.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 259 (258@graphene-259.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 260 (259@graphene-260.nancy.grid5000.fr)
+[graphene-1.nancy.grid5000.fr:0:(0) 0.000000] [simix_kernel/INFO] Process 261 (260@graphene-261.nancy.grid5000.fr)
+Segmentation fault.
+Try to enable SMPI variable privatization with --cfg=smpi/privatize_global_variables:yes.
+Segmentation fault
+
+#+END_EXAMPLE
+*** raw timing information
+#+BEGIN_EXAMPLE
+Command terminated by signal 2
+clock:0.49 user:0.05 sys:0.03 swapped:0 exitval:0 max:15964k
+
+#+END_EXAMPLE
+*** Result
+FAILED_RESULT: signal detected (algo:impi numproc:261 msgsize:5658 hostTime:0.49 hostMem:15964k)
