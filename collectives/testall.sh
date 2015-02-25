@@ -44,6 +44,9 @@ logfile=$log_folder/${today}_$me-$cpt.org
 # Some initial cleanups
 rm -f $me.timings $me.stdout $me.stderr tmp*
 
+# Make sure that no job will run amok
+ulimit -m `expr 1024 \* 1024 \* 100` # no more than 100G per process
+
 echo "#+TITLE: SMPI Collective evaluation" > $logfile
 ./simgrid_hostinfo.sh >> $logfile
 
@@ -93,10 +96,8 @@ for nbtest in `seq 1 200` ; do
       
 
       echo "** Test with algorithm $algo" >> $logfile
-      watchdogtime=`expr 60 \* 60 \* 1` # 1 hour
-      (sleep $watchdogtime 2>/dev/null; killall alltoall)&
-      /usr/bin/time -f "$timefmt" -o $me.timings `printf "$cmd" $proc $size "$algo"` > $me.stdout 2> $me.stderr
-      killall sleep 2>/dev/null
+      (ulimit -t `expr 60 \* 60 \* 1`; # Time watchdog set to 1 hour
+       /usr/bin/time -f "$timefmt" -o $me.timings `printf "$cmd" $proc $size "$algo"` > $me.stdout 2> $me.stderr)
       echo "*** Command" >> $logfile
       echo "#+BEGIN_EXAMPLE" >> $logfile
       printf "$cmd" $proc $size $algo >> $logfile
