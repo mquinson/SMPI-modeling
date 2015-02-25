@@ -1387,3 +1387,14 @@ clock:2.88 user:1.77 sys:0.67 swapped:0 exitval:0 max:2005868k
 #+END_EXAMPLE
 *** Result
 PRECIOUS_RESULT algo:impi numproc:38 msgsize:1415563 hostTime:2.88 hostMem:2005868k simTime:0.564356 
+* Experiment 2
+Don't do proc:974 size:321572 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:404 size:1314174 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:731 size:2079745 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:413 size:1634585 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:196 size:1420040 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:635 size:462842 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:416 size:1996251 as there is not enough memory (free mem: 263752680 kb)
+Don't do proc:944 size:2062901 as there is not enough memory (free mem: 263752680 kb)
+Do proc:231 size:417367 freemem:263752680k mem usage:192823554
+** Test with algorithm 2dmesh
