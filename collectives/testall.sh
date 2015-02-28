@@ -41,9 +41,6 @@ while [ -e $log_folder/${today}_$me-$cpt.org ] ; do
 done
 logfile=$log_folder/${today}_$me-$cpt.org
 
-# Some initial cleanups
-rm -f $me.timings $me.stdout $me.stderr tmp*
-
 # Make sure that no job will run amok
 ulimit -m `expr 1024 \* 1024 \* 100` # no more than 100G per process
 
@@ -66,6 +63,9 @@ function roll() {
 
 echo "* Platform file" >> $logfile
 cat $platformfile >> $logfile
+
+# Make sure that we can call this script several time on a given machine
+me="$me.$$"
 
 for nbtest in `seq 1 200` ; do
   echo "* Experiment $nbtest" >> $logfile
